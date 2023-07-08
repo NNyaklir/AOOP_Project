@@ -2,6 +2,11 @@
 public class Credit extends Account{
     protected double maxCredit;//should be a negative double amount that cannot be surpassed
     
+    protected Credit(double maxC,double bal){
+        this.maxCredit=maxC;
+        this.balance=bal;
+
+    }
 
     /**@return current max credit */
     protected double getMaxCredit(){
@@ -27,5 +32,5 @@ public class Credit extends Account{
         }
     }
 
-    
+
 }
