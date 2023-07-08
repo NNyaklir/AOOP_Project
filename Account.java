@@ -34,4 +34,14 @@ public abstract class Account{
     protected double getBalance(){
         return balance;
     }
+
+    /** @param c an amount charged to the balance */
+    protected void charge(double c){
+        balance-=c;
+    }
+
+    /**@param d an amount deposited to account */
+    protected void deposit(double d){
+        balance+=d;
+    }
 }
