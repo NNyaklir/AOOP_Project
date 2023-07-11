@@ -1,19 +1,20 @@
 
 public class Person {
-    protected String name;
+    protected String nameFirst;
+    protected String nameLast;
     protected String address;
     protected String phoneNumber;
     protected int id;
     protected String dob;
     
-    /**@param s name */
-    protected void setName(String s){
-        this.name=s;
+    /**@param s first name */
+    protected void setNameFirst(String s){
+        this.nameFirst=s;
     }
     
-    /**@return name */
-    protected String getName(){
-        return name;
+    /**@return first name */
+    protected String getNameFirst(){
+        return nameFirst;
     }
 
     /**@param a person's address */
@@ -54,5 +55,15 @@ public class Person {
     /**@return the dob */
     protected String getDob(){
         return dob;
+    }
+
+    /**@param l last name */
+    protected void setNameLast(String l){
+        this.nameLast=l;
+    }
+
+    /**@return last name */
+    protected String getNameLast(){
+        return nameLast;
     }
 }
