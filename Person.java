@@ -3,6 +3,7 @@ public class Person {
     protected String name;
     protected String address;
     protected String phoneNumber;
+    protected int id;
     
     /**@param s name */
     protected void setName(String s){
@@ -32,5 +33,15 @@ public class Person {
     /**@return phone number as a string */
     protected String getPhoneNumber(){
         return phoneNumber;
+    }
+
+    /**@param n an id number */
+    protected void setId(int n){
+        this.id=n;
+    }
+
+    /**@return id number */
+    protected int getId(){
+        return id;
     }
 }
