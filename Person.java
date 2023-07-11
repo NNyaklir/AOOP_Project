@@ -4,6 +4,7 @@ public class Person {
     protected String address;
     protected String phoneNumber;
     protected int id;
+    protected String dob;
     
     /**@param s name */
     protected void setName(String s){
@@ -43,5 +44,15 @@ public class Person {
     /**@return id number */
     protected int getId(){
         return id;
+    }
+
+    /**@param s dob to accomadate unknown format */
+    protected void setDob(String s){
+        this.dob=s;
+    }
+
+    /**@return the dob */
+    protected String getDob(){
+        return dob;
     }
 }
