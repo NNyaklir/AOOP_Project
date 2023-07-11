@@ -33,7 +33,7 @@ public class Main {
 
 
 
-        userInput.close();
+        userInput.close();//closed this bc it bugs me -Devin
         } // end of program
     }
 }
