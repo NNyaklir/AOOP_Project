@@ -8,6 +8,10 @@ public class Credit extends Account{
 
     }
 
+    protected Credit(){
+        
+    }
+
     /**@return current max credit */
     protected double getMaxCredit(){
         return maxCredit;

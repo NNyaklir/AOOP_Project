@@ -4,6 +4,8 @@ import java.util.ArrayList;
 public class CsvImporter {
     protected ArrayList<Customer> custList;
     protected ArrayList<Checking> checkingList;
+    protected ArrayList<Saving> savingList;
+    protected ArrayList<Credit> creditList;
 
 
     /** method to import csv files, this will be hardcoded. should only be used once. */
@@ -67,18 +69,49 @@ public class CsvImporter {
                         case 6:
                         Checking check= new Checking();
                         check.customer=cust;
+                        cust.setChecking(check);
                         check.accountNumber=line.split(",");
                         i++;
                         break;
 
                         case 7:
                         check.balance=line.split(",");
+                        checkingList.add(check);
                         i++;
-                        
                         break;
 
                         case 8:
+                        Saving sav= new Saving();
+                        sav.customer=cust;
+                        cust.setSaving(sav);
+                        sav.accountNumber=line.split(",");
+                        i++;
+                        break;
 
+                        case 9:
+                        sav.balance=line.split(",");
+                        savingList.add(sav);
+                        i++;
+                        break;
+
+                        case 10:
+                        Credit cred = new Credit();
+                        cred.customer=cust;
+                        cust.custCredit=cred;
+                        cred.accountNumber=line.split(",");
+                        i++;
+                        break;
+
+                        case 11:
+                        cred.maxCredit=line.split(",");
+                        i++;
+                        break;
+
+                        case 12:
+                        cred.balance=line.split(",");
+                        i=0;
+                        creditList.add(cred);
+                        break;
 
 
                     }
