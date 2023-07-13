@@ -3,7 +3,7 @@ import java.io.*;
 
 
 public class Logger{
-    private String filePath="C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project";
+    private String filePath="C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\log.txt";
     File logFile = new File(filePath);
 
     protected void fileCheck(){
@@ -24,12 +24,11 @@ public class Logger{
      */
     protected void logTransfer(Account sender,double amount, Account recepient){
         try{
-        FileWriter writer = new FileWriter(logFile);
-        String loggedS =("Account:"+sender.getAccountNumber()+" transfered "+amount+" to Account:"+recepient.getAccountNumber());
+        FileWriter writer = new FileWriter(logFile, true);
+        String loggedS =("Account:"+sender.getAccountNumber()+" transfered "+amount+" to Account:"+recepient.getAccountNumber()+"\n");
         writer.write(loggedS);
         writer.flush();
         writer.close();
-        //System.out.println("end transfer");
         }
         catch (Exception e){
             e.printStackTrace();;  
@@ -43,9 +42,10 @@ public class Logger{
      */
     protected void logDeduction(Account deductee, double amount){
         try{
-        PrintWriter writer = new PrintWriter(filePath);
-        String loggedS=("Account:"+deductee.getAccountNumber()+" withdrew "+amount);
-        writer.println(loggedS);
+        FileWriter writer = new FileWriter(logFile,true);
+        String loggedS=("Account:"+deductee.getAccountNumber()+" withdrew "+amount+"\n");
+        writer.write(loggedS);
+        writer.flush();
         writer.close();
         }
         catch (Exception e){  
@@ -58,9 +58,10 @@ public class Logger{
      */
     protected void logAddition(Account acc, double amount){
         try{
-        PrintWriter writer = new PrintWriter(filePath);
-        String loggedS=("Account:"+acc.getAccountNumber()+" deposited "+amount);
-        writer.println(loggedS);
+        FileWriter writer = new FileWriter(filePath,true);
+        String loggedS=("Account:"+acc.getAccountNumber()+" deposited "+amount+"\n");
+        writer.write(loggedS);
+        writer.flush();
         writer.close();
         }
         catch (Exception e){  
