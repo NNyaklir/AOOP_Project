@@ -14,7 +14,7 @@
         [ ] Ask who user is
         [ ] Ask if bank manager
             [ ] Bank managers need admin access to see inquire about any account
-    [ ] Transaction Logs
+    [ ] Transaction Logs -Devin
         [ ] Log all transactions
         [ ] Ability to print transaction log
     [ ] Exit Program
