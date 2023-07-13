@@ -44,4 +44,20 @@ public abstract class Account{
     protected void deposit(double d){
         balance+=d;
     }
+
+    /** @param recepient this is the account that the money will go to
+     * @param amount this is the amount transfered
+     * This method will transfer from the account called in the function, to the account named in the constuctor
+     */
+    protected void transferTo( Account recepient, double amount){
+        if(amount>!balance){
+            System.out.println("Insufficient funds for transfer");
+        }
+        else{
+            balance -= amount;
+            recepient.balance+=amount;
+
+        }
+
+    }
 }
