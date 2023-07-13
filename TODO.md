@@ -10,14 +10,15 @@
         [x] Withdraw
         [x] Transfer between accounts -Devin
         [ ] Have feedback for the above (ie "xx has been withdrawn")
-    [ ] User interaction
-        [ ] Ask who user is
-        [ ] Ask if bank manager
+    [X] User interaction - Adrian
+        [X] Ask who user is - Adrian
+        [X] Ask if bank manager - Adrian
             [ ] Bank managers need admin access to see inquire about any account
     [ ] Transaction Logs -Devin
         [ ] Log all transactions
         [ ] Ability to print transaction log
-    [ ] Exit Program
+    [X] Exit Program - Adrian
+        (needs to update bank usersheet)
 
 ## Files
     [] Generate Javadoc/ Ensure all files have javadoc comments- Ray
