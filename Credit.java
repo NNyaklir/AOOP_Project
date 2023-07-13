@@ -22,7 +22,7 @@ public class Credit extends Account{
         if(maxC<0){
             this.maxCredit=maxC;
         }
-        else if(maxC!<0){
+        else if(!(maxC<0)){
             maxC= -maxC;
             this.maxCredit=maxC;
         }
