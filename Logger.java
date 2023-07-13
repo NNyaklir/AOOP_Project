@@ -1,16 +1,20 @@
+import java.io.*;
+
+
 
 public class Logger{
-    private String filePath="AOOP_Project/log.txt";
-    private File logFile;
+    private String filePath="C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project";
+    File logFile = new File(filePath);
 
     protected void fileCheck(){
         if(!logFile.exists()){
             logFile= new File(filePath);
-            System.out.println("log file initialized");
+            System.out.println("log.txt does not exist in current directory");
         }
         else{
             System.out.println("using existing log file");
         }
+        
     }
 
     /**@param sender account that is sending the money
@@ -19,11 +23,18 @@ public class Logger{
      * This method will log transactions between two accounts in log.txt
      */
     protected void logTransfer(Account sender,double amount, Account recepient){
-        BufferedWriter writer = new BufferedWriter( FileWriter(logFile));
+        try{
+        FileWriter writer = new FileWriter(logFile);
         String loggedS =("Account:"+sender.getAccountNumber()+" transfered "+amount+" to Account:"+recepient.getAccountNumber());
-        writer.append(loggedS);
-        writer.newLine();
+        writer.write(loggedS);
         writer.flush();
+        writer.close();
+        //System.out.println("end transfer");
+        }
+        catch (Exception e){
+            e.printStackTrace();;  
+        }
+        
     }
 
     /**@param deductee account that is getting deducted
@@ -31,11 +42,14 @@ public class Logger{
      * This method will log a single deduction from one account in log.txt
      */
     protected void logDeduction(Account deductee, double amount){
-        BufferedWriter writer = new BufferedWriter(FileWriter(logFile));
+        try{
+        PrintWriter writer = new PrintWriter(filePath);
         String loggedS=("Account:"+deductee.getAccountNumber()+" withdrew "+amount);
-        writer.append(loggedS);
-        writer.newLine();
-        writer.flush();
+        writer.println(loggedS);
+        writer.close();
+        }
+        catch (Exception e){  
+        }
     }
 
     /**@param acc the account the money is going into
@@ -43,11 +57,14 @@ public class Logger{
      * This method will log a single addition to an account in log.txt
      */
     protected void logAddition(Account acc, double amount){
-        BufferedWriter Writer= new BufferedWriter(FileWriter(logFile));
+        try{
+        PrintWriter writer = new PrintWriter(filePath);
         String loggedS=("Account:"+acc.getAccountNumber()+" deposited "+amount);
-        writer.append(loggedS);
-        writer.newLine();
-        writer.flush();
+        writer.println(loggedS);
+        writer.close();
+        }
+        catch (Exception e){  
+        }
     }
     
 }

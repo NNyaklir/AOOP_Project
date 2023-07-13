@@ -2,9 +2,9 @@
 public class LoggerTest{
 
     public static void main(String[]args){
-        Customer dave = new Customer();
+        Saving dave = new Saving();
         dave.setAccountNumber(228922);
-        Customer dan = new Customer();
+        Saving dan = new Saving();
         dan.setAccountNumber(48849392);
 
         Logger log= new Logger();
