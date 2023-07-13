@@ -20,7 +20,7 @@
     [ ] Exit Program
 
 ## Files
-    [X] Generate Javadoc/ Ensure all files have javadoc comments- Ray
+    [] Generate Javadoc/ Ensure all files have javadoc comments- Ray
     [ ] Lab Report
         [ ] Including assumptions
         [ ] Screenshots of programming running
