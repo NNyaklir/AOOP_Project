@@ -19,7 +19,13 @@ public class Credit extends Account{
 
     /**@param maxC max credit amount for current  */
     protected void setMaxCredit(double maxC){
-        this.maxCredit=maxC;
+        if(maxC<0){
+            this.maxCredit=maxC;
+        }
+        else if(maxC!<0){
+            maxC= -maxC;
+            this.maxCredit=maxC;
+        }
     }
 
     /**@param addlCredit increased credit value 
