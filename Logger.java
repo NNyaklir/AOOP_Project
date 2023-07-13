@@ -19,7 +19,35 @@ public class Logger{
      * This method will log transactions between two accounts in log.txt
      */
     protected void logTransfer(Account sender,double amount, Account recepient){
-        FileWriter writer = new FileWriter(logFile);
-        
+        BufferedWriter writer = new BufferedWriter( FileWriter(logFile));
+        String loggedS =("Account:"+sender.getAccountNumber()+" transfered "+amount+" to Account:"+recepient.getAccountNumber());
+        writer.append(loggedS);
+        writer.newLine();
+        writer.flush();
     }
+
+    /**@param deductee account that is getting deducted
+     * @param amount amount to be deducted
+     * This method will log a single deduction from one account in log.txt
+     */
+    protected void logDeduction(Account deductee, double amount){
+        BufferedWriter writer = new BufferedWriter(FileWriter(logFile));
+        String loggedS=("Account:"+deductee.getAccountNumber()+" withdrew "+amount);
+        writer.append(loggedS);
+        writer.newLine();
+        writer.flush();
+    }
+
+    /**@param acc the account the money is going into
+     * @param amount amount to be added
+     * This method will log a single addition to an account in log.txt
+     */
+    protected void logAddition(Account acc, double amount){
+        BufferedWriter Writer= new BufferedWriter(FileWriter(logFile));
+        String loggedS=("Account:"+acc.getAccountNumber()+" deposited "+amount);
+        writer.append(loggedS);
+        writer.newLine();
+        writer.flush();
+    }
+    
 }
