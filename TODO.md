@@ -8,7 +8,7 @@
         [ ] Balance inquiry
         [x] Deposit
         [x] Withdraw
-        [ ] Transfer between accounts
+        [ ] Transfer between accounts -Devin
         [ ] Have feedback for the above (ie "xx has been withdrawn")
     [ ] User interaction
         [ ] Ask who user is
