@@ -1,0 +1,30 @@
+# AOOP Project
+    If you are working on something write your name beside it so we don't work on the
+    same thing please
+
+## Programming
+    [ ] Read files with information and store information
+    [ ] Operations
+        [ ] Balance inquiry
+        [x] Deposit
+        [x] Withdraw
+        [ ] Transfer between accounts
+        [ ] Have feedback for the above (ie "xx has been withdrawn")
+    [ ] User interaction
+        [ ] Ask who user is
+        [ ] Ask if bank manager
+            [ ] Bank managers need admin access to see inquire about any account
+    [ ] Transaction Logs
+        [ ] Log all transactions
+        [ ] Ability to print transaction log
+    [ ] Exit Program
+
+## Files
+    [ ] Generate Javadoc/ Ensure all files have javadoc comments
+    [ ] Lab Report
+        [ ] Including assumptions
+        [ ] Screenshots of programming running
+    [ ] UML Class Diagram (PDF)
+    [ ] UML Use Case Diagram (PDF)
+    [ ] Updated Bank User Sheet (.csv)  
+    [ ] Log (.txt)
