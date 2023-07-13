@@ -56,8 +56,9 @@ public abstract class Account{
         else{
             balance -= amount;
             recepient.balance+=amount;
-
+            int accID1= customer.getAccountNumber();
+            int accID2=recepient.customer.getAccountNumber();
+            System.out.println("Successfully transferred "+amount+" from Account:"+accID1+" to Account:"+accID2);
         }
-
     }
 }
