@@ -3,7 +3,7 @@
     same thing please
 
 ## Programming
-    [ ] Read files with information and store information -Devin
+    [x] Read files with information and store information -Devin
     [ ] Operations
         [ ] Balance inquiry
         [x] Deposit
@@ -19,6 +19,12 @@
         [ ] Log inquiries
     [X] Exit Program - Adrian
         (needs to update bank usersheet)
+    [ ] Other
+        [ ] Integrate operations with UI
+            [ ] Balance inquiry
+            [ ] Deposit
+            [ ] Withdraw
+            [ ] Transfer
 
 ## Files
     [ ] Generate Javadoc/ Ensure all files have javadoc comments- Ray
