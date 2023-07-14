@@ -34,4 +34,14 @@ public class Customer extends Person {
     protected Saving getSaving(){
         return custSaving;
     }
+
+    protected void displayInformation(){
+        System.out.println(nameFirst+" "+nameLast+", user ID:"+id);
+        System.out.println("Phone Number: "+phoneNumber);
+        System.out.println("Address: "+address);
+        System.out.println("DOB: "+dob);
+        System.out.println("Checking Account "+custChecking.getAccountNumber()+":"+custChecking.getBalance());
+        System.out.println("Savings Account "+custSaving.getAccountNumber()+":"+custSaving.getBalance());
+        System.out.println("Credit Account "+custCredit.getAccountNumber()+":"+custCredit.getBalance());
+    }
 }

@@ -2,6 +2,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        CsvImporter importer= new CsvImporter();
+        importer.dataImport();
+
+        
         boolean run = true;
         Scanner userInput = new Scanner(System.in);
 
