@@ -72,7 +72,7 @@ public class Main {
     }
 
     // This method provides the money services to the user.
-    protected static void moneyServices(Scanner userInput) {
+    protected static void moneyServices(Scanner userInput, Account account) {
 
         // Ask the user for the account type.
         System.out.println("What is the account type?");
@@ -93,22 +93,41 @@ public class Main {
             // If the user selects 1, they have chosen to deposit money.
             case "1":
                 System.out.println("You have chosen to deposit money.");
-                // @TODO: Implement functionality to allow user to deposit money.
+                System.out.println("Enter the amount to deposit: ");
+                double depositAmount = userInput.nextDouble();
+                account.deposit(depositAmount);
+                System.out.println("Deposit successful. Your new balance is: " + account.getBalance());
                 break;
 
             // If the user selects 2, they have chosen to withdraw money.
             case "2":
                 System.out.println("You have chosen to withdraw money.");
-                // @TODO: Implement functionality to allow user to withdraw money.
+                System.out.println("Enter the amount to withdraw: ");
+                double withdrawAmount = userInput.nextDouble();
+                if (withdrawAmount <= account.getBalance()) {
+                    account.charge(withdrawAmount);
+                    System.out.println("Withdrawal successful. Your new balance is: " + account.getBalance());
+                } else {
+                    System.out.println("Insufficient funds for withdrawal");
+                }
                 break;
 
             // If the user selects 3, they have chosen to transfer money.
             case "3":
                 System.out.println("You have chosen to transfer money.");
-                // @TODO: Implement functionality to allow user to transfer money between
-                // accounts
-                // @TODO: need to also implement money transfer/bill payment between other
-                // people's accounts
+                System.out.println("Enter the account number to which you want to transfer: ");
+                int transferAccountNumber = userInput.nextInt();
+                System.out.println("Enter the amount to transfer: ");
+                double transferAmount = userInput.nextDouble();
+
+                // You'll need to replace `getAccountByNumber` with the actual method that
+                // retrieves an account by its number
+                Account recipientAccount = getAccountByNumber(transferAccountNumber);
+                if (recipientAccount != null) {
+                    account.transferTo(recipientAccount, transferAmount);
+                } else {
+                    System.out.println("The recipient account number you entered does not exist.");
+                }
                 break;
 
             // If the user enters any other input, it's considered as invalid and they're
