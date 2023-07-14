@@ -3,7 +3,8 @@ import java.io.*;
 
 
 public class Logger{
-    private String filePath="C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\log.txt";
+    private String filePath=
+    "C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\log.txt";
     File logFile = new File(filePath);
 
     protected void fileCheck(){

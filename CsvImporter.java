@@ -10,8 +10,9 @@ public class CsvImporter {
     /** method to import csv files, this will be hardcoded. should only be used once. */
     protected void importCSV(){
 
-        String file="AOOP_Project\\BankUsers.csv";
+        String file="C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\BankUsers.csv";
 
+        String[][] data= importCSVto2darray(file);
         BufferedReader reader=null;
         String line="";
 
@@ -22,13 +23,14 @@ public class CsvImporter {
                 String[] values=line.split(",");
 
                 int i=0;//there are 13 things to go through
-                int j=12;
+                int j=13;
                 
                 for(int k=0;k<values.length;k++){
                     switch(i){
                         //yes i know there are a lot of errors ill fix it before final push, this is more like skeleton than anything else rn
                         case 0:
                         Customer cust= new Customer();
+                        //System.out.println(values[i+j]);
                         cust.id=Integer.parseInt(values[i+j]);
                         i++; k++;
                         
@@ -101,4 +103,41 @@ public class CsvImporter {
             }
         }
     }   
+
+
+    protected String[][] importCSVto2darray(String csvFile){
+        String[][] data=null;
+        String line="";
+
+        try{
+            BufferedReader br= new BufferedReader(new FileReader(csvFile));
+            int rows=0;
+            int columns=0;
+
+            //this counts rows and columns
+            while((line=br.readLine())!=null){
+                rows++;
+                String[] values=line.split(",");
+                columns=Math.max(columns,values.length);
+            }
+            data= new String[rows][columns]; //2d array to store values
+
+            br.close();
+            br = new BufferedReader(new FileReader(csvFile));
+
+            int row=0;
+            while((line=br.readLine())!=null){
+                String[] values = line.split(",");
+                for(int col=0;col<values.length;col++){
+                    data[row][col]=values[col];
+                }
+                row++;
+            }
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return data;
+    }
 }
