@@ -4,6 +4,6 @@ public class CsvImporterTester{
 
         CsvImporter importer=new CsvImporter();
 
-        importer.importCSV();
+        importer.dataImport();
     }
 }

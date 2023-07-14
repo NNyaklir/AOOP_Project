@@ -2,107 +2,96 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class CsvImporter {
-    protected ArrayList<Customer> custList;
+    protected ArrayList<Customer> custList= new ArrayList<Customer>();
     protected ArrayList<Checking> checkingList;
     protected ArrayList<Saving> savingList;
     protected ArrayList<Credit> creditList;
 
     /** method to import csv files, this will be hardcoded. should only be used once. */
-    protected void importCSV(){
+    protected void dataImport(){
 
         String file="C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\BankUsers.csv";
 
         String[][] data= importCSVto2darray(file);
-        BufferedReader reader=null;
-        String line="";
 
-        try{
-            reader=new BufferedReader(new FileReader(file));
-
-            while((line=reader.readLine()) !=null){
-                String[] values=line.split(",");
-
-                int i=0;//there are 13 things to go through
-                int j=13;
+        for (int i=1;i<data.length;i++){
+            for(int j=0;j<data[0].length;j++){
                 
-                for(int k=0;k<values.length;k++){
-                    switch(i){
-                        //yes i know there are a lot of errors ill fix it before final push, this is more like skeleton than anything else rn
-                        case 0:
-                        Customer cust= new Customer();
-                        //System.out.println(values[i+j]);
-                        cust.id=Integer.parseInt(values[i+j]);
-                        i++; k++;
+                    //yes i know there are a lot of errors ill fix it before final push, this is more like skeleton than anything else rn
                         
-                        cust.nameFirst=values[i+j];
-                        i++;k++;
+                    Customer cust= new Customer();
                         
-                        cust.nameLast=values[i+j];
-                        i++;k++;
+                    cust.id=Integer.parseInt(data[i][j]);
+                    j++;
                         
-                        cust.dob=values[i+j];
-                        i++; k++;
+                    cust.nameFirst=data[i][j];
+                    j++;
                         
-                        cust.address=values[i+j];
-                        i++; k++;
+                    cust.nameLast=data[i][j];
+                    j++;
                         
-                        cust.phoneNumber=values[i+j];
-                        custList.add(cust);
-                        i++; k++;
+                    cust.dob=data[i][j];
+                    j++;
                         
-                        //starts checking accounts
-                        Checking check= new Checking();
-                        check.customer=cust;
-                        cust.setChecking(check);
-                        check.accountNumber=Integer.parseInt(values[i+j]);
-                        i++;k++;
+                    cust.address=data[i][j];
+                    j++;
                         
-                        check.balance=Integer.parseInt(values[i+j]);
-                        checkingList.add(check);
-                        i++;k++;
+                    cust.phoneNumber=data[i][j];
+                    custList.add(cust);
+                    j++;
                         
-                        //starts saving accounts
-                        Saving sav= new Saving();
-                        sav.customer=cust;
-                        cust.setSaving(sav);
-                        sav.accountNumber=Integer.parseInt(values[i+j]);
-                        i++;k++;
+                    //starts checking accounts
+                    Checking check= new Checking();
+                    check.customer=cust;
+                    cust.setChecking(check);
+                    check.accountNumber=Integer.parseInt(data[i][j]);
+                    j++;
                         
-                        sav.balance=Integer.parseInt(values[i+j]);
-                        savingList.add(sav);
-                        i++;k++;
+                    check.balance=Integer.parseInt(data[i][j]);
+                    checkingList.add(check);
+                    j++;
+                    
+                    //starts saving accounts
+                    Saving sav= new Saving();
+                    sav.customer=cust;
+                    cust.setSaving(sav);
+                    sav.accountNumber=Integer.parseInt(data[i][j]);
+                    j++;
+                    
+                    sav.balance=Integer.parseInt(data[i][j]);
+                    savingList.add(sav);
+                    j++;
                         
 
-                        //starts credit accounts
-                        Credit cred = new Credit();
-                        cred.customer=cust;
-                        cust.custCredit=cred;
-                        cred.accountNumber=Integer.parseInt(values[i+j]);
-                        i++;k++;
+                    //starts credit accounts
+                    Credit cred = new Credit();
+                    cred.customer=cust;
+                    cust.custCredit=cred;
+                    cred.accountNumber=Integer.parseInt(data[i][j]);
+                    j++;
                         
-                        cred.maxCredit=Integer.parseInt(values[i+j]);
-                        i++;k++;
-                        
+                    cred.maxCredit=Integer.parseInt(data[i][j]);
+                    j++;
+                    
+                    cred.balance=Integer.parseInt(data[i][j]);
+                    j++;
+                    creditList.add(cred);
+                    
+                }
+            }
+        }
+    
+         
+    
+        
+    
+    
 
-                        cred.balance=Integer.parseInt(values[i+j]);
-                        i=0;k++;
-                        creditList.add(cred);
-                    }
-                } 
-            }
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        finally{
-            try{
-            reader.close();
-            }
-            catch(Exception e){
-                e.printStackTrace();
-            }
-        }
-    }   
+
+
+
+
+
 
 
     protected String[][] importCSVto2darray(String csvFile){
@@ -117,7 +106,7 @@ public class CsvImporter {
             //this counts rows and columns
             while((line=br.readLine())!=null){
                 rows++;
-                String[] values=line.split(",");
+                String[] values=line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
                 columns=Math.max(columns,values.length);
             }
             data= new String[rows][columns]; //2d array to store values
@@ -127,7 +116,7 @@ public class CsvImporter {
 
             int row=0;
             while((line=br.readLine())!=null){
-                String[] values = line.split(",");
+                String[] values = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
                 for(int col=0;col<values.length;col++){
                     data[row][col]=values[col];
                 }
