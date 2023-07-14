@@ -68,5 +68,21 @@ public class Logger{
         catch (Exception e){  
         }
     }
+
+    /**@param cust customer that has made the inquiry
+     * This method will log a single account inquiry into log.txt
+     */
+    protected void logInquiry(Customer cust){
+        try{
+            FileWriter writer = new FileWriter(filePath, true);
+            String loggedS=(cust.getNameFirst()+" "+cust.getNameLast()+" made an inquiry into their account");
+            writer.write(loggedS);
+            writer.flush();
+            writer.close();
+        }
+        catch (Exception e){
+
+        }
+    }
     
 }
