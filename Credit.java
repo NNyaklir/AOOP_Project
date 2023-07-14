@@ -1,4 +1,5 @@
 
+/** a sublcass of Account, represents a credit account */
 public class Credit extends Account{
     protected double maxCredit;//should be a negative double amount that cannot be surpassed
     

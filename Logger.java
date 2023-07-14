@@ -1,9 +1,9 @@
 import java.io.*;
 
 
-
+/**A class that is used to log transactions into a given .txt file */
 public class Logger{
-    private String filePath=
+    protected String filePath=
     "C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\log.txt";
     File logFile = new File(filePath);
 

@@ -1,4 +1,5 @@
 
+/**a class to test aspects of the Account and Credit objects */
 public class CreditTesting {
 
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-
+/**A class modeled after a person, has information that would be typically stored of a person by systems */
 public class Person {
     protected String nameFirst;
     protected String nameLast;
