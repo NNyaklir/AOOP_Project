@@ -21,6 +21,12 @@ public class CsvImporterTester{
         test.get(1).setNameFirst("jack");
         System.out.println(test.get(1).getNameFirst());
 
-        System.out.println(test.get(1).getCredit());
+        //System.out.println(test.get(1).getCredit());
+
+        ArrayList<Customer> another = importer.getCustList();
+
+        System.out.println(another.get(0).getNameFirst());
+
+        importer.export();
     }
 }

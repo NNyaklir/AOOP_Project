@@ -1,18 +1,20 @@
 import java.io.*;
 import java.util.ArrayList;
 
+
 public class CsvImporter {
     protected ArrayList<Customer> custList= new ArrayList<Customer>();
     protected ArrayList<Checking> checkingList=new ArrayList<Checking>();
     protected ArrayList<Saving> savingList=new ArrayList<Saving>();
     protected ArrayList<Credit> creditList=new ArrayList<Credit>();
+    private int rows;
+    private int columns;
+    protected String csvFile="C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\BankUsers.csv";
 
     /** method to import data from a csv and store it into specified objects and variables */
     protected void dataImport(){
 
-        String file="C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\BankUsers.csv";
-
-        String[][] data= importCSVto2darray(file);
+        String[][] data= importCSVto2darray();
 
         for (int i=1;i<data.length;i++){
             for(int j=0;j<data[0].length;j++){
@@ -81,7 +83,7 @@ public class CsvImporter {
             }
         }
 
-    protected String[][] importCSVto2darray(String csvFile){
+    protected String[][] importCSVto2darray(){
         String[][] data=null;
         String line="";
 
@@ -96,12 +98,14 @@ public class CsvImporter {
                 String[] values=line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
                 columns=Math.max(columns,values.length);
             }
-            data= new String[rows][columns]; //2d array to store values
+            this.rows=rows;
+            this.columns=columns;
 
+            data= new String[rows][columns]; //2d array to store values
             br.close();
             br = new BufferedReader(new FileReader(csvFile));
-
             int row=0;
+
             while((line=br.readLine())!=null){
                 String[] values = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
                 for(int col=0;col<values.length;col++){
@@ -109,12 +113,71 @@ public class CsvImporter {
                 }
                 row++;
             }
-
         }
         catch(Exception e){
             e.printStackTrace();
         }
         return data;
+    }
+
+    protected String[][] arrayListTo2d(){
+        String[][] data=new String[rows][columns];
+
+        for(int i=0;i<data.length-1;i++){
+            for(int j=0; j<data[0].length;j++){
+                //System.out.println("data[0].length is:"+data[0].length);
+                //System.out.println(j);
+                data[i][j]=Integer.toString(custList.get(i).getId()); j++;
+
+                data[i][j]=custList.get(i).getNameFirst(); j++;
+
+                data[i][j]=custList.get(i).getNameLast(); j++;
+
+                data[i][j]=custList.get(i).getDob(); j++;
+
+                data[i][j]=custList.get(i).getAddress(); j++;
+
+                data[i][j]=custList.get(i).getPhoneNumber(); j++;
+
+                data[i][j]=Integer.toString(checkingList.get(i).getAccountNumber()); j++;
+
+                data[i][j]=Double.toString(checkingList.get(i).getBalance()); j++;
+
+                data[i][j]=Integer.toString(savingList.get(i).getAccountNumber()); j++;
+
+                data[i][j]=Double.toString(savingList.get(i).getBalance()); j++;
+
+                data[i][j]=Integer.toString(creditList.get(i).getAccountNumber()); j++;
+
+                data[i][j]=Double.toString(creditList.get(i).getMaxCredit()); j++;
+
+                data[i][j]=Double.toString(creditList.get(i).getBalance()); j++;
+            }
+        }
+        System.out.println(data[77][8]);
+        return data;
+    }
+
+    protected void export(){
+        char seperator=',';
+        String[][] array =arrayListTo2d();
+        try{
+            //"C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\BankUsers.csv"
+            FileWriter writer = new FileWriter("C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\BankExportCheck.csv");
+            for (String[] row:array){
+                for(int i=1;i<row.length;i++){
+                    writer.append(String.valueOf(row[i]));
+                    if (i<row.length-1){
+                        writer.append(seperator);
+                    }
+                }
+                writer.append("\n");
+            }
+            writer.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
 
