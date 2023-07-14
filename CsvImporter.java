@@ -3,11 +3,11 @@ import java.util.ArrayList;
 
 public class CsvImporter {
     protected ArrayList<Customer> custList= new ArrayList<Customer>();
-    protected ArrayList<Checking> checkingList;
-    protected ArrayList<Saving> savingList;
-    protected ArrayList<Credit> creditList;
+    protected ArrayList<Checking> checkingList=new ArrayList<Checking>();
+    protected ArrayList<Saving> savingList=new ArrayList<Saving>();
+    protected ArrayList<Credit> creditList=new ArrayList<Credit>();
 
-    /** method to import csv files, this will be hardcoded. should only be used once. */
+    /** method to import data from a csv and store it into specified objects and variables */
     protected void dataImport(){
 
         String file="C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\BankUsers.csv";
@@ -47,7 +47,7 @@ public class CsvImporter {
                     check.accountNumber=Integer.parseInt(data[i][j]);
                     j++;
                         
-                    check.balance=Integer.parseInt(data[i][j]);
+                    check.balance=Double.parseDouble(data[i][j]);
                     checkingList.add(check);
                     j++;
                     
@@ -58,7 +58,7 @@ public class CsvImporter {
                     sav.accountNumber=Integer.parseInt(data[i][j]);
                     j++;
                     
-                    sav.balance=Integer.parseInt(data[i][j]);
+                    sav.balance=Double.parseDouble(data[i][j]);
                     savingList.add(sav);
                     j++;
                         
@@ -70,29 +70,16 @@ public class CsvImporter {
                     cred.accountNumber=Integer.parseInt(data[i][j]);
                     j++;
                         
-                    cred.maxCredit=Integer.parseInt(data[i][j]);
+                    cred.maxCredit=Double.parseDouble(data[i][j]);
                     j++;
                     
-                    cred.balance=Integer.parseInt(data[i][j]);
+                    cred.balance=Double.parseDouble(data[i][j]);
                     j++;
                     creditList.add(cred);
                     
                 }
             }
         }
-    
-         
-    
-        
-    
-    
-
-
-
-
-
-
-
 
     protected String[][] importCSVto2darray(String csvFile){
         String[][] data=null;
@@ -128,5 +115,22 @@ public class CsvImporter {
             e.printStackTrace();
         }
         return data;
+    }
+
+
+    protected ArrayList<Customer> getCustList(){
+        return custList;
+    }
+
+    protected ArrayList<Checking> getCheckList(){
+        return checkingList;
+    }
+
+    protected ArrayList<Saving> getSavingList(){
+        return savingList;
+    }
+
+    protected ArrayList<Credit> getCreditList(){
+        return creditList;
     }
 }
