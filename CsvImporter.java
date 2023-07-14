@@ -204,4 +204,9 @@ public class CsvImporter {
     protected ArrayList<Credit> getCreditList(){
         return creditList;
     }
+
+    /**@param filePath path of files in directory  */
+    protected void setCSVFile(String filePath){
+        this.csvFile=filePath;
+    }
 }
