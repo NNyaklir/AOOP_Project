@@ -3,7 +3,7 @@
     same thing please
 
 ## Programming
-    [ ] Read files with information and store information -Devin
+    [x] Read files with information and store information -Devin
     [ ] Operations
         [ ] Balance inquiry
         [x] Deposit
