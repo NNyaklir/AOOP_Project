@@ -1,7 +1,9 @@
 import java.io.*;
 import java.util.ArrayList;
 
-
+/**A class designed to import data from a csv file and export any changed data back. Based on banking and
+ * customer accounts.
+ */
 public class CsvImporter {
     protected ArrayList<Customer> custList= new ArrayList<Customer>();
     protected ArrayList<Checking> checkingList=new ArrayList<Checking>();
@@ -83,6 +85,8 @@ public class CsvImporter {
             }
         }
 
+
+    /**@return a 2d array that stores data from an csv file, only used in importCSVto2d */
     protected String[][] importCSVto2darray(){
         String[][] data=null;
         String line="";
@@ -120,6 +124,9 @@ public class CsvImporter {
         return data;
     }
 
+    /**@return a 2d array, that has data stored from this class's array lists. 
+     * Only used in export.
+     */
     protected String[][] arrayListTo2d(){
         String[][] data=new String[rows][columns];
 
@@ -158,6 +165,7 @@ public class CsvImporter {
         return data;
     }
 
+    /**a method that exports updated data to the given csv file */
     protected void export(){
         char seperator=',';
         String[][] array =arrayListTo2d();
@@ -180,19 +188,19 @@ public class CsvImporter {
         }
     }
 
-
+    /**@return an array list of customeers */
     protected ArrayList<Customer> getCustList(){
         return custList;
     }
-
+    /**@retrun an array list of checking accounts */
     protected ArrayList<Checking> getCheckList(){
         return checkingList;
     }
-
+    /**@return an array list of saving accounts */
     protected ArrayList<Saving> getSavingList(){
         return savingList;
     }
-
+    /**@return an array list of saving accounts */
     protected ArrayList<Credit> getCreditList(){
         return creditList;
     }

@@ -1,4 +1,5 @@
 
+/**A class that is modeled after the information a bank would store on its customer */
 public class Customer extends Person {
     protected Checking custChecking;
     protected Credit custCredit;

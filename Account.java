@@ -1,5 +1,5 @@
 
-
+/** A super class for many child classes. Represents a theoretical bank account */
 public abstract class Account{
     protected int accountNumber;
     protected Customer customer;
