@@ -50,14 +50,14 @@ public abstract class Account{
      * This method will transfer from the account called in the function, to the account named in the constuctor
      */
     protected void transferTo( Account recepient, double amount){
-        if(amount>!balance){
+        if(amount>balance){
             System.out.println("Insufficient funds for transfer");
         }
         else{
             balance -= amount;
             recepient.balance+=amount;
-            int accID1= customer.getAccountNumber();
-            int accID2=recepient.customer.getAccountNumber();
+            int accID1= this.getAccountNumber();
+            int accID2=recepient.getAccountNumber();
             System.out.println("Successfully transferred "+amount+" from Account:"+accID1+" to Account:"+accID2);
         }
     }
