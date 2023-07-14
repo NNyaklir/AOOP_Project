@@ -43,6 +43,5 @@ public class Customer extends Person {
         System.out.println("Checking Account "+custChecking.getAccountNumber()+":"+custChecking.getBalance());
         System.out.println("Savings Account "+custSaving.getAccountNumber()+":"+custSaving.getBalance());
         System.out.println("Credit Account "+custCredit.getAccountNumber()+":"+custCredit.getBalance());
-
     }
 }
