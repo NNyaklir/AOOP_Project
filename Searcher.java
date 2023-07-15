@@ -55,7 +55,7 @@ public class Searcher {
      * @param accList the list of credit accounts to search through
      * @return the index in the given list of where the relevant item is
      */
-    protected int SearchByCredit(int accountNumber, ArrayList<Credit> accList){
+    protected int searchByCredit(int accountNumber, ArrayList<Credit> accList){
         for(int i=0;i<accList.size();i++){
             int accCheck=accList.get(i).getAccountNumber();
             if(accCheck==accountNumber){
