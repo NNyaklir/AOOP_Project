@@ -85,10 +85,11 @@ public class UI {
                 break;
 
                 case 2:
-                System.out.println("What is the account type?\n 1.Checking\n 2.Saving\n 3.Credit");
-                int z = Integer.parseInt(scan.nextLine());
+                
                 boolean validInput2=false;
                 while(!validInput2){
+                System.out.println("What is the account type?\n 1.Checking\n 2.Saving\n 3.Credit");
+                int z = Integer.parseInt(scan.nextLine());
                 switch(z){
                 
                     case 1:
@@ -133,11 +134,15 @@ public class UI {
     }
 
     private void customerLogIn(){
+        
         System.out.println("Please enter your first and last name");
-
         Scanner scan= new Scanner(System.in);
-        String accountName = scan.nextLine();
+        
+        boolean validName=false;
 
+        while(!validName){
+        String accountName = scan.nextLine();
+        
         String[] parts = accountName.split(" ");
         String firstName= parts[0];
         String lastName= parts[1];
@@ -146,6 +151,7 @@ public class UI {
         int index= search.searchByName(firstName, lastName, custList);
 
             if(index>0){
+                validName=true;
                 System.out.println("Welcome "+firstName+" "+lastName+"!\n What would you like to do?\n 1.Make an inquiry\n 2.Access money services");
                 int c = Integer.parseInt(scan.nextLine());
                 boolean validInput=false;
@@ -170,6 +176,7 @@ public class UI {
             else{
                 System.out.println("User not found, please make sure you input the name correctly");
             }
+        }
         scan.close();
     }
 
