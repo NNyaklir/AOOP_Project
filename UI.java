@@ -156,6 +156,7 @@ public class UI {
 
                     case 3:
                         validInput = true;
+                        customerLogIn();
                         break;
 
                     default:
