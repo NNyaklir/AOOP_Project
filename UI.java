@@ -250,7 +250,7 @@ public class UI {
         Logger log = new Logger();
 
         System.out.println("Which account would you like to make a payment from?");
-        System.out.println(" 1.Checking\n 2.Saving\n 3.Credit");
+        System.out.println(" 1.Checking\n 2.Saving\n 3.Credit\n 4.Return to Money Services");
         int c = Integer.parseInt(scan.nextLine());
         Searcher search = new Searcher();
 
@@ -278,6 +278,7 @@ public class UI {
                                 System.out.println("Succesfully transfered " + transfer + " from Checking to Account"
                                         + check2.getAccountNumber());
                                 validInput2 = true;
+                                makePayment(primary);
                                 break;
 
                             case 2:
@@ -292,6 +293,7 @@ public class UI {
                                 System.out.println("Succesfully transfered " + transfer2 + " from Checking to Account"
                                         + sav.getAccountNumber());
                                 validInput2 = true;
+                                makePayment(primary);
                                 break;
 
                             case 3:
@@ -306,6 +308,7 @@ public class UI {
                                 System.out.println("Succesfully transfered " + transfer3 + " from Checking to Account"
                                         + cred.getAccountNumber());
                                 validInput2 = true;
+                                makePayment(primary);
                                 break;
 
                             default:
@@ -338,6 +341,7 @@ public class UI {
                                 System.out.println("Succesfully transfered " + transfer + " from Checking to Account"
                                         + check2.getAccountNumber());
                                 validInput3 = true;
+                                makePayment(primary);
                                 break;
 
                             case 2:
@@ -352,6 +356,7 @@ public class UI {
                                 System.out.println("Succesfully transfered " + transfer2 + " from Checking to Account"
                                         + sav2.getAccountNumber());
                                 validInput3 = true;
+                                makePayment(primary);
                                 break;
 
                             case 3:
@@ -366,6 +371,7 @@ public class UI {
                                 System.out.println("Succesfully transfered " + transfer3 + " from Checking to Account"
                                         + cred.getAccountNumber());
                                 validInput3 = true;
+                                makePayment(primary);
                                 break;
 
                             default:
@@ -398,6 +404,7 @@ public class UI {
                                 System.out.println("Succesfully transfered " + transfer + " from Checking to Account"
                                         + check2.getAccountNumber());
                                 validInput4 = true;
+                                makePayment(primary);
                                 break;
 
                             case 2:
@@ -412,6 +419,7 @@ public class UI {
                                 System.out.println("Succesfully transfered " + transfer2 + " from Checking to Account"
                                         + sav2.getAccountNumber());
                                 validInput4 = true;
+                                makePayment(primary);
                                 break;
 
                             case 3:
@@ -426,6 +434,7 @@ public class UI {
                                 System.out.println("Succesfully transfered " + transfer3 + " from Checking to Account"
                                         + cred.getAccountNumber());
                                 validInput4 = true;
+                                makePayment(primary);
                                 break;
 
                             default:
@@ -434,6 +443,11 @@ public class UI {
                         }
                     }
                     validInput = true;
+                    break;
+
+                case 4:
+                    moneyServices(primary);
+                    validInput=true;
                     break;
 
                 default:
@@ -470,6 +484,7 @@ public class UI {
                                 log.logTransfer(check, transfer, sav);
                                 System.out.print("Successfully transferred " + transfer + " from Checking to Savings");
                                 validInput2 = true;
+                                transfer(primary);
                                 break;
 
                             case 2:
@@ -479,9 +494,9 @@ public class UI {
                                 Credit cred = primary.getCredit();
                                 check2.transferTo(cred, transfer2);
                                 log.logTransfer(check2, transfer2, cred);
-                                System.out
-                                        .println("Successfully transferred " + transfer2 + " from Checking to Credit");
+                                System.out.println("Successfully transferred " + transfer2 + " from Checking to Credit");
                                 validInput = true;
+                                transfer(primary);
                                 break;
 
                             default:
@@ -507,6 +522,7 @@ public class UI {
                                 log.logTransfer(sav, transfer, check);
                                 System.out.println("Succesfully transferred " + transfer + " from Savings to Checking");
                                 validInput3 = true;
+                                transfer(primary);
                                 break;
 
                             case 2:
@@ -518,6 +534,7 @@ public class UI {
                                 log.logTransfer(sav2, transfer2, cred);
                                 System.out.println("Successfully transferred " + transfer2 + " from Savings to Credit");
                                 validInput3 = true;
+                                transfer(primary);
                                 break;
 
                             default:
@@ -543,6 +560,7 @@ public class UI {
                                 log.logTransfer(cred, transfer, check);
                                 System.out.println("Successfully transferred " + transfer + " from Credit to Checking");
                                 validInput4 = true;
+                                transfer(primary);
                                 break;
 
                             case 2:
@@ -554,6 +572,7 @@ public class UI {
                                 log.logTransfer(cred2, transfer2, sav);
                                 System.out.println("Successfully transferred " + transfer2 + " from Credit to Savings");
                                 validInput4 = true;
+                                transfer(primary);
                                 break;
 
                             default:
