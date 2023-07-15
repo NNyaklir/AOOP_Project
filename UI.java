@@ -8,6 +8,7 @@ public class UI {
     private ArrayList<Saving> savList;
     private ArrayList<Credit> creditList;
 
+    /**A method that imports data from a CSV file to prepare for the rest of UI method */
     public void runStartUp() {
         CsvImporter importer = new CsvImporter();
         importer.dataImport();
@@ -18,6 +19,7 @@ public class UI {
 
     }
 
+    /**A method that runs a UI in the terminal */
     public void runUI() {
 
         Scanner scan = new Scanner(System.in);
@@ -62,6 +64,7 @@ public class UI {
         }
     }
 
+    /**A method that runs the admin login UI, exclusively called by runUI */
     private void adminLogIn() {
         Scanner scan = new Scanner(System.in);
         Searcher search = new Searcher();
@@ -151,7 +154,7 @@ public class UI {
         scan.close();
 
     }
-
+    /**A method that runs the customer login UI, exclusively called by runUI */
     private void customerLogIn() {
         System.out.println("Please enter your first and last name");
 
@@ -189,7 +192,6 @@ public class UI {
 
                     default:
                         System.out.println("Incorrect input please try again");
-                        customerLogIn();
                         break;
                 }
             }
@@ -198,7 +200,7 @@ public class UI {
         }
         scan.close();
     }
-
+    /**A method that runs the money services UI, exclusively called by customerLogIn */
     private void moneyServices(Customer primary) {
         System.out.println("Thank you for accessing our money services, what would you like to do?");
         System.out.println(" 1.Deposit\n 2.Withdraw\n 3.Transfer\n 4.Make a Payment \n 5. Return to Log-In");
@@ -242,7 +244,7 @@ public class UI {
         }
         scan.close();
     }
-
+    /**A method that runs the payment UI, exclusively called by moneyServices */
     private void makePayment(Customer primary) {
         Scanner scan = new Scanner(System.in);
         Logger log = new Logger();
@@ -441,13 +443,13 @@ public class UI {
         }
         scan.close();
     }
-
+    /**A method that runs the transfer UI, exclusively called by moneyServices */
     private void transfer(Customer primary) {
         Scanner scan = new Scanner(System.in);
         Logger log = new Logger();
 
         System.out.println("Which account would you like to transfer from?");
-        System.out.println(" 1.Checking\n 2.Saving\n 3.Credit");
+        System.out.println(" 1.Checking\n 2.Saving\n 3.Credit\n 4.Return to Money Services");
         int c = Integer.parseInt(scan.nextLine());
 
         boolean validInput = false;
@@ -562,6 +564,11 @@ public class UI {
                     validInput = true;
                     break;
 
+                case 4:
+                    moneyServices(primary);
+                    validInput=true;
+                    break;
+
                 default:
                     System.out.println("Incorrect input please try again");
                     break;
@@ -570,13 +577,13 @@ public class UI {
         }
         scan.close();
     }
-
+    /**A method that runs the withdraw UI, exclusively called by moneyServices */
     private void withdraw(Customer primary) {
         Scanner scan = new Scanner(System.in);
         Logger log = new Logger();
 
         System.out.println("Which account would you like to make a withdrawal from?");
-        System.out.println(" 1.Checking\n 2.Savings\n 3.Credit");
+        System.out.println(" 1.Checking\n 2.Savings\n 3.Credit\n 4.Return to Money Services");
         int sw = Integer.parseInt(scan.nextLine());
         String withdrawWords = ("Please enter a withdrawal amount");
         String success = ("Succesfully withdrew: ");
@@ -591,6 +598,7 @@ public class UI {
                     log.logDeduction(wCheck, withdraw);
                     System.out.println(success + withdraw);
                     validInput = true;
+                    withdraw(primary);
                     break;
 
                 case 2:
@@ -601,6 +609,7 @@ public class UI {
                     log.logDeduction(wSav, withdraw2);
                     System.out.println(success + withdraw2);
                     validInput = true;
+                    withdraw(primary);
                     break;
 
                 case 3:
@@ -611,6 +620,12 @@ public class UI {
                     log.logDeduction(cred, withdraw3);
                     System.out.println(success + withdraw3);
                     validInput = true;
+                    withdraw(primary);
+                    break;
+                
+                case 4:
+                    moneyServices(primary);
+                    validInput=true;
                     break;
 
                 default:
@@ -621,12 +636,12 @@ public class UI {
         scan.close();
 
     }
-
+    /**A method that runs the deposit UI, exclusively called by moneyServices */
     private void deposit(Customer primary) {
         Scanner scan = new Scanner(System.in);
         Logger log = new Logger();
         System.out.println("Which account would you like to make a deposit in?");
-        System.out.println(" 1.Checking\n 2.Savings\n 3.Credit");
+        System.out.println(" 1.Checking\n 2.Savings\n 3.Credit\n 4.Return to Money Services");
         int s = Integer.parseInt(scan.nextLine());
         boolean validInput = false;
         while (!validInput) {
@@ -661,6 +676,11 @@ public class UI {
                     validInput = true;
                     break;
 
+                case 4:
+                    moneyServices(primary);
+                    validInput=true;
+                    break;
+
                 default:
                     System.out.println("Incorrect input please try again");
                     break;
@@ -669,9 +689,9 @@ public class UI {
         scan.close();
 
     }
-
+    /**A method that runs the inquiry UI, exclusively called by customerLogin */
     private void inquiry(Customer cust) {
-        System.out.println("What would you like to inquire about?\n 1.Everything\n 2.Checkings\n 3.Savings\n 4.Credit");
+        System.out.println("What would you like to inquire about?\n 1.Everything\n 2.Checkings\n 3.Savings\n 4.Credit\n 5.Return to login");
         Scanner scan = new Scanner(System.in);
         int c = Integer.parseInt(scan.nextLine());
         Logger log = new Logger();
@@ -683,6 +703,7 @@ public class UI {
                 case 1:
                     cust.displayInformation();
                     validInput = true;
+                    inquiry(cust);
                     break;
 
                 case 2:
@@ -690,6 +711,7 @@ public class UI {
                     check.displayInformation();
                     log.logInquiry(cust, "Checking");
                     validInput = true;
+                    inquiry(cust);
                     break;
 
                 case 3:
@@ -697,6 +719,7 @@ public class UI {
                     sav.displayInformation();
                     log.logInquiry(cust, "Savings");
                     validInput = true;
+                    inquiry(cust);
                     break;
 
                 case 4:
@@ -704,6 +727,12 @@ public class UI {
                     cred.displayInformation();
                     log.logInquiry(cust, "Credit");
                     validInput = true;
+                    inquiry(cust);
+                    break;
+
+                case 5:
+                    customerLogIn();
+                    validInput=true;
                     break;
 
                 default:
