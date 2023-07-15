@@ -43,12 +43,66 @@ public class UI {
                 break;
             }
         }
+        scan.close();
         
     }
 
 
 
     private void adminLogIn(){
+        Scanner scan = new Scanner(System.in);
+        Searcher search=new Searcher();
+        System.out.println("Welcome Admin. What would you like to do today?\n 1.Inquire account by name\n 2.Inquire account by type/number");
+        int c = Integer.parseInt(scan.nextLine());
+        switch(c){
+            case 1:
+            System.out.println("Please enter the name of the account");
+            String accountName=scan.nextLine();
+            String[] parts = accountName.split(" ");
+            String firstName= parts[0];
+            String lastName= parts[1];
+
+            int index= search.searchByName(firstName, lastName, custList);
+            custList.get(index).displayInformation();
+            break;
+
+            case 2:
+            System.out.println("What is the account type?\n 1.Checking\n 2.Saving\n 3.Credit");
+            int z = Integer.parseInt(scan.nextLine());
+            switch(z){
+                
+                case 1:
+                System.out.println("Please enter account number");
+                int accNum=Integer.parseInt(scan.nextLine());
+                int checkIndex=search.searchByChecking(accNum, checkList);
+                checkList.get(checkIndex).displayInformation();
+                break;
+                
+                case 2:
+                System.out.println("Please enter account number");
+                int accNum2=Integer.parseInt(scan.nextLine());
+                int savIndex=search.searchBySaving(accNum2, savList);
+                savList.get(savIndex).displayInformation();
+                break;
+
+
+                case 3:
+                System.out.println("Please enter account number");
+                int accNum3=Integer.parseInt(scan.nextLine());
+                int credIndex=search.searchByCredit(accNum3, creditList);
+                creditList.get(credIndex).displayInformation();
+                break;
+
+
+                default:
+                System.out.println("Incorrect input please try again");
+                break;
+            }
+            default:
+            System.out.println("Incorrect input please try again");
+            break;
+        }
+        scan.close();
 
     }
 
