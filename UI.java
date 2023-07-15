@@ -60,11 +60,12 @@ public class UI {
     private void adminLogIn(){
         Scanner scan = new Scanner(System.in);
         Searcher search=new Searcher();
-        System.out.println("Welcome Admin. What would you like to do today?\n 1.Inquire account by name\n 2.Inquire account by type/number");
-        int c = Integer.parseInt(scan.nextLine());
+        
 
         boolean validInput=false;
         while(!validInput){
+            System.out.println("Welcome Admin. What would you like to do today?\n 1.Inquire account by name\n 2.Inquire account by type/number");
+            int c = Integer.parseInt(scan.nextLine());
             switch(c){
                 case 1:
                 System.out.println("Please enter the name of the account");
@@ -72,10 +73,15 @@ public class UI {
                 String[] parts = accountName.split(" ");
                 String firstName= parts[0];
                 String lastName= parts[1];
-
                 int index= search.searchByName(firstName, lastName, custList);
-                custList.get(index).displayInformation();
-                validInput=true;
+                if(index>0){
+                    custList.get(index).displayInformation();
+                    validInput=true;
+                }
+                else{
+                    System.out.println("User not found, please input name correctly");
+                }
+                
                 break;
 
                 case 2:
