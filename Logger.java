@@ -7,6 +7,7 @@ public class Logger{
     "C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\log.txt";
     File logFile = new File(filePath);
 
+    /**This method ensures that there is a file to use before logging information */
     protected void fileCheck(){
         if(!logFile.exists()){
             logFile= new File(filePath);
