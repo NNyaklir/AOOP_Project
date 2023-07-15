@@ -21,30 +21,38 @@ public class UI {
         while(true){
             System.out.println("Welcome to the El Paso Miners Banking system");
             System.out.println("please log-in below");
-            System.out.println("1. Customer log-in \n" +"2. Bank Management log-in");
-            System.out.println("Type EXIT to exit application");
             
-            int c= Integer.parseInt(scan.nextLine());
-            switch(c){
-                case 1:
-                customerLogIn();
-                break;
+            
+            boolean validInput=false;
+            while(!validInput){
+                System.out.println("1. Customer log-in \n" +"2. Bank Management log-in");
+                System.out.println("Type EXIT to exit application");
 
-                case 2:
-                adminLogIn();
-                break;
 
-                default:
-                System.out.println("Incorrect input please try again");
-                break;
-            }
-            if(scan.nextLine().equals("EXIT")){
+                int c= Integer.parseInt(scan.nextLine());
+                switch(c){
+                    case 1:
+                    customerLogIn();
+                    validInput=true;
+                    break;
+
+                    case 2:
+                    validInput=true;
+                    adminLogIn();
+                    break;
+
+                    default:
+                    System.out.println("Incorrect input please try again");
+                    break;
+                }
+                if(scan.nextLine().equals("EXIT")){
                 importer.export();
                 break;
             }
-        }
-        scan.close();
-        
+            }
+
+            scan.close();
+        }        
     }
 
 
@@ -54,53 +62,65 @@ public class UI {
         Searcher search=new Searcher();
         System.out.println("Welcome Admin. What would you like to do today?\n 1.Inquire account by name\n 2.Inquire account by type/number");
         int c = Integer.parseInt(scan.nextLine());
-        switch(c){
-            case 1:
-            System.out.println("Please enter the name of the account");
-            String accountName=scan.nextLine();
-            String[] parts = accountName.split(" ");
-            String firstName= parts[0];
-            String lastName= parts[1];
 
-            int index= search.searchByName(firstName, lastName, custList);
-            custList.get(index).displayInformation();
-            break;
-
-            case 2:
-            System.out.println("What is the account type?\n 1.Checking\n 2.Saving\n 3.Credit");
-            int z = Integer.parseInt(scan.nextLine());
-            switch(z){
-                
+        boolean validInput=false;
+        while(!validInput){
+            switch(c){
                 case 1:
-                System.out.println("Please enter account number");
-                int accNum=Integer.parseInt(scan.nextLine());
-                int checkIndex=search.searchByChecking(accNum, checkList);
-                checkList.get(checkIndex).displayInformation();
+                System.out.println("Please enter the name of the account");
+                String accountName=scan.nextLine();
+                String[] parts = accountName.split(" ");
+                String firstName= parts[0];
+                String lastName= parts[1];
+
+                int index= search.searchByName(firstName, lastName, custList);
+                custList.get(index).displayInformation();
+                validInput=true;
                 break;
-                
+
                 case 2:
-                System.out.println("Please enter account number");
-                int accNum2=Integer.parseInt(scan.nextLine());
-                int savIndex=search.searchBySaving(accNum2, savList);
-                savList.get(savIndex).displayInformation();
+                System.out.println("What is the account type?\n 1.Checking\n 2.Saving\n 3.Credit");
+                int z = Integer.parseInt(scan.nextLine());
+                boolean validInput2=false;
+                while(!validInput2){
+                switch(z){
+                
+                    case 1:
+                    System.out.println("Please enter account number");
+                    int accNum=Integer.parseInt(scan.nextLine());
+                    int checkIndex=search.searchByChecking(accNum, checkList);
+                    checkList.get(checkIndex).displayInformation();
+                    break;
+                
+                    case 2:
+                    System.out.println("Please enter account number");
+                    int accNum2=Integer.parseInt(scan.nextLine());
+                    int savIndex=search.searchBySaving(accNum2, savList);
+                    savList.get(savIndex).displayInformation();
+                    break;
+
+
+                    case 3:
+                    System.out.println("Please enter account number");
+                    int accNum3=Integer.parseInt(scan.nextLine());
+                    int credIndex=search.searchByCredit(accNum3, creditList);
+                    creditList.get(credIndex).displayInformation();
+                    break;
+
+
+                    default:
+                    System.out.println("Incorrect input please try again");
+                    break;
+
+                
+                }}
+                validInput=true;
                 break;
-
-
-                case 3:
-                System.out.println("Please enter account number");
-                int accNum3=Integer.parseInt(scan.nextLine());
-                int credIndex=search.searchByCredit(accNum3, creditList);
-                creditList.get(credIndex).displayInformation();
-                break;
-
 
                 default:
                 System.out.println("Incorrect input please try again");
                 break;
             }
-            default:
-            System.out.println("Incorrect input please try again");
-            break;
         }
         scan.close();
 
@@ -122,19 +142,24 @@ public class UI {
             if(index>0){
                 System.out.println("Welcome "+firstName+" "+lastName+"!\n What would you like to do?\n 1.Make an inquiry\n 2.Access money services");
                 int c = Integer.parseInt(scan.nextLine());
+                boolean validInput=false;
+                while(!validInput){
                 switch(c){
                     case 1:
-                        inquiry(custList.get(index));
+                    inquiry(custList.get(index));
+                    validInput=true;
                     break;
 
                     case 2:
-                        moneyServices(custList.get(index));
+                    moneyServices(custList.get(index));
+                    validInput=true;
                     break;
 
                     default:
                     System.out.println("Incorrect input please try again");
+                    customerLogIn();
                     break;
-                }
+                }}
             }
             else{
                 System.out.println("User not found, please make sure you input the name correctly");
@@ -150,24 +175,33 @@ public class UI {
         Logger log = new Logger();
         log.fileCheck();
 
+        boolean validInput=false;
+        while(!validInput){
         switch(c){
             case 1:
             deposit(primary);
+            validInput=true;
             break;
 
             case 2:
             withdraw(primary);
+            validInput=true;
             break;
             
             case 3:
             transfer(primary);
+            validInput=true;
             break;
 
             case 4:
             makePayment(primary);
+            validInput=true;
             break;
 
-        }
+            default:
+            System.out.println("Incorrect input please try again");
+
+        }}
         scan.close();
     }
 
@@ -179,11 +213,17 @@ public class UI {
         System.out.println(" 1.Checking\n 2.Saving\n 3.Credit");
         int c = Integer.parseInt(scan.nextLine());
         Searcher search = new Searcher();
+
+        boolean validInput=false;
+        while(!validInput){
         switch (c){
             case 1:
             Checking check= primary.getChecking();
             System.out.println("What Account type are you making a payment to?\n 1.Checking\n 2.Saving\n 3.Credit");
             int s = Integer.parseInt(scan.nextLine());
+
+            boolean validInput2=false;
+            while(!validInput2){
             switch (s){
                 case 1:
                 System.out.println("Please input the account number to make a payment to it");
@@ -195,7 +235,8 @@ public class UI {
                 check.transferTo(check2, transfer);
                 log.logTransfer(check, transfer, check2);
                 System.out.println("Succesfully transfered "+transfer+" from Checking to Account"+check2.getAccountNumber());
-                
+                validInput2=true;
+                break;
 
                 case 2:
                 System.out.println("Please input the account number to make a payment to it");
@@ -207,6 +248,7 @@ public class UI {
                 check.transferTo(sav, transfer2);
                 log.logTransfer(check, transfer2, sav);
                 System.out.println("Succesfully transfered "+transfer2+" from Checking to Account"+sav.getAccountNumber());
+                validInput2=true;
                 break;
 
                 case 3:
@@ -219,19 +261,24 @@ public class UI {
                 check.transferTo(cred, transfer3);
                 log.logTransfer(check, transfer3, cred);
                 System.out.println("Succesfully transfered "+transfer3+" from Checking to Account"+cred.getAccountNumber());
+                validInput2=true;
                 break;
                 
                 default:
                 System.out.println("Incorrect input please try again");
                 break;
 
-            }
+            }}
+            validInput=true;
             break;
 
             case 2:
             Saving sav=primary.getSaving();
             System.out.println("What Account type are you making a payment to?\n 1.Checking\n 2.Saving\n 3.Credit");
             int x = Integer.parseInt(scan.nextLine());
+
+            boolean validInput3=false;
+            while(!validInput3){
             switch (x){
                 case 1:
                 System.out.println("Please input the account number to make a payment to it");
@@ -243,6 +290,7 @@ public class UI {
                 sav.transferTo(check2, transfer);
                 log.logTransfer(sav, transfer, check2);
                 System.out.println("Succesfully transfered "+transfer+" from Checking to Account"+check2.getAccountNumber());
+                validInput3=true;
                 break;
 
                 case 2:
@@ -255,6 +303,7 @@ public class UI {
                 sav.transferTo(sav, transfer2);
                 log.logTransfer(sav, transfer2, sav2);
                 System.out.println("Succesfully transfered "+transfer2+" from Checking to Account"+sav2.getAccountNumber());
+                validInput3=true;
                 break;
 
                 case 3:
@@ -267,18 +316,24 @@ public class UI {
                 sav.transferTo(cred, transfer3);
                 log.logTransfer(sav, transfer3, cred);
                 System.out.println("Succesfully transfered "+transfer3+" from Checking to Account"+cred.getAccountNumber());
+                validInput3=true;
                 break;
 
                 default:
                 System.out.println("Incorrect input please try again");
                 break;
 
-            }
+            }}
+            validInput=true;
+            break;
 
             case 3:
             Credit cred2=primary.getCredit();
             System.out.println("What Account type are you making a payment to?\n 1.Checking\n 2.Saving\n 3.Credit");
             int m = Integer.parseInt(scan.nextLine());
+
+            boolean validInput4=false;
+            while(!validInput4){
             switch (m){
                 case 1:
                 System.out.println("Please input the account number to make a payment to it");
@@ -290,6 +345,7 @@ public class UI {
                 cred2.transferTo(check2, transfer);
                 log.logTransfer(cred2, transfer, check2);
                 System.out.println("Succesfully transfered "+transfer+" from Checking to Account"+check2.getAccountNumber());
+                validInput4=true;
                 break;
 
                 case 2:
@@ -302,6 +358,7 @@ public class UI {
                 cred2.transferTo(sav2, transfer2);
                 log.logTransfer(cred2, transfer2, sav2);
                 System.out.println("Succesfully transfered "+transfer2+" from Checking to Account"+sav2.getAccountNumber());
+                validInput4=true;
                 break;
 
                 case 3:
@@ -314,13 +371,20 @@ public class UI {
                 cred.transferTo(cred, transfer3);
                 log.logTransfer(cred, transfer3, cred);
                 System.out.println("Succesfully transfered "+transfer3+" from Checking to Account"+cred.getAccountNumber());
+                validInput4=true;
                 break;
 
                 default:
                 System.out.println("Incorrect input please try again");
                 break;
-            }
-        }
+            }}
+            validInput=true;
+            break;
+
+            default:
+            System.out.println("Incorrect input please try again");
+            break;
+        }}
         scan.close();
     }
 
@@ -331,10 +395,15 @@ public class UI {
         System.out.println("Which account would you like to transfer from?");
         System.out.println(" 1.Checking\n 2.Saving\n 3.Credit");
         int c = Integer.parseInt(scan.nextLine());
+
+        boolean validInput=false;
+        while(!validInput){
         switch (c){
             case 1:
             System.out.println("What account would you like to transfer to?\n 1.Saving\n 2.Credit");
             int s = Integer.parseInt(scan.nextLine());
+            boolean validInput2=false;
+            while(!validInput2){
             switch(s){
                 case 1:
                 System.out.println("Please enter the amount to transfer");
@@ -344,6 +413,7 @@ public class UI {
                 check.transferTo(sav, transfer);
                 log.logTransfer(check, transfer, sav);
                 System.out.print("Successfully transferred "+transfer+" from Checking to Savings");
+                validInput2=true;
                 break;
 
                 case 2:
@@ -354,17 +424,21 @@ public class UI {
                 check2.transferTo(cred, transfer2);
                 log.logTransfer(check2, transfer2, cred);
                 System.out.println("Successfully transferred "+transfer2+" from Checking to Credit");
+                validInput=true;
                 break;
 
                 default:
                 System.out.println("Incorrect input please try again");
                 break;
-            }
+            }}
+            validInput=true;
             break;
 
             case 2:
             System.out.println("What account would you like to transfer to?\n 1.Checking\n 2.Credit");
             int z=Integer.parseInt(scan.nextLine());
+            boolean validInput3=false;
+            while(!validInput3){
             switch(z){
                 case 1:
                 System.out.println("Please enter the amount to transfer");
@@ -374,6 +448,7 @@ public class UI {
                 sav.transferTo(check, transfer);
                 log.logTransfer(sav, transfer, check);
                 System.out.println("Succesfully transferred "+transfer+" from Savings to Checking");
+                validInput3=true;
                 break;
 
                 case 2:
@@ -384,17 +459,21 @@ public class UI {
                 sav2.transferTo(cred, transfer2);
                 log.logTransfer(sav2, transfer2, cred);
                 System.out.println("Successfully transferred "+transfer2+ " from Savings to Credit");
+                validInput3=true;
                 break;
 
                 default:
                 System.out.println("Incorrect input please try again");
                 break;
-            }
+            }}
+            validInput=true;
             break;
 
             case 3:
             System.out.println("What account would you like to transfer to?\n 1.Checking\n 2.Saving");
             int x = Integer.parseInt(scan.nextLine());
+            boolean validInput4=false;
+            while(!validInput4){
             switch (x){
                 case 1:
                 System.out.println("Please enter the amount to transfer");
@@ -404,6 +483,7 @@ public class UI {
                 cred.transferTo(check, transfer);
                 log.logTransfer(cred, transfer, check);
                 System.out.println("Successfully transferred "+transfer+" from Credit to Checking");
+                validInput4=true;
                 break;
 
                 case 2:
@@ -414,14 +494,21 @@ public class UI {
                 cred2.transferTo(sav, transfer2);
                 log.logTransfer(cred2, transfer2, sav);
                 System.out.println("Successfully transferred "+transfer2+" from Credit to Savings");
+                validInput4=true;
                 break;
 
                 default:
                 System.out.println("Incorrect input please try again");
                 break;
-            }
+            }}
+            validInput=true;
+            break;
 
-        }
+            default:
+            System.out.println("Incorrect input please try again");
+            break;
+
+        }}
         scan.close();
     }
 
@@ -434,6 +521,8 @@ public class UI {
         int sw = Integer.parseInt(scan.nextLine());
         String withdrawWords=("Please enter a withdrawal amount");
         String success=("Succesfully withdrew: ");
+        boolean validInput=false;
+        while(!validInput){
             switch(sw){
                 case 1:
                 System.out.println(withdrawWords);
@@ -442,6 +531,7 @@ public class UI {
                 wCheck.charge(withdraw);
                 log.logDeduction(wCheck, withdraw);
                 System.out.println(success+withdraw);
+                validInput=true;
                 break;
 
                 case 2:
@@ -451,6 +541,7 @@ public class UI {
                 wSav.charge(withdraw2);
                 log.logDeduction(wSav, withdraw2);
                 System.out.println(success+withdraw2);
+                validInput=true;
                 break;
 
                 case 3:
@@ -460,12 +551,13 @@ public class UI {
                 cred.charge(withdraw3);
                 log.logDeduction(cred, withdraw3);
                 System.out.println(success+withdraw3);
+                validInput=true;
                 break;
 
                 default:
                 System.out.println("Incorrect input please try again");
                 break;
-            }
+            }}
         scan.close();
 
     }
@@ -476,6 +568,8 @@ public class UI {
         System.out.println("Which account would you like to make a deposit in?");
         System.out.println(" 1.Checking\n 2.Savings\n 3.Credit");
         int s= Integer.parseInt(scan.nextLine());
+        boolean validInput=false;
+        while(!validInput){
             switch (s){
                 case 1:
                 Checking check=primary.getChecking();
@@ -484,6 +578,7 @@ public class UI {
                 check.deposit(deposit);
                 log.logAddition(check, deposit);
                 System.out.println("Succesfully deposited: "+deposit);
+                validInput=true;
                 break;
 
                 case 2:
@@ -493,6 +588,7 @@ public class UI {
                 sav.deposit(deposit2);
                 log.logAddition(sav, deposit2);
                 System.out.println("Succesfully deposited: "+deposit2);
+                validInput=true;
                 break;
 
                 case 3:
@@ -502,12 +598,13 @@ public class UI {
                 cred.deposit(deposit3);
                 log.logAddition(cred, deposit3);
                 System.out.println("Succesfully deposited: "+deposit3);
+                validInput=true;
                 break;
 
                 default:
                 System.out.println("Incorrect input please try again");
                 break;
-            }
+            }}
         scan.close();
 
     }
@@ -519,33 +616,39 @@ public class UI {
         Logger log= new Logger();
         log.fileCheck();
 
+        boolean validInput=false;
+        while(!validInput){
         switch(c){
             case 1:
             cust.displayInformation();
+            validInput=true;
             break;
 
             case 2:
             Checking check=cust.getChecking();
             check.displayInformation();
             log.logInquiry(cust,"Checking");
+            validInput=true;
             break;
 
             case 3:
             Saving sav=cust.getSaving();
             sav.displayInformation();
             log.logInquiry(cust, "Savings");
+            validInput=true;
             break;
 
             case 4:
             Credit cred=cust.getCredit();
             cred.displayInformation();
             log.logInquiry(cust, "Credit");
+            validInput=true;
             break;
 
             default:
             System.out.println("Incorrect input please try again");
             break;
-        }
+        }}
         scan.close();
 
     }
