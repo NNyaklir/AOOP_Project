@@ -3,22 +3,27 @@
 public class Credit extends Account{
     protected double maxCredit;//should be a negative double amount that cannot be surpassed
     
+    /**@param maxC max amount of credit in credit account
+     * @param bal starting balance
+     * constructor for testing only */
     protected Credit(double maxC,double bal){
         this.maxCredit=maxC;
         this.balance=bal;
 
     }
-
+    /**default no args constructor*/
     protected Credit(){
         
     }
 
-    /**@return current max credit */
+    /**@return current max credit
+     * gets max credit */
     protected double getMaxCredit(){
         return maxCredit;
     }
 
-    /**@param maxC max credit amount for current  */
+    /**@param maxC max credit amount for current 
+     * sets max credit */
     protected void setMaxCredit(double maxC){
         if(maxC<0){
             this.maxCredit=maxC;

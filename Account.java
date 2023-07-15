@@ -6,7 +6,7 @@ public abstract class Account{
     protected double balance;
 
     /** @param n new account number
-     * Sets the account number */
+     * sets the account number */
     protected void setAccountNumber(int n){
         this.accountNumber=n;
     }
@@ -18,33 +18,37 @@ public abstract class Account{
     }
 
     /** @param customer
-     * Sets the customer */
+     * sets the customer */
     protected void setCustomer(Customer c){
         this.customer=c;
     }
 
     /**@return customer
-     * Gets the customer */
+     * gets the customer */
     protected Customer getCustomer(){
         return customer;
     }
     
-    /** @param bal sets initail balance */
+    /** @param bal sets initial balance
+     * sets balance */
     protected void setBalance(double bal){
         this.balance=bal;
     }
 
-    /** @return current balance */ 
+    /** @return current balance 
+     * gets balance*/ 
     protected double getBalance(){
         return balance;
     }
 
-    /** @param c an amount charged to the balance */
+    /** @param c an amount charged to the balance
+     * charges account the specified amount */
     protected void charge(double c){
         balance-=c;
     }
 
-    /**@param d an amount deposited to account */
+    /**@param d an amount deposited to account
+     * deposits the specified amount into the account */
     protected void deposit(double d){
         balance+=d;
     }

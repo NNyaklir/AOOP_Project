@@ -7,6 +7,8 @@ public class Searcher {
      * @param last last name of the customer to be found
      * @param custList array list that has the customer objects
      * @return index in the given list of where the relevant item is
+     * Searches for name of person in given array list of customers and returns the index when found
+     * if not found returns -1
      */
     protected int searchByName(String first, String last, ArrayList<Customer> custList){
         
@@ -26,6 +28,8 @@ public class Searcher {
     /**@param accountNumber the account number to search for
      * @param accList the list of checking accounts to search through
      * @return the index in the given list of where the relevant item is
+     * searches for the checking account number in array list of checking accounts and returns the index when found
+     * returns -1 if not found
      */
     protected int searchByChecking(int accountNumber, ArrayList<Checking> accList){
         for(int i=0;i<accList.size();i++){
@@ -40,6 +44,8 @@ public class Searcher {
     /**@param accountNumber the account number to search for
      * @param accList the list of saving accounts to search through
      * @return the index in the given list of where the relevant item is
+     * searches for the account number in array list of saving accounts and returns index when found
+     * if not found, returns -1
      */
     protected int searchBySaving(int accountNumber, ArrayList<Saving> accList){
         for(int i=0;i<accList.size();i++){
@@ -54,6 +60,8 @@ public class Searcher {
     /**@param accountNumber the account number to search for
      * @param accList the list of credit accounts to search through
      * @return the index in the given list of where the relevant item is
+     * searches for the account number in array list of saving accounts and returns index when found
+     * if not found, returns -1
      */
     protected int searchByCredit(int accountNumber, ArrayList<Credit> accList){
         for(int i=0;i<accList.size();i++){

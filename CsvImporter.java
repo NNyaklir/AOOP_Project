@@ -93,8 +93,8 @@ public class CsvImporter {
     }
 
     /**
-     * @return a 2d array that stores data from an csv file, only used in
-     *         importCSVto2d
+     * @return a 2d array that stores data from an csv file, only used in importCSVto2d
+     * Returns a 2d array that stores data from a csv file, only used in importCSVto2d
      */
     protected String[][] importCSVto2darray() {
         String[][] data = null;
@@ -133,8 +133,8 @@ public class CsvImporter {
     }
 
     /**
-     * @return a 2d array, that has data stored from this class's array lists.
-     *         Only used in export.
+     * @return a 2d array
+     * data stored from this class's array lists, only used in export.
      */
     protected String[][] arrayListTo2d() {
         String[][] data = new String[rows][columns];
@@ -211,27 +211,32 @@ public class CsvImporter {
         }
     }
 
-    /** @return an array list of customeers */
+    /** @return an array list of customers 
+     * gets array list of customers*/
     protected ArrayList<Customer> getCustList() {
         return custList;
     }
 
-    /** @retrun an array list of checking accounts */
+    /** @return an array list of checking accounts
+     * gets array list of checking accounts */
     protected ArrayList<Checking> getCheckList() {
         return checkingList;
     }
 
-    /** @return an array list of saving accounts */
+    /** @return an array list of saving accounts 
+     * gets array list of saving accounts*/
     protected ArrayList<Saving> getSavingList() {
         return savingList;
     }
 
-    /** @return an array list of saving accounts */
+    /** @return an array list of saving accounts 
+     * gets array list of credit accounts*/
     protected ArrayList<Credit> getCreditList() {
         return creditList;
     }
 
-    /** @param filePath path of files in directory */
+    /** @param filePath path of files in directory 
+     * sets the csv path*/
     protected void setCSVFile(String filePath) {
         this.csvFile = filePath;
     }
