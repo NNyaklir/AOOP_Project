@@ -61,4 +61,9 @@ public abstract class Account{
             System.out.println("Successfully transferred "+amount+" from Account:"+accID1+" to Account:"+accID2);
         }
     }
+
+    protected void displayInformation(){
+        System.out.println(customer.getNameFirst()+" "+customer.getNameLast()+"'s Information");
+        System.out.println("Account "+accountNumber+" has a balance of " +balance+".");
+    }
 }
