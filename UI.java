@@ -8,14 +8,19 @@ public class UI {
     private ArrayList<Saving> savList;
     private ArrayList<Credit> creditList;
 
-
-    public void runUI(){
+    public void runStartUp(){
         CsvImporter importer= new CsvImporter();
         importer.dataImport();
         this.custList= importer.getCustList();
         this.checkList= importer.getCheckList();
         this.savList = importer.getSavingList();
         this.creditList= importer.getCreditList();
+
+    }
+
+
+    public void runUI(){
+        
 
         Scanner scan=new Scanner(System.in);
         while(true){
@@ -46,6 +51,7 @@ public class UI {
                     break;
                 }
                 if(scan.nextLine().equals("EXIT")){
+                CsvImporter importer= new CsvImporter();
                 importer.export();
                 break;
             }
@@ -64,7 +70,7 @@ public class UI {
 
         boolean validInput=false;
         while(!validInput){
-            System.out.println("Welcome Admin. What would you like to do today?\n 1.Inquire account by name\n 2.Inquire account by type/number");
+            System.out.println("Welcome Admin. What would you like to do today?\n 1.Inquire account by name\n 2.Inquire account by type/number\n 3.Go back");
             int c = Integer.parseInt(scan.nextLine());
             switch(c){
                 case 1:
@@ -77,6 +83,7 @@ public class UI {
                 if(index>0){
                     custList.get(index).displayInformation();
                     validInput=true;
+                    adminLogIn();
                 }
                 else{
                     System.out.println("User not found, please input name correctly");
@@ -88,7 +95,7 @@ public class UI {
                 
                 boolean validInput2=false;
                 while(!validInput2){
-                System.out.println("What is the account type?\n 1.Checking\n 2.Saving\n 3.Credit");
+                System.out.println("What is the account type?\n 1.Checking\n 2.Saving\n 3.Credit\n 4.Go back");
                 int z = Integer.parseInt(scan.nextLine());
                 switch(z){
                 
@@ -97,6 +104,8 @@ public class UI {
                     int accNum=Integer.parseInt(scan.nextLine());
                     int checkIndex=search.searchByChecking(accNum, checkList);
                     checkList.get(checkIndex).displayInformation();
+                    adminLogIn();
+                    validInput2=true;
                     break;
                 
                     case 2:
@@ -104,6 +113,8 @@ public class UI {
                     int accNum2=Integer.parseInt(scan.nextLine());
                     int savIndex=search.searchBySaving(accNum2, savList);
                     savList.get(savIndex).displayInformation();
+                    adminLogIn();
+                    validInput2=true;
                     break;
 
 
@@ -112,6 +123,13 @@ public class UI {
                     int accNum3=Integer.parseInt(scan.nextLine());
                     int credIndex=search.searchByCredit(accNum3, creditList);
                     creditList.get(credIndex).displayInformation();
+                    adminLogIn();
+                    validInput2=true;
+                    break;
+
+                    case 4:
+                    adminLogIn();
+                    validInput2=true;
                     break;
 
 
@@ -121,6 +139,11 @@ public class UI {
 
                 
                 }}
+                validInput=true;
+                break;
+
+                case 3:
+                runUI();
                 validInput=true;
                 break;
 
