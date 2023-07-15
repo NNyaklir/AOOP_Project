@@ -28,5 +28,16 @@ public class CsvImporterTester{
         System.out.println(another.get(0).getNameFirst());
 
         importer.export();
+
+        Searcher search = new Searcher();
+
+        int index= search.searchByName("Cesar", "Cabrera", another);
+        System.out.println("index should equal 13, actual: "+index);
+
+        ArrayList<Checking> checkList= importer.getCheckList();
+        int index2=search.searchByChecking(1075,checkList);
+
+        System.out.println("index should equal 3, actual:"+index2);
+
     }
 }

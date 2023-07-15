@@ -7,62 +7,74 @@ public class Person {
     protected int id;
     protected String dob;
     
-    /**@param s first name */
+    /**@param s first name 
+     * sets the first name of person*/
     protected void setNameFirst(String s){
         this.nameFirst=s;
     }
     
-    /**@return first name */
+    /**@return first name 
+     * gets the first name from person*/
     protected String getNameFirst(){
         return nameFirst;
     }
 
-    /**@param a person's address */
+    /**@param a person's address 
+     * sets the address of person*/
     protected void setAddress(String a){
         this.address=a;
     }
 
-    /**@return person's address */
+    /**@return person's address 
+     * gets the address from person*/
     protected String getAddress(){
         return address;
     }
 
-    /**@param n phone number as a string */
+    /**@param n phone number as a string 
+     * sets the phone number of person*/
     protected void setPhoneNumber(String n){
         this.phoneNumber=n;
     }
 
-    /**@return phone number as a string */
+    /**@return phone number as a string 
+     * gets the phone number from person*/
     protected String getPhoneNumber(){
         return phoneNumber;
     }
 
-    /**@param n an id number */
+    /**@param n an id number
+     * sets the id number of person */
     protected void setId(int n){
         this.id=n;
     }
 
-    /**@return id number */
+    /**@return id number 
+     * gets the id number from person*/
     protected int getId(){
         return id;
     }
 
-    /**@param s dob to accomadate unknown format */
+    /**@param s date of birth in String format
+     * sets the date of birth of person */
     protected void setDob(String s){
         this.dob=s;
     }
 
-    /**@return the dob */
+    /**@return the dob 
+     * gets the date of birth of person*/
     protected String getDob(){
         return dob;
     }
 
-    /**@param l last name */
+    /**@param l last name 
+     * sets last name of person*/
     protected void setNameLast(String l){
         this.nameLast=l;
     }
 
-    /**@return last name */
+    /**@return last name 
+     * gets last name of person*/
     protected String getNameLast(){
         return nameLast;
     }

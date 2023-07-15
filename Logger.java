@@ -7,6 +7,7 @@ public class Logger{
     "C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\log.txt";
     File logFile = new File(filePath);
 
+    /**This method ensures that there is a file to use before logging information */
     protected void fileCheck(){
         if(!logFile.exists()){
             logFile= new File(filePath);
@@ -66,6 +67,22 @@ public class Logger{
         writer.close();
         }
         catch (Exception e){  
+        }
+    }
+
+    /**@param cust customer that has made the inquiry
+     * This method will log a single account inquiry into log.txt
+     */
+    protected void logInquiry(Customer cust,String type){
+        try{
+            FileWriter writer = new FileWriter(filePath, true);
+            String loggedS=(cust.getNameFirst()+" "+cust.getNameLast()+" made an inquiry into "+type+" Acount");
+            writer.write(loggedS);
+            writer.flush();
+            writer.close();
+        }
+        catch (Exception e){
+
         }
     }
     

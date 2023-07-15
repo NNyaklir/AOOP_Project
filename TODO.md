@@ -4,20 +4,20 @@
 
 ## Programming
     [x] Read files with information and store information -Devin
-    [ ] Operations
-        [ ] Balance inquiry
+    [x] Operations
+        [x] Balance inquiry
         [x] Deposit
         [x] Withdraw
         [x] Transfer between accounts -Devin
-        [ ] Have feedback for the above (ie "xx has been withdrawn")
+        [x] Have feedback for the above (ie "xx has been withdrawn")
     [X] User interaction - Adrian
         [X] Ask who user is - Adrian
         [X] Ask if bank manager - Adrian
-            [ ] Bank managers need admin access to see inquire about any account
+            [x] Bank managers need admin access to see inquire about any account
         [X] Money services UI page in main (needs more work) - Adrian
-    [ ] Transaction Logs -Devin
-        [ ] Log all transactions
-        [ ] Ability to print transaction log
+    [x] Transaction Logs -Devin
+        [x] Log all transactions
+        [x] Ability to print transaction log
     [X] Exit Program - Adrian
         (needs to update bank usersheet)
 
@@ -26,7 +26,7 @@
     [ ] Lab Report
         [ ] Including assumptions
         [ ] Screenshots of programming running
-    [ ] UML Class Diagram (PDF)
-    [ ] UML Use Case Diagram (PDF)
-    [ ] Updated Bank User Sheet (.csv)  
-    [ ] Log (.txt)
+    [x] UML Class Diagram (PDF)
+    [x] UML Use Case Diagram (PDF)
+    [x] Updated Bank User Sheet (.csv)  
+    [x] Log (.txt)

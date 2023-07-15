@@ -5,42 +5,50 @@ public abstract class Account{
     protected Customer customer;
     protected double balance;
 
-    /** @param n new account number */
+    /** @param n new account number
+     * sets the account number */
     protected void setAccountNumber(int n){
         this.accountNumber=n;
     }
 
-    /**@return the account number */
+    /**@return the account number 
+     * gets the account number and returns it*/
     protected int getAccountNumber(){
         return accountNumber;
     }
 
-    /** @param customer */
+    /** @param customer
+     * sets the customer */
     protected void setCustomer(Customer c){
         this.customer=c;
     }
 
-    /**@return customer */
+    /**@return customer
+     * gets the customer */
     protected Customer getCustomer(){
         return customer;
     }
     
-    /** @param bal sets initail balance */
+    /** @param bal sets initial balance
+     * sets balance */
     protected void setBalance(double bal){
         this.balance=bal;
     }
 
-    /** @return current balance */ 
+    /** @return current balance 
+     * gets balance*/ 
     protected double getBalance(){
         return balance;
     }
 
-    /** @param c an amount charged to the balance */
+    /** @param c an amount charged to the balance
+     * charges account the specified amount */
     protected void charge(double c){
         balance-=c;
     }
 
-    /**@param d an amount deposited to account */
+    /**@param d an amount deposited to account
+     * deposits the specified amount into the account */
     protected void deposit(double d){
         balance+=d;
     }
@@ -60,5 +68,10 @@ public abstract class Account{
             int accID2=recepient.getAccountNumber();
             System.out.println("Successfully transferred "+amount+" from Account:"+accID1+" to Account:"+accID2);
         }
+    }
+
+    protected void displayInformation(){
+        System.out.println(customer.getNameFirst()+" "+customer.getNameLast()+"'s Information");
+        System.out.println("Account "+accountNumber+" has a balance of " +balance+".");
     }
 }
