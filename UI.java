@@ -8,16 +8,22 @@ public class UI {
     private ArrayList<Saving> savList;
     private ArrayList<Credit> creditList;
 
-    public void runUI() {
-        CsvImporter importer = new CsvImporter();
+    public void runStartUp(){
+        CsvImporter importer= new CsvImporter();
         importer.dataImport();
         this.custList = importer.getCustList();
         this.checkList = importer.getCheckList();
         this.savList = importer.getSavingList();
         this.creditList = importer.getCreditList();
 
-        Scanner scan = new Scanner(System.in);
-        while (true) {
+    }
+
+
+    public void runUI(){
+        
+
+        Scanner scan=new Scanner(System.in);
+        while(true){
             System.out.println("Welcome to the El Paso Miners Banking system");
             System.out.println("please log-in below");
 
@@ -43,9 +49,15 @@ public class UI {
                         break;
                 }
                 if (scan.nextLine().equals("EXIT")) {
+                    CsvImporter importer = new CsvImporter();
                     importer.export();
                     break;
                 }
+                if(scan.nextLine().equals("EXIT")){
+                CsvImporter importer= new CsvImporter();
+                importer.export();
+                break;
+            }
             }
 
             scan.close();
@@ -56,64 +68,84 @@ public class UI {
         Scanner scan = new Scanner(System.in);
         Searcher search = new Searcher();
 
-        boolean validInput = false;
-        while (!validInput) {
-            System.out.println(
-                    "Welcome Admin. What would you like to do today?\n 1.Inquire account by name\n 2.Inquire account by type/number");
+        boolean validInput=false;
+        while(!validInput){
+            System.out.println("Welcome Admin. What would you like to do today?\n 1.Inquire account by name\n 2.Inquire account by type/number\n 3.Go back");
             int c = Integer.parseInt(scan.nextLine());
             switch (c) {
                 case 1:
-                    System.out.println("Please enter the name of the account");
-                    String accountName = scan.nextLine();
-                    String[] parts = accountName.split(" ");
-                    String firstName = parts[0];
-                    String lastName = parts[1];
-                    int index = search.searchByName(firstName, lastName, custList);
-                    if (index > 0) {
-                        custList.get(index).displayInformation();
-                        validInput = true;
-                    } else {
-                        System.out.println("User not found, please input name correctly");
-                    }
-
-                    break;
+                System.out.println("Please enter the name of the account");
+                String accountName=scan.nextLine();
+                String[] parts = accountName.split(" ");
+                String firstName= parts[0];
+                String lastName= parts[1];
+                int index= search.searchByName(firstName, lastName, custList);
+                if(index>0){
+                    custList.get(index).displayInformation();
+                    validInput=true;
+                    adminLogIn();
+                }
+                else{
+                    System.out.println("User not found, please input name correctly");
+                }
+                
+                break;
 
                 case 2:
-                    System.out.println("What is the account type?\n 1.Checking\n 2.Saving\n 3.Credit");
-                    int z = Integer.parseInt(scan.nextLine());
-                    boolean validInput2 = false;
-                    while (!validInput2) {
-                        switch (z) {
-
-                            case 1:
-                                System.out.println("Please enter account number");
-                                int accNum = Integer.parseInt(scan.nextLine());
-                                int checkIndex = search.searchByChecking(accNum, checkList);
-                                checkList.get(checkIndex).displayInformation();
-                                break;
-
-                            case 2:
-                                System.out.println("Please enter account number");
-                                int accNum2 = Integer.parseInt(scan.nextLine());
-                                int savIndex = search.searchBySaving(accNum2, savList);
-                                savList.get(savIndex).displayInformation();
-                                break;
-
-                            case 3:
-                                System.out.println("Please enter account number");
-                                int accNum3 = Integer.parseInt(scan.nextLine());
-                                int credIndex = search.searchByCredit(accNum3, creditList);
-                                creditList.get(credIndex).displayInformation();
-                                break;
-
-                            default:
-                                System.out.println("Incorrect input please try again");
-                                break;
-
-                        }
-                    }
-                    validInput = true;
+                
+                boolean validInput2=false;
+                while(!validInput2){
+                System.out.println("What is the account type?\n 1.Checking\n 2.Saving\n 3.Credit\n 4.Go back");
+                int z = Integer.parseInt(scan.nextLine());
+                switch(z){
+                
+                    case 1:
+                    System.out.println("Please enter account number");
+                    int accNum=Integer.parseInt(scan.nextLine());
+                    int checkIndex=search.searchByChecking(accNum, checkList);
+                    checkList.get(checkIndex).displayInformation();
+                    adminLogIn();
+                    validInput2=true;
                     break;
+                
+                    case 2:
+                    System.out.println("Please enter account number");
+                    int accNum2=Integer.parseInt(scan.nextLine());
+                    int savIndex=search.searchBySaving(accNum2, savList);
+                    savList.get(savIndex).displayInformation();
+                    adminLogIn();
+                    validInput2=true;
+                    break;
+
+
+                    case 3:
+                    System.out.println("Please enter account number");
+                    int accNum3=Integer.parseInt(scan.nextLine());
+                    int credIndex=search.searchByCredit(accNum3, creditList);
+                    creditList.get(credIndex).displayInformation();
+                    adminLogIn();
+                    validInput2=true;
+                    break;
+
+                    case 4:
+                    adminLogIn();
+                    validInput2=true;
+                    break;
+
+
+                    default:
+                    System.out.println("Incorrect input please try again");
+                    break;
+
+                
+                }}
+                validInput=true;
+                break;
+
+                case 3:
+                runUI();
+                validInput=true;
+                break;
 
                 default:
                     System.out.println("Incorrect input please try again");
