@@ -5,22 +5,26 @@ public abstract class Account{
     protected Customer customer;
     protected double balance;
 
-    /** @param n new account number */
+    /** @param n new account number
+     * Sets the account number */
     protected void setAccountNumber(int n){
         this.accountNumber=n;
     }
 
-    /**@return the account number */
+    /**@return the account number 
+     * gets the account number and returns it*/
     protected int getAccountNumber(){
         return accountNumber;
     }
 
-    /** @param customer */
+    /** @param customer
+     * Sets the customer */
     protected void setCustomer(Customer c){
         this.customer=c;
     }
 
-    /**@return customer */
+    /**@return customer
+     * Gets the customer */
     protected Customer getCustomer(){
         return customer;
     }

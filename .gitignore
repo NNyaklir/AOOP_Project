@@ -7,3 +7,10 @@
 /CreditTesting.class
 .project
 .classpath
+/CsvImporter.class
+/CsvImporterTester.class
+/Logger.class
+/LoggerTest.class
+/RunBank.class
+/Searcher.class
+/UI.class
