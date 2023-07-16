@@ -22,6 +22,7 @@ public class UI {
     /**A method that runs a UI in the terminal */
     public void runUI() {
 
+        try{
         Scanner scan = new Scanner(System.in);
         while (true) {
             System.out.println("Welcome to the El Paso Miners Banking system");
@@ -61,6 +62,12 @@ public class UI {
             }
 
             scan.close();
+        }}
+        catch(Exception e){
+            CsvImporter importer = new CsvImporter();
+            importer.export();
+            System.out.println("Incorrect input please try again");
+            runUI();
         }
     }
 
@@ -69,6 +76,7 @@ public class UI {
         Scanner scan = new Scanner(System.in);
         Searcher search = new Searcher();
 
+        try{
         boolean validInput = false;
         while (!validInput) {
             System.out.println(
@@ -150,12 +158,17 @@ public class UI {
                     System.out.println("Incorrect input please try again");
                     break;
             }
+        }}
+        catch(Exception e){
+            System.out.println("Error occured, returning to admin login");
+            adminLogIn();
         }
         scan.close();
 
     }
     /**A method that runs the customer login UI, exclusively called by runUI */
     private void customerLogIn() {
+        try{
         System.out.println("Please enter your first and last name");
 
         Scanner scan = new Scanner(System.in);
@@ -199,9 +212,15 @@ public class UI {
             System.out.println("User not found, please make sure you input the name correctly");
         }
         scan.close();
+        }
+        catch(Exception e){
+            System.out.println("Error occured, returing to customer log in");
+            customerLogIn();
+        }
     }
     /**A method that runs the money services UI, exclusively called by customerLogIn */
     private void moneyServices(Customer primary) {
+        try{
         System.out.println("Thank you for accessing our money services, what would you like to do?");
         System.out.println(" 1.Deposit\n 2.Withdraw\n 3.Transfer\n 4.Make a Payment \n 5. Return to Log-In");
         Scanner scan = new Scanner(System.in);
@@ -239,13 +258,21 @@ public class UI {
 
                 default:
                     System.out.println("Incorrect input please try again");
+                    moneyServices(primary);
+                    break;
 
             }
         }
         scan.close();
+        }
+        catch(Exception e){
+            System.out.println("Error occured, returning to money services menu");
+            moneyServices(primary);
+        }
     }
     /**A method that runs the payment UI, exclusively called by moneyServices */
     private void makePayment(Customer primary) {
+        try{
         Scanner scan = new Scanner(System.in);
         Logger log = new Logger();
 
@@ -456,6 +483,11 @@ public class UI {
             }
         }
         scan.close();
+        }
+        catch(Exception e){
+            System.out.println("Error occured returning to payment menu"); 
+            makePayment(primary);
+        }
     }
     /**A method that runs the transfer UI, exclusively called by moneyServices */
     private void transfer(Customer primary) {
