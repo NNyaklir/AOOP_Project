@@ -195,7 +195,7 @@ public class CsvImporter {
             // "C:\\Users\\devin\\Documents\\VSCode
             // Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\BankUsers.csv"
             FileWriter writer = new FileWriter(
-                    "C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\BankExportCheck.csv");
+                    "C:\\Users\\devin\\Documents\\Workstation\\Project\\AOOP_Project\\BankExportCheck.csv");
             for (String[] row : array) {
                 for (int i = 1; i < row.length; i++) {
                     writer.append(String.valueOf(row[i]));

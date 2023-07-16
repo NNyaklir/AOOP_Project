@@ -278,6 +278,7 @@ public class UI {
         Logger log = new Logger();
         CsvImporter importer = new CsvImporter();
 
+
         System.out.println("Which account would you like to make a payment from?");
         System.out.println(" 1.Checking\n 2.Saving\n 3.Credit\n 4.Return to Money Services");
         int c = Integer.parseInt(scan.nextLine());
@@ -288,6 +289,7 @@ public class UI {
             switch (c) {
                 case 1:
                     Checking check = primary.getChecking();
+                    int main= search.searchByChecking(check.getAccountNumber(),checkList);
                     System.out.println(
                             "What Account type are you making a payment to?\n 1.Checking\n 2.Saving\n 3.Credit");
                     int s = Integer.parseInt(scan.nextLine());
@@ -302,7 +304,7 @@ public class UI {
                                 Checking check2 = checkList.get(accIn);
                                 System.out.println("please enter the amount to transfer");
                                 double transfer = Double.parseDouble(scan.nextLine());
-                                check.transferTo(check2, transfer);
+                                checkList.get(main).transferTo(checkList.get(accIn), transfer);
                                 log.logTransfer(check, transfer, check2);
                                 importer.export();
                                 System.out.println("Succesfully transfered " + transfer + " from Checking to Account"
@@ -318,7 +320,7 @@ public class UI {
                                 Checking sav = checkList.get(accIn2);
                                 System.out.println("please enter the amount to transfer");
                                 double transfer2 = Double.parseDouble(scan.nextLine());
-                                check.transferTo(sav, transfer2);
+                                checkList.get(main).transferTo(savList.get(accIn2), transfer2);
                                 log.logTransfer(check, transfer2, sav);
                                 importer.export();
                                 System.out.println("Succesfully transfered " + transfer2 + " from Checking to Account"
@@ -334,7 +336,7 @@ public class UI {
                                 Checking cred = checkList.get(accIn3);
                                 System.out.println("please enter the amount to transfer");
                                 double transfer3 = Double.parseDouble(scan.nextLine());
-                                check.transferTo(cred, transfer3);
+                                checkList.get(main).transferTo(creditList.get(accIn3), transfer3);
                                 log.logTransfer(check, transfer3, cred);
                                 importer.export();
                                 System.out.println("Succesfully transfered " + transfer3 + " from Checking to Account"
@@ -357,6 +359,7 @@ public class UI {
                     System.out.println(
                             "What Account type are you making a payment to?\n 1.Checking\n 2.Saving\n 3.Credit");
                     int x = Integer.parseInt(scan.nextLine());
+                    int savingIn=search.searchBySaving(sav.getAccountNumber(), savList);
 
                     boolean validInput3 = false;
                     while (!validInput3) {
@@ -368,7 +371,7 @@ public class UI {
                                 Checking check2 = checkList.get(accIn);
                                 System.out.println("please enter the amount to transfer");
                                 double transfer = Double.parseDouble(scan.nextLine());
-                                sav.transferTo(check2, transfer);
+                                savList.get(savingIn).transferTo(checkList.get(accIn), transfer);
                                 log.logTransfer(sav, transfer, check2);
                                 importer.export();
                                 System.out.println("Succesfully transfered " + transfer + " from Checking to Account"
@@ -384,7 +387,7 @@ public class UI {
                                 Checking sav2 = checkList.get(accIn2);
                                 System.out.println("please enter the amount to transfer");
                                 double transfer2 = Double.parseDouble(scan.nextLine());
-                                sav.transferTo(sav, transfer2);
+                                savList.get(savingIn).transferTo(savList.get(accIn2), transfer2);
                                 log.logTransfer(sav, transfer2, sav2);
                                 importer.export();
                                 System.out.println("Succesfully transfered " + transfer2 + " from Checking to Account"
@@ -400,7 +403,7 @@ public class UI {
                                 Checking cred = checkList.get(accIn3);
                                 System.out.println("please enter the amount to transfer");
                                 double transfer3 = Double.parseDouble(scan.nextLine());
-                                sav.transferTo(cred, transfer3);
+                                savList.get(savingIn).transferTo(creditList.get(accIn3), transfer3);
                                 log.logTransfer(sav, transfer3, cred);
                                 importer.export();
                                 System.out.println("Succesfully transfered " + transfer3 + " from Checking to Account"
@@ -420,6 +423,7 @@ public class UI {
 
                 case 3:
                     Credit cred2 = primary.getCredit();
+                    int credIn=search.searchByCredit(cred2.getAccountNumber(), creditList);
                     System.out.println(
                             "What Account type are you making a payment to?\n 1.Checking\n 2.Saving\n 3.Credit");
                     int m = Integer.parseInt(scan.nextLine());
@@ -434,7 +438,7 @@ public class UI {
                                 Checking check2 = checkList.get(accIn);
                                 System.out.println("please enter the amount to transfer");
                                 double transfer = Double.parseDouble(scan.nextLine());
-                                cred2.transferTo(check2, transfer);
+                                creditList.get(credIn).transferTo(checkList.get(accIn), transfer);
                                 log.logTransfer(cred2, transfer, check2);
                                 importer.export();
                                 System.out.println("Succesfully transfered " + transfer + " from Checking to Account"
@@ -450,7 +454,7 @@ public class UI {
                                 Checking sav2 = checkList.get(accIn2);
                                 System.out.println("please enter the amount to transfer");
                                 double transfer2 = Double.parseDouble(scan.nextLine());
-                                cred2.transferTo(sav2, transfer2);
+                                creditList.get(credIn).transferTo(savList.get(accIn2), transfer2);
                                 log.logTransfer(cred2, transfer2, sav2);
                                 importer.export();
                                 System.out.println("Succesfully transfered " + transfer2 + " from Checking to Account"
@@ -466,7 +470,7 @@ public class UI {
                                 Checking cred = checkList.get(accIn3);
                                 System.out.println("please enter the amount to transfer");
                                 double transfer3 = Double.parseDouble(scan.nextLine());
-                                cred.transferTo(cred, transfer3);
+                                creditList.get(credIn).transferTo(creditList.get(accIn3), transfer3);
                                 log.logTransfer(cred, transfer3, cred);
                                 importer.export();
                                 System.out.println("Succesfully transfered " + transfer3 + " from Checking to Account"
@@ -506,6 +510,7 @@ public class UI {
         Scanner scan = new Scanner(System.in);
         Logger log = new Logger();
         CsvImporter importer= new CsvImporter();
+        Searcher search=new Searcher();
 
         System.out.println("Which account would you like to transfer from?");
         System.out.println(" 1.Checking\n 2.Saving\n 3.Credit\n 4.Return to Money Services");
