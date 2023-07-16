@@ -673,6 +673,7 @@ public class UI {
                     log.logAddition(check, deposit);
                     System.out.println("Succesfully deposited: " + deposit);
                     validInput = true;
+                    deposit(primary);
                     break;
 
                 case 2:
@@ -683,6 +684,7 @@ public class UI {
                     log.logAddition(sav, deposit2);
                     System.out.println("Succesfully deposited: " + deposit2);
                     validInput = true;
+                    deposit(primary);
                     break;
 
                 case 3:
@@ -693,6 +695,7 @@ public class UI {
                     log.logAddition(cred, deposit3);
                     System.out.println("Succesfully deposited: " + deposit3);
                     validInput = true;
+                    deposit(primary);
                     break;
 
                 case 4:
