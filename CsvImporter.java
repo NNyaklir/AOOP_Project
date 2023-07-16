@@ -15,7 +15,7 @@ public class CsvImporter {
     protected ArrayList<Credit> creditList = new ArrayList<Credit>();
     private int rows;
     private int columns;
-    protected String csvFile = "C:\\Users\\abeat\\OneDrive - University of Texas at El Paso\\Summer 23\\Adv. Object Oriented Programming\\Labs\\AOOP_Project\\BankUsers.csv";
+    protected String csvFile = "C:\\Users\\devin\\Documents\\Workstation\\Project\\AOOP_Project\\BankUsers.csv";
 
     /**
      * method to import data from a csv and store it into specified objects and
