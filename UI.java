@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 /** A class that provides a UI for main */
 public class UI {
     private ArrayList<Customer> custList;
@@ -275,6 +276,7 @@ public class UI {
         try{
         Scanner scan = new Scanner(System.in);
         Logger log = new Logger();
+        CsvImporter importer = new CsvImporter();
 
         System.out.println("Which account would you like to make a payment from?");
         System.out.println(" 1.Checking\n 2.Saving\n 3.Credit\n 4.Return to Money Services");
@@ -302,6 +304,7 @@ public class UI {
                                 double transfer = Double.parseDouble(scan.nextLine());
                                 check.transferTo(check2, transfer);
                                 log.logTransfer(check, transfer, check2);
+                                importer.export();
                                 System.out.println("Succesfully transfered " + transfer + " from Checking to Account"
                                         + check2.getAccountNumber());
                                 validInput2 = true;
@@ -317,6 +320,7 @@ public class UI {
                                 double transfer2 = Double.parseDouble(scan.nextLine());
                                 check.transferTo(sav, transfer2);
                                 log.logTransfer(check, transfer2, sav);
+                                importer.export();
                                 System.out.println("Succesfully transfered " + transfer2 + " from Checking to Account"
                                         + sav.getAccountNumber());
                                 validInput2 = true;
@@ -332,6 +336,7 @@ public class UI {
                                 double transfer3 = Double.parseDouble(scan.nextLine());
                                 check.transferTo(cred, transfer3);
                                 log.logTransfer(check, transfer3, cred);
+                                importer.export();
                                 System.out.println("Succesfully transfered " + transfer3 + " from Checking to Account"
                                         + cred.getAccountNumber());
                                 validInput2 = true;
@@ -365,6 +370,7 @@ public class UI {
                                 double transfer = Double.parseDouble(scan.nextLine());
                                 sav.transferTo(check2, transfer);
                                 log.logTransfer(sav, transfer, check2);
+                                importer.export();
                                 System.out.println("Succesfully transfered " + transfer + " from Checking to Account"
                                         + check2.getAccountNumber());
                                 validInput3 = true;
@@ -380,6 +386,7 @@ public class UI {
                                 double transfer2 = Double.parseDouble(scan.nextLine());
                                 sav.transferTo(sav, transfer2);
                                 log.logTransfer(sav, transfer2, sav2);
+                                importer.export();
                                 System.out.println("Succesfully transfered " + transfer2 + " from Checking to Account"
                                         + sav2.getAccountNumber());
                                 validInput3 = true;
@@ -395,6 +402,7 @@ public class UI {
                                 double transfer3 = Double.parseDouble(scan.nextLine());
                                 sav.transferTo(cred, transfer3);
                                 log.logTransfer(sav, transfer3, cred);
+                                importer.export();
                                 System.out.println("Succesfully transfered " + transfer3 + " from Checking to Account"
                                         + cred.getAccountNumber());
                                 validInput3 = true;
@@ -428,6 +436,7 @@ public class UI {
                                 double transfer = Double.parseDouble(scan.nextLine());
                                 cred2.transferTo(check2, transfer);
                                 log.logTransfer(cred2, transfer, check2);
+                                importer.export();
                                 System.out.println("Succesfully transfered " + transfer + " from Checking to Account"
                                         + check2.getAccountNumber());
                                 validInput4 = true;
@@ -443,6 +452,7 @@ public class UI {
                                 double transfer2 = Double.parseDouble(scan.nextLine());
                                 cred2.transferTo(sav2, transfer2);
                                 log.logTransfer(cred2, transfer2, sav2);
+                                importer.export();
                                 System.out.println("Succesfully transfered " + transfer2 + " from Checking to Account"
                                         + sav2.getAccountNumber());
                                 validInput4 = true;
@@ -458,6 +468,7 @@ public class UI {
                                 double transfer3 = Double.parseDouble(scan.nextLine());
                                 cred.transferTo(cred, transfer3);
                                 log.logTransfer(cred, transfer3, cred);
+                                importer.export();
                                 System.out.println("Succesfully transfered " + transfer3 + " from Checking to Account"
                                         + cred.getAccountNumber());
                                 validInput4 = true;
@@ -491,8 +502,10 @@ public class UI {
     }
     /**A method that runs the transfer UI, exclusively called by moneyServices */
     private void transfer(Customer primary) {
+        try{
         Scanner scan = new Scanner(System.in);
         Logger log = new Logger();
+        CsvImporter importer= new CsvImporter();
 
         System.out.println("Which account would you like to transfer from?");
         System.out.println(" 1.Checking\n 2.Saving\n 3.Credit\n 4.Return to Money Services");
@@ -514,6 +527,7 @@ public class UI {
                                 Saving sav = primary.getSaving();
                                 check.transferTo(sav, transfer);
                                 log.logTransfer(check, transfer, sav);
+                                importer.export();
                                 System.out.print("Successfully transferred " + transfer + " from Checking to Savings");
                                 validInput2 = true;
                                 transfer(primary);
@@ -526,6 +540,7 @@ public class UI {
                                 Credit cred = primary.getCredit();
                                 check2.transferTo(cred, transfer2);
                                 log.logTransfer(check2, transfer2, cred);
+                                importer.export();
                                 System.out.println("Successfully transferred " + transfer2 + " from Checking to Credit");
                                 validInput = true;
                                 transfer(primary);
@@ -552,6 +567,7 @@ public class UI {
                                 Checking check = primary.getChecking();
                                 sav.transferTo(check, transfer);
                                 log.logTransfer(sav, transfer, check);
+                                importer.export();
                                 System.out.println("Succesfully transferred " + transfer + " from Savings to Checking");
                                 validInput3 = true;
                                 transfer(primary);
@@ -564,6 +580,7 @@ public class UI {
                                 Credit cred = primary.getCredit();
                                 sav2.transferTo(cred, transfer2);
                                 log.logTransfer(sav2, transfer2, cred);
+                                importer.export();
                                 System.out.println("Successfully transferred " + transfer2 + " from Savings to Credit");
                                 validInput3 = true;
                                 transfer(primary);
@@ -590,6 +607,7 @@ public class UI {
                                 Checking check = primary.getChecking();
                                 cred.transferTo(check, transfer);
                                 log.logTransfer(cred, transfer, check);
+                                importer.export();
                                 System.out.println("Successfully transferred " + transfer + " from Credit to Checking");
                                 validInput4 = true;
                                 transfer(primary);
@@ -602,6 +620,7 @@ public class UI {
                                 Saving sav = primary.getSaving();
                                 cred2.transferTo(sav, transfer2);
                                 log.logTransfer(cred2, transfer2, sav);
+                                importer.export();
                                 System.out.println("Successfully transferred " + transfer2 + " from Credit to Savings");
                                 validInput4 = true;
                                 transfer(primary);
@@ -626,12 +645,20 @@ public class UI {
 
             }
         }
+        
         scan.close();
+        }
+        catch(Exception e){
+            System.out.println("Error returing to transfer menu");
+            transfer(primary);
+        }
     }
     /**A method that runs the withdraw UI, exclusively called by moneyServices */
     private void withdraw(Customer primary) {
+        try{
         Scanner scan = new Scanner(System.in);
         Logger log = new Logger();
+        CsvImporter importer = new CsvImporter();
 
         System.out.println("Which account would you like to make a withdrawal from?");
         System.out.println(" 1.Checking\n 2.Savings\n 3.Credit\n 4.Return to Money Services");
@@ -647,6 +674,7 @@ public class UI {
                     Checking wCheck = primary.getChecking();
                     wCheck.charge(withdraw);
                     log.logDeduction(wCheck, withdraw);
+                    importer.export();
                     System.out.println(success + withdraw);
                     validInput = true;
                     withdraw(primary);
@@ -658,6 +686,7 @@ public class UI {
                     Saving wSav = primary.getSaving();
                     wSav.charge(withdraw2);
                     log.logDeduction(wSav, withdraw2);
+                    importer.export();
                     System.out.println(success + withdraw2);
                     validInput = true;
                     withdraw(primary);
@@ -669,6 +698,7 @@ public class UI {
                     Credit cred = primary.getCredit();
                     cred.charge(withdraw3);
                     log.logDeduction(cred, withdraw3);
+                    importer.export();
                     System.out.println(success + withdraw3);
                     validInput = true;
                     withdraw(primary);
@@ -685,12 +715,19 @@ public class UI {
             }
         }
         scan.close();
+        }
+        catch(Exception e){
+            System.out.println("Error occured, returing to withdraw menu");
+            withdraw(primary);
+        }
 
     }
     /**A method that runs the deposit UI, exclusively called by moneyServices */
     private void deposit(Customer primary) {
+        try{
         Scanner scan = new Scanner(System.in);
         Logger log = new Logger();
+        CsvImporter importer=new CsvImporter();
         System.out.println("Which account would you like to make a deposit in?");
         System.out.println(" 1.Checking\n 2.Savings\n 3.Credit\n 4.Return to Money Services");
         int s = Integer.parseInt(scan.nextLine());
@@ -703,6 +740,7 @@ public class UI {
                     double deposit = Double.parseDouble(scan.nextLine());
                     check.deposit(deposit);
                     log.logAddition(check, deposit);
+                    importer.export();
                     System.out.println("Succesfully deposited: " + deposit);
                     validInput = true;
                     break;
@@ -713,6 +751,7 @@ public class UI {
                     double deposit2 = Double.parseDouble(scan.nextLine());
                     sav.deposit(deposit2);
                     log.logAddition(sav, deposit2);
+                    importer.export();
                     System.out.println("Succesfully deposited: " + deposit2);
                     validInput = true;
                     break;
@@ -723,6 +762,7 @@ public class UI {
                     double deposit3 = Double.parseDouble(scan.nextLine());
                     cred.deposit(deposit3);
                     log.logAddition(cred, deposit3);
+                    importer.export();
                     System.out.println("Succesfully deposited: " + deposit3);
                     validInput = true;
                     break;
@@ -738,10 +778,16 @@ public class UI {
             }
         }
         scan.close();
+        }
+        catch(Exception e){
+            System.out.println("Error occured, returning to deposit menu");
+            deposit(primary);
+        }
 
     }
     /**A method that runs the inquiry UI, exclusively called by customerLogin */
     private void inquiry(Customer cust) {
+        try{
         System.out.println("What would you like to inquire about?\n 1.Everything\n 2.Checkings\n 3.Savings\n 4.Credit\n 5.Return to login");
         Scanner scan = new Scanner(System.in);
         int c = Integer.parseInt(scan.nextLine());
@@ -792,7 +838,11 @@ public class UI {
             }
         }
         scan.close();
-
+        }
+        catch(Exception e){
+            System.out.println("Error occured, returning to inquiry menu");
+            inquiry(cust);
+        }
     }
 
 }
