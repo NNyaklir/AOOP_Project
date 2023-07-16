@@ -530,7 +530,11 @@ public class UI {
                                 double transfer = Double.parseDouble(scan.nextLine());
                                 Checking check = primary.getChecking();
                                 Saving sav = primary.getSaving();
-                                check.transferTo(sav, transfer);
+
+                                int checkI=search.searchByChecking(check.getAccountNumber(), checkList);
+                                int savI=search.searchBySaving(sav.getAccountNumber(), savList);
+
+                                checkList.get(checkI).transferTo(savList.get(savI), transfer);
                                 log.logTransfer(check, transfer, sav);
                                 importer.export();
                                 System.out.print("Successfully transferred " + transfer + " from Checking to Savings");
@@ -543,7 +547,12 @@ public class UI {
                                 double transfer2 = Double.parseDouble(scan.nextLine());
                                 Checking check2 = primary.getChecking();
                                 Credit cred = primary.getCredit();
-                                check2.transferTo(cred, transfer2);
+
+                                int checkI2=search.searchByChecking(check2.getAccountNumber(), checkList);
+                                int credI=search.searchByCredit(cred.getAccountNumber(), creditList);
+
+
+                                checkList.get(checkI2).transferTo(creditList.get(credI), transfer2);
                                 log.logTransfer(check2, transfer2, cred);
                                 importer.export();
                                 System.out.println("Successfully transferred " + transfer2 + " from Checking to Credit");
@@ -570,7 +579,11 @@ public class UI {
                                 double transfer = Double.parseDouble(scan.nextLine());
                                 Saving sav = primary.getSaving();
                                 Checking check = primary.getChecking();
-                                sav.transferTo(check, transfer);
+
+                                int savI=search.searchBySaving(sav.getAccountNumber(), savList);
+                                int checkI=search.searchByChecking(check.getAccountNumber(), checkList);
+
+                                savList.get(savI).transferTo(checkList.get(checkI), transfer);
                                 log.logTransfer(sav, transfer, check);
                                 importer.export();
                                 System.out.println("Succesfully transferred " + transfer + " from Savings to Checking");
@@ -583,7 +596,11 @@ public class UI {
                                 double transfer2 = Double.parseDouble(scan.nextLine());
                                 Saving sav2 = primary.getSaving();
                                 Credit cred = primary.getCredit();
-                                sav2.transferTo(cred, transfer2);
+
+                                int savI2=search.searchBySaving(sav2.getAccountNumber(), savList);
+                                int credI=search.searchByCredit(cred.getAccountNumber(), creditList);
+
+                                savList.get(savI2).transferTo(creditList.get(credI), transfer2);
                                 log.logTransfer(sav2, transfer2, cred);
                                 importer.export();
                                 System.out.println("Successfully transferred " + transfer2 + " from Savings to Credit");
@@ -610,7 +627,11 @@ public class UI {
                                 double transfer = Double.parseDouble(scan.nextLine());
                                 Credit cred = primary.getCredit();
                                 Checking check = primary.getChecking();
-                                cred.transferTo(check, transfer);
+
+                                int credI=search.searchByCredit(cred.getAccountNumber(), creditList);
+                                int checkI=search.searchByChecking(check.getAccountNumber(), checkList);
+
+                                creditList.get(credI).transferTo(checkList.get(checkI), transfer);
                                 log.logTransfer(cred, transfer, check);
                                 importer.export();
                                 System.out.println("Successfully transferred " + transfer + " from Credit to Checking");
@@ -623,7 +644,11 @@ public class UI {
                                 double transfer2 = Double.parseDouble(scan.nextLine());
                                 Credit cred2 = primary.getCredit();
                                 Saving sav = primary.getSaving();
-                                cred2.transferTo(sav, transfer2);
+
+                                int credI2=search.searchByCredit(cred2.getAccountNumber(),creditList);
+                                int savI=search.searchBySaving(sav.getAccountNumber(), savList);
+
+                                creditList.get(credI2).transferTo(savList.get(savI), transfer2);
                                 log.logTransfer(cred2, transfer2, sav);
                                 importer.export();
                                 System.out.println("Successfully transferred " + transfer2 + " from Credit to Savings");
@@ -664,6 +689,7 @@ public class UI {
         Scanner scan = new Scanner(System.in);
         Logger log = new Logger();
         CsvImporter importer = new CsvImporter();
+        Searcher search = new Searcher();
 
         System.out.println("Which account would you like to make a withdrawal from?");
         System.out.println(" 1.Checking\n 2.Savings\n 3.Credit\n 4.Return to Money Services");
@@ -677,7 +703,9 @@ public class UI {
                     System.out.println(withdrawWords);
                     Double withdraw = Double.parseDouble(scan.nextLine());
                     Checking wCheck = primary.getChecking();
-                    wCheck.charge(withdraw);
+                    int checkI=search.searchByChecking(wCheck.getAccountNumber(),checkList);
+                    
+                    checkList.get(checkI).charge(withdraw);
                     log.logDeduction(wCheck, withdraw);
                     importer.export();
                     System.out.println(success + withdraw);
@@ -689,7 +717,8 @@ public class UI {
                     System.out.println(withdrawWords);
                     double withdraw2 = Double.parseDouble(scan.nextLine());
                     Saving wSav = primary.getSaving();
-                    wSav.charge(withdraw2);
+                    int savI = search.searchBySaving(wSav.getAccountNumber(), savList);
+                    savList.get(savI).charge(withdraw2);
                     log.logDeduction(wSav, withdraw2);
                     importer.export();
                     System.out.println(success + withdraw2);
@@ -701,7 +730,8 @@ public class UI {
                     System.out.println(withdrawWords);
                     double withdraw3 = Double.parseDouble(scan.nextLine());
                     Credit cred = primary.getCredit();
-                    cred.charge(withdraw3);
+                    int credI = search.searchByCredit(cred.getAccountNumber(), creditList);
+                    creditList.get(credI).charge(withdraw3);
                     log.logDeduction(cred, withdraw3);
                     importer.export();
                     System.out.println(success + withdraw3);
