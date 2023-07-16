@@ -779,6 +779,7 @@ public class UI {
     /** A method that runs the deposit UI, exclusively called by moneyServices */
     private void deposit(Customer primary) {
         try {
+            Searcher search = new Searcher();
             Scanner scan = new Scanner(System.in);
             Logger log = new Logger();
             CsvImporter importer = new CsvImporter();
@@ -792,8 +793,9 @@ public class UI {
                         Checking check = primary.getChecking();
                         System.out.println("Please enter deposit amount");
                         double deposit = Double.parseDouble(scan.nextLine());
-                        int checkIdx = search.searchByChecking(accNum, checkList); // @TODO: check here - ADR
-                        check.deposit(deposit);
+                        
+                        int checkIdx = search.searchByChecking(check.getAccountNumber(), checkList);
+                        checkList.get(checkIdx).deposit(deposit);
                         log.logAddition(check, deposit);
                         importer.export();
                         System.out.println("Succesfully deposited: " + deposit);
@@ -805,8 +807,8 @@ public class UI {
                         Saving sav = primary.getSaving();
                         System.out.println("Please enter deposit amount");
                         double deposit2 = Double.parseDouble(scan.nextLine());
-                        int savingIdx = search.searchByChecking(accNum2, savList); // @TODO: check here - ADR
-                        sav.deposit(deposit2);
+                        int savingIdx = search.searchBySaving(sav.getAccountNumber(), savList); 
+                        savList.get(savingIdx).deposit(deposit2);
                         log.logAddition(sav, deposit2);
                         importer.export();
                         System.out.println("Succesfully deposited: " + deposit2);
@@ -818,8 +820,8 @@ public class UI {
                         Credit cred = primary.getCredit();
                         System.out.println("Please enter a deposit amount");
                         double deposit3 = Double.parseDouble(scan.nextLine());
-                        int credIdx = search.searchByCredit(accNum3, savList); // @TODO: check here - ADR
-                        cred.deposit(deposit3);
+                        int credIdx = search.searchByCredit(cred.getAccountNumber(), creditList);
+                        creditList.get(credIdx).deposit(deposit3);
                         log.logAddition(cred, deposit3);
                         importer.export();
                         System.out.println("Succesfully deposited: " + deposit3);
