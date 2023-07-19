@@ -215,6 +215,7 @@ public class UI {
                 }
             } else {
                 System.out.println("User not found, please make sure you input the name correctly");
+                customerLogIn();
             }
             scan.close();
         } catch (Exception e) {
@@ -841,8 +842,10 @@ public class UI {
             }
             scan.close();
         } catch (Exception e) {
+            System.out.println(e);
             System.out.println("Error occured, returning to deposit menu");
             deposit(primary);
+
         }
 
     }

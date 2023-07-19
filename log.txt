@@ -9,3 +9,12 @@ Account:228922 deposited 39.33
 Account:48849392 withdrew 78.33
 Account:3005 deposited 20.0
 Oscar Decena made an inquiry into Checking AcountAccount:1005 deposited 20.0
+Chip Disney made an inquiry into Checking AcountChip Disney made an inquiry into Savings AcountChip Disney made an inquiry into Credit AcountAccount:1005 deposited 100.0
+Account:1005 deposited 100.0
+Account:1005 deposited 100.0
+Account:2005 deposited 100.0
+Account:3005 deposited 100.0
+Account:1005 withdrew 1000.0
+Account:2005 transfered 100.0 to Account:1005
+Account:1005 deposited 2000.0
+Account:3005 transfered 100.0 to Account:1048
