@@ -8,7 +8,7 @@
         [ ] Used in 2 classes
     [ ] Use a design pattern
         [ ] Discuss design pattern implementation in lab report
-    [ ] Add new users functionality
+    [ ] Add new users functionality -devin
         [ ] Automatic account number generation
         [ ] ability to update a new customer() instance and and in relevant fields
         [ ] Assign Checking, Saving, and Credit accounts to new instance
