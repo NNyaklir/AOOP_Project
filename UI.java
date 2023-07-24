@@ -133,6 +133,7 @@ public class UI {
             System.out.println("\n\n\nHere is all your information");
             newCust.displayInformation();
 
+            importer.incrementUser();
             importer.export();
             //@TODO add export
 

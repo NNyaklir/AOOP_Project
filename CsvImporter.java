@@ -259,6 +259,10 @@ public class CsvImporter {
         this.csvFile = filePath;
     }
 
+    /**@param array 2d array to be searched
+     * @param stringToSearch the string that is being searched for
+     * This program and takes a 2d array and searches the first row for column headers.
+     */
     private int returnInd(String [][] array, String stringToSearch){
         for(int i=0;i<1;i++){
             for (int j=0; j < array[0].length; j++){
@@ -271,4 +275,10 @@ public class CsvImporter {
         }
         return -1;
     }
+
+    /**This method increments row to account for new users during export. */
+    public void incrementUser(){
+        rows+=1;
+    }
+
 }
