@@ -7,13 +7,13 @@ public class UI {
     private ArrayList<Checking> checkList;
     private ArrayList<Saving> savList;
     private ArrayList<Credit> creditList;
+    private CsvImporter importer = new CsvImporter();
 
     /**
      * A method that imports data from a CSV file to prepare for the rest of UI
      * method
      */
     public void runStartUp() {
-        CsvImporter importer = new CsvImporter();
         importer.dataImport();
         this.custList = importer.getCustList();
         this.checkList = importer.getCheckList();
@@ -32,49 +32,127 @@ public class UI {
 
                 boolean validInput = false;
                 while (!validInput) {
-                    System.out.println("1. Customer log-in \n" + "2. Bank Management log-in");
+                    System.out.println("1. Customer log-in \n" + "2. Bank Management log-in\n3. New User");
                     System.out.println("Type EXIT to exit application");
 
-                    String choice = scan.nextLine();
-                    switch (choice) {
-                        case "1" -> {
+
+                    String c = scan.nextLine();
+                    switch (c) {
+                        case "1":
                             customerLogIn();
                             validInput = true;
-                        }
-                        case "2" -> {
+                            break;
+
+                        case "2":
+
                             validInput = true;
                             adminLogIn();
-                        }
+                            break;
 
-                        case "Exit" -> {
-                            CsvImporter importer = new CsvImporter();
+                        case "3":
+                            validInput=true;
+                            newUser();
+                            break;
+
+                        case "EXIT":
+                            validInput=true;
                             importer.export();
-                            validInput = true;
-                        }
-                        default -> {
-                            if (choice.equalsIgnoreCase("Exit")) {
-                                System.out.println("Good Bye!");
-                                validInput = true;
-                            }
-                            else System.out.println("Invalid Input Please Try Again");
+                            System.out.println("Application exited");
+                            System.exit(0);
 
-                        }
 
-                    }
+                        default:
+                            System.out.println("Incorrect input please try again");
+                            break;
+                    }     
+
 
                 }
-
                 scan.close();
 
         } catch (Exception e) {
-            CsvImporter importer = new CsvImporter();
             importer.export();
             System.out.println("Incorrect input please try again");
             runUI();
         }
     }
 
-    /** A method that runs the admin login UI, exclusively called by runUI */ // bug free
+
+    /**A method that runs the new user UI, exclusively called by runUI */
+    private void newUser(){
+        Scanner scan = new Scanner(System.in);
+        Customer newCust = new Customer();
+        try{
+            
+            //User input for relevant data fields
+            System.out.println("Please enter your first name");
+            newCust.setNameFirst(scan.nextLine());
+            System.out.println("Please enter your last name");
+            newCust.setNameLast(scan.nextLine());
+            System.out.println("Please enter your DOB");
+            newCust.setDob(scan.nextLine());
+            System.out.println("Please enter your address");
+            newCust.setAddress(scan.nextLine());
+            System.out.println("Please enter your phone number");
+            newCust.setPhoneNumber(scan.nextLine());
+            AccessNumbers accessor = new AccessNumbers();
+
+            //generation of id/account numbers and accounts
+            int id=accessor.getIDNum();
+            newCust.setId(id);
+            int checkNum= accessor.getCheckNum();
+            Checking newChecking = new Checking();
+            newChecking.setAccountNumber(checkNum);
+            newCust.setChecking(newChecking);
+            newChecking.setCustomer(newCust);
+            newChecking.setBalance(0);
+
+            Saving newSaving = new Saving();
+            int savNum = accessor.getSavNum();
+            newSaving.setAccountNumber(savNum);
+            newSaving.setBalance(0);
+            newSaving.setCustomer(newCust);
+            newCust.setSaving(newSaving);
+
+            Credit newCredit= new Credit();
+            int credNum = accessor.getCredNum();
+            newCredit.setAccountNumber(credNum);
+            newCredit.setBalance(0);
+            CreditGenerator generator = new CreditGenerator();
+            generator.generate();
+            newCredit.setMaxCredit(generator.getMaxCredit());
+            newCredit.setCustomer(newCust);
+            newCust.setCredit(newCredit);
+
+
+            System.out.println("Your user ID is: " +id);
+            System.out.println("Your Checking Account Number is: "+checkNum);
+            System.out.println("Your Savings Account Number is: "+savNum);
+            System.out.println("Your Credit Account Number is: "+credNum);
+            generator.printInfo();
+            custList.add(newCust);
+            checkList.add(newChecking);
+            savList.add(newSaving);
+            creditList.add(newCredit);
+            System.out.println("\n\n\nHere is all your information");
+            newCust.displayInformation();
+
+            importer.incrementUser();
+            importer.export();
+            //@TODO add export
+
+            runUI();
+        }
+        catch(Exception e){
+            System.out.println("Invalid input for parameter, returning to previous screen");
+            runUI();
+            
+        }
+        scan.close();
+    }
+
+    /** A method that runs the admin login UI, exclusively called by runUI */
+
     private void adminLogIn() {
         Scanner scan = new Scanner(System.in);
         Searcher search = new Searcher();
@@ -266,7 +344,6 @@ public class UI {
         try {
             Scanner scan = new Scanner(System.in);
             Logger log = new Logger();
-            CsvImporter importer = new CsvImporter();
 
             boolean validInput = false;
             while (!validInput) {
@@ -465,7 +542,6 @@ public class UI {
         try {
             Scanner scan = new Scanner(System.in);
             Logger log = new Logger();
-            CsvImporter importer = new CsvImporter();
             Searcher search = new Searcher();
 
             boolean validInput = false;
@@ -605,7 +681,6 @@ public class UI {
         try {
             Scanner scan = new Scanner(System.in);
             Logger log = new Logger();
-            CsvImporter importer = new CsvImporter();
             Searcher search = new Searcher();
 
             boolean validInput = false;
@@ -670,7 +745,11 @@ public class UI {
             Searcher search = new Searcher();
             Scanner scan = new Scanner(System.in);
             Logger log = new Logger();
-            CsvImporter importer = new CsvImporter();
+
+            System.out.println("Which account would you like to make a deposit in?");
+            System.out.println(" 1.Checking\n 2.Savings\n 3.Credit\n 4.Return to Money Services");
+            int s = Integer.parseInt(scan.nextLine());
+
             boolean validInput = false;
 
             while (!validInput) {

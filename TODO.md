@@ -8,12 +8,12 @@
         [ ] Used in 2 classes
     [ ] Use a design pattern
         [ ] Discuss design pattern implementation in lab report
-    [ ] Add new users functionality -devin
-        [ ] Automatic account number generation
-        [ ] ability to update a new customer() instance and and in relevant fields
-        [ ] Assign Checking, Saving, and Credit accounts to new instance
-            [ ] New users need to be given randomly generated credit score
-            [ ] New users' max credit is based on the credit score
+    [x] Add new users functionality -devin
+        [x] Automatic account number generation
+        [x] ability to update a new customer() instance and and in relevant fields
+        [x] Assign Checking, Saving, and Credit accounts to new instance
+            [x] New users need to be given randomly generated credit score
+            [x] New users' max credit is based on the credit score
     [ ] Create user transaction file displaying:
         [ ] Account Informaiton
         [ ] Starting balance (at the beginning of the session)
