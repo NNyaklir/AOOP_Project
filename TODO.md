@@ -3,7 +3,7 @@
     same thing please
 
 ## Programming
-    [ ] UI bugs
+    [X] UI bugs - Ray
     [ ] Create Interface
         [ ] Used in 2 classes
     [ ] Use a design pattern
