@@ -33,37 +33,37 @@ public class UI {
 
                 boolean validInput = false;
                 while (!validInput) {
-                    System.out.println("1. Customer log-in \n" + "2. Bank Management log-in");
+                    System.out.println("1. Customer log-in \n" + "2. Bank Management log-in\n 3.New User");
                     System.out.println("Type EXIT to exit application");
 
-                    int c = Integer.parseInt(scan.nextLine());
+                    String c = scan.nextLine();
                     switch (c) {
-                        case 1:
+                        case "1":
                             customerLogIn();
                             validInput = true;
                             break;
 
-                        case 2:
+                        case "2":
                             validInput = true;
                             adminLogIn();
                             break;
 
+                        case "3":
+                            validInput=true;
+                            newUser();
+                            break;
+
+                        case "EXIT":
+                            CsvImporter importer = new CsvImporter();
+                            validInput=true;
+                            importer.export();
+
+
                         default:
                             System.out.println("Incorrect input please try again");
                             break;
-                    }
-                    if (scan.nextLine().equals("EXIT")) {
-                        CsvImporter importer = new CsvImporter();
-                        importer.export();
-                        break;
-                    }
-                    if (scan.nextLine().equals("EXIT")) {
-                        CsvImporter importer = new CsvImporter();
-                        importer.export();
-                        break;
-                    }
+                    }     
                 }
-
                 scan.close();
             }
         } catch (Exception e) {
@@ -72,6 +72,32 @@ public class UI {
             System.out.println("Incorrect input please try again");
             runUI();
         }
+    }
+
+    /**A method that runs the new user UI, exclusively called by runUI */
+    private void newUser(){
+        Scanner scan = new Scanner(System.in);
+        Customer newCust = new Customer();
+        try{
+            System.out.println("Please enter your first name");
+            newCust.setNameFirst(scan.nextLine());
+            System.out.println("Please enter your last name");
+            newCust.setNameLast(scan.nextLine());
+            System.out.println("Please enter your DOB");
+            newCust.setDob(scan.nextLine());
+            System.out.println("Please enter your address");
+            newCust.setAddress(scan.nextLine());
+            System.out.println("Please enter your phone number");
+            newCust.setPhoneNumber(scan.nextLine());
+            System.out.println("");
+
+        }
+        catch(Exception e){
+            System.out.println("Invalid input for parameter, returning to previous screen");
+
+            
+        }
+        scan.close();
     }
 
     /** A method that runs the admin login UI, exclusively called by runUI */
