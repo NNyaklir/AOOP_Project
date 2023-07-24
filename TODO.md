@@ -9,9 +9,9 @@
     [ ] Use a design pattern
         [ ] Discuss design pattern implementation in lab report
     [ ] Add new users functionality -devin
-        [ ] Automatic account number generation
+        [x] Automatic account number generation
         [ ] ability to update a new customer() instance and and in relevant fields
-        [ ] Assign Checking, Saving, and Credit accounts to new instance
+        [x] Assign Checking, Saving, and Credit accounts to new instance
             [ ] New users need to be given randomly generated credit score
             [ ] New users' max credit is based on the credit score
     [ ] Create user transaction file displaying:
