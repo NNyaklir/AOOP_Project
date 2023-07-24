@@ -33,7 +33,7 @@ public class UI {
 
                 boolean validInput = false;
                 while (!validInput) {
-                    System.out.println("1. Customer log-in \n" + "2. Bank Management log-in\n 3.New User");
+                    System.out.println("1. Customer log-in \n" + "2. Bank Management log-in\n3. New User");
                     System.out.println("Type EXIT to exit application");
 
                     String c = scan.nextLine();
@@ -57,6 +57,7 @@ public class UI {
                             CsvImporter importer = new CsvImporter();
                             validInput=true;
                             importer.export();
+                            System.out.println("Application exited");
 
 
                         default:
@@ -128,6 +129,7 @@ public class UI {
             checkList.add(newChecking);
             savList.add(newSaving);
             creditList.add(newCredit);
+            newCust.displayInformation();
             //@TODO add export
 
             runUI();

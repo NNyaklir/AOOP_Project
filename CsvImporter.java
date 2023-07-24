@@ -72,30 +72,32 @@ public class CsvImporter {
 
                 // starts checking accounts
                 Checking check = new Checking();
-                check.customer = cust;
-                cust.setChecking(check);
+                check.setCustomer(cust);
+                
                 check.accountNumber = Integer.parseInt(data[i][checcAccNumIndex]);
                 j++;
 
                 check.balance = Double.parseDouble(data[i][checcAccBalIndex]);
                 checkingList.add(check);
+                cust.setChecking(check);
                 j++;
 
                 // starts saving accounts
                 Saving sav = new Saving();
-                sav.customer = cust;
-                cust.setSaving(sav);
+                sav.setCustomer(cust);;
+                
                 sav.accountNumber = Integer.parseInt(data[i][savAccNumIndex]);
                 j++;
 
                 sav.balance = Double.parseDouble(data[i][savAccBalIndex]);
+                cust.setSaving(sav);
                 savingList.add(sav);
                 j++;
 
                 // starts credit accounts
                 Credit cred = new Credit();
-                cred.customer = cust;
-                cust.custCredit = cred;
+                cred.setCustomer(cust);
+                
                 cred.accountNumber = Integer.parseInt(data[i][credAccNumIndex]);
                 j++;
 
@@ -104,6 +106,7 @@ public class CsvImporter {
 
                 cred.balance = Double.parseDouble(data[i][credAccBalIndex]);
                 j++;
+                cust.setCredit(cred);
                 creditList.add(cred);
 
             }
@@ -201,7 +204,7 @@ public class CsvImporter {
                 j++;
             }
         }
-        System.out.println(data[77][8]);
+        //System.out.println(data[77][8]);
         return data;
     }
 
@@ -210,10 +213,8 @@ public class CsvImporter {
         char seperator = ',';
         String[][] array = arrayListTo2d();
         try {
-            // "C:\\Users\\devin\\Documents\\VSCode
-            // Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\BankUsers.csv"
             FileWriter writer = new FileWriter(
-                    "C:\\Users\\devin\\Documents\\Workstation\\Project\\AOOP_Project\\BankExportCheck.csv");
+                    "./BankExportCheck.csv");
             for (String[] row : array) {
                 for (int i = 1; i < row.length; i++) {
                     writer.append(String.valueOf(row[i]));
