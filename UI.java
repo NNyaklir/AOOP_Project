@@ -748,7 +748,6 @@ public class UI {
 
             System.out.println("Which account would you like to make a deposit in?");
             System.out.println(" 1.Checking\n 2.Savings\n 3.Credit\n 4.Return to Money Services");
-            int s = Integer.parseInt(scan.nextLine());
 
             boolean validInput = false;
 
