@@ -7,13 +7,13 @@ public class UI {
     private ArrayList<Checking> checkList;
     private ArrayList<Saving> savList;
     private ArrayList<Credit> creditList;
+    private CsvImporter importer = new CsvImporter();
 
     /**
      * A method that imports data from a CSV file to prepare for the rest of UI
      * method
      */
     public void runStartUp() {
-        CsvImporter importer = new CsvImporter();
         importer.dataImport();
         this.custList = importer.getCustList();
         this.checkList = importer.getCheckList();
@@ -54,7 +54,6 @@ public class UI {
                             break;
 
                         case "EXIT":
-                            CsvImporter importer = new CsvImporter();
                             validInput=true;
                             importer.export();
                             System.out.println("Application exited");
@@ -69,7 +68,6 @@ public class UI {
                 scan.close();
             }
         } catch (Exception e) {
-            CsvImporter importer = new CsvImporter();
             importer.export();
             System.out.println("Incorrect input please try again");
             runUI();
@@ -81,6 +79,7 @@ public class UI {
         Scanner scan = new Scanner(System.in);
         Customer newCust = new Customer();
         try{
+            
             //User input for relevant data fields
             System.out.println("Please enter your first name");
             newCust.setNameFirst(scan.nextLine());
@@ -93,6 +92,7 @@ public class UI {
             System.out.println("Please enter your phone number");
             newCust.setPhoneNumber(scan.nextLine());
             AccessNumbers accessor = new AccessNumbers();
+
             //generation of id/account numbers and accounts
             int id=accessor.getIDNum();
             newCust.setId(id);
@@ -130,7 +130,10 @@ public class UI {
             checkList.add(newChecking);
             savList.add(newSaving);
             creditList.add(newCredit);
+            System.out.println("\n\n\nHere is all your information");
             newCust.displayInformation();
+
+            importer.export();
             //@TODO add export
 
             runUI();
@@ -352,7 +355,6 @@ public class UI {
         try {
             Scanner scan = new Scanner(System.in);
             Logger log = new Logger();
-            CsvImporter importer = new CsvImporter();
 
             System.out.println("Which account would you like to make a payment from?");
             System.out.println(" 1.Checking\n 2.Saving\n 3.Credit\n 4.Return to Money Services");
@@ -593,7 +595,6 @@ public class UI {
         try {
             Scanner scan = new Scanner(System.in);
             Logger log = new Logger();
-            CsvImporter importer = new CsvImporter();
             Searcher search = new Searcher();
 
             System.out.println("Which account would you like to transfer from?");
@@ -777,7 +778,6 @@ public class UI {
         try {
             Scanner scan = new Scanner(System.in);
             Logger log = new Logger();
-            CsvImporter importer = new CsvImporter();
             Searcher search = new Searcher();
 
             System.out.println("Which account would you like to make a withdrawal from?");
@@ -852,7 +852,6 @@ public class UI {
             Searcher search = new Searcher();
             Scanner scan = new Scanner(System.in);
             Logger log = new Logger();
-            CsvImporter importer = new CsvImporter();
             System.out.println("Which account would you like to make a deposit in?");
             System.out.println(" 1.Checking\n 2.Savings\n 3.Credit\n 4.Return to Money Services");
             int s = Integer.parseInt(scan.nextLine());
