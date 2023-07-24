@@ -47,4 +47,9 @@ public class CreditGenerator {
         System.out.println("Congratulations!");
     }
 
+    /**@return the max credit that was generated */
+    public double getMaxCredit(){
+        return creditLimit;
+    }
+
 }

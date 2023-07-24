@@ -79,6 +79,7 @@ public class UI {
         Scanner scan = new Scanner(System.in);
         Customer newCust = new Customer();
         try{
+            //User input for relevant data fields
             System.out.println("Please enter your first name");
             newCust.setNameFirst(scan.nextLine());
             System.out.println("Please enter your last name");
@@ -89,12 +90,51 @@ public class UI {
             newCust.setAddress(scan.nextLine());
             System.out.println("Please enter your phone number");
             newCust.setPhoneNumber(scan.nextLine());
-            System.out.println("");
+            AccessNumbers accessor = new AccessNumbers();
+            //generation of id/account numbers and accounts
+            int id=accessor.getIDNum();
+            newCust.setId(id);
+            int checkNum= accessor.getCheckNum();
+            Checking newChecking = new Checking();
+            newChecking.setAccountNumber(checkNum);
+            newCust.setChecking(newChecking);
+            newChecking.setCustomer(newCust);
+            newChecking.setBalance(0);
 
+            Saving newSaving = new Saving();
+            int savNum = accessor.getSavNum();
+            newSaving.setAccountNumber(savNum);
+            newSaving.setBalance(0);
+            newSaving.setCustomer(newCust);
+            newCust.setSaving(newSaving);
+
+            Credit newCredit= new Credit();
+            int credNum = accessor.getCredNum();
+            newCredit.setAccountNumber(credNum);
+            newCredit.setBalance(0);
+            CreditGenerator generator = new CreditGenerator();
+            generator.generate();
+            newCredit.setMaxCredit(generator.getMaxCredit());
+            newCredit.setCustomer(newCust);
+            newCust.setCredit(newCredit);
+
+
+            System.out.println("Your user ID is: " +id);
+            System.out.println("Your Checking Account Number is: "+checkNum);
+            System.out.println("Your Savings Account Number is: "+savNum);
+            System.out.println("Your Credit Account Number is: "+credNum);
+            generator.printInfo();
+            custList.add(newCust);
+            checkList.add(newChecking);
+            savList.add(newSaving);
+            creditList.add(newCredit);
+            //@TODO add export
+
+            runUI();
         }
         catch(Exception e){
             System.out.println("Invalid input for parameter, returning to previous screen");
-
+            runUI();
             
         }
         scan.close();
