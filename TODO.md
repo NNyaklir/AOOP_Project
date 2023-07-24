@@ -20,7 +20,11 @@
         [ ] Ending balance (at time requested)
         [ ] All transactions for user
         [ ] Date of statement
-    [ ] Extend bank management functionality //I'll finish writing this later
+    [ ] Extend bank management functionality
+        [ ]Transaction reader -devin
+            [ ] Take input from a .csv file
+            [ ] use input to automatically run transactions.
+        [ ]Generate bank statement for user
 
 ## Files
     [ ] UML Class Diagram [UPDATED] (.pdf)
