@@ -4,7 +4,7 @@ import java.io.*;
 /**A class that is used to log transactions into a given .txt file */
 public class Logger{
     protected String filePath=
-    "C:\\Users\\devin\\Documents\\Workstation\\Project\\AOOP_Project\\log.txt";
+    "./log.txt";
     File logFile = new File(filePath);
 
     /**This method ensures that there is a file to use before logging information */
