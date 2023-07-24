@@ -3,30 +3,31 @@
     same thing please
 
 ## Programming
-    [x] Read files with information and store information -Devin
-    [x] Operations
-        [x] Balance inquiry
-        [x] Deposit
-        [x] Withdraw
-        [x] Transfer between accounts -Devin
-        [x] Have feedback for the above (ie "xx has been withdrawn")
-    [X] User interaction - Adrian
-        [X] Ask who user is - Adrian
-        [X] Ask if bank manager - Adrian
-            [x] Bank managers need admin access to see inquire about any account
-        [X] Money services UI page in main (needs more work) - Adrian
-    [x] Transaction Logs -Devin
-        [x] Log all transactions
-        [x] Ability to print transaction log
-    [X] Exit Program - Adrian
-        (needs to update bank usersheet)
+    [ ] UI bugs
+    [ ] Create Interface
+        [ ] Used in 2 classes
+    [ ] Use a design pattern
+        [ ] Discuss design pattern implementation in lab report
+    [ ] Add new users functionality -devin
+        [ ] Automatic account number generation
+        [ ] ability to update a new customer() instance and and in relevant fields
+        [ ] Assign Checking, Saving, and Credit accounts to new instance
+            [ ] New users need to be given randomly generated credit score
+            [ ] New users' max credit is based on the credit score
+    [ ] Create user transaction file displaying:
+        [ ] Account Informaiton
+        [ ] Starting balance (at the beginning of the session)
+        [ ] Ending balance (at time requested)
+        [ ] All transactions for user
+        [ ] Date of statement
+    [ ] Extend bank management functionality //I'll finish writing this later
 
 ## Files
-    [ ] Generate Javadoc/ Ensure all files have javadoc comments- Ray
-    [ ] Lab Report
-        [ ] Including assumptions
-        [ ] Screenshots of programming running
-    [x] UML Class Diagram (PDF)
-    [x] UML Use Case Diagram (PDF)
-    [x] Updated Bank User Sheet (.csv)  
-    [x] Log (.txt)
+    [ ] UML Class Diagram [UPDATED] (.pdf)
+    [ ] UML Use Case Scenarios [UPDATED] (.pdf)
+    [ ] UML Use Case Diagram [UPDATED] (.pdf)
+    [ ] Lab Report (.pdf)
+    [ ] Javdoc [UPDATED]
+    [ ] Bank Users Sheet [UPDATED] 
+    [ ] User Transaction logs for (team members as new users)
+    [ ] Log.txt

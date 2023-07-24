@@ -15,7 +15,8 @@ public class CsvImporter {
     protected ArrayList<Credit> creditList = new ArrayList<Credit>();
     private int rows;
     private int columns;
-    protected String csvFile = "C:\\Users\\abeat\\OneDrive - University of Texas at El Paso\\Summer 23\\Adv. Object Oriented Programming\\Labs\\AOOP_Project\\BankUsers.csv";
+    protected String csvFile = "./BankUsers.csv";
+    //BankUsers.csv
 
     /**
      * method to import data from a csv and store it into specified objects and
@@ -25,6 +26,23 @@ public class CsvImporter {
 
         String[][] data = importCSVto2darray();
 
+        //assume column names will be formatted specified following
+        int idIndex= returnInd(data, "Identification Number");
+        int nameFirstIndex = returnInd(data, "First Name");
+        int nameLastIndex= returnInd(data, "Last Name");
+        int dobIndex = returnInd(data, "Date of birth");
+        int addressIndex= returnInd(data, "Address");
+        int phoneNumIndex= returnInd(data, "Phone Number");
+        int checcAccNumIndex = returnInd(data, "Checking Account Number");
+        int checcAccBalIndex= returnInd(data, "Checking Starting Balance");
+        int savAccNumIndex = returnInd(data, "Savings Account Number");
+        int savAccBalIndex = returnInd(data, "Savings Starting Balance");
+        int credAccNumIndex = returnInd(data, "Credit Account Number");
+        int credAccBalMaxIndex = returnInd(data, "Credit Max");
+        int credAccBalIndex = returnInd(data, "Credit Starting Balance");
+
+
+
         for (int i = 1; i < data.length; i++) {
             for (int j = 0; j < data[0].length; j++) {
 
@@ -33,22 +51,22 @@ public class CsvImporter {
 
                 Customer cust = new Customer();
 
-                cust.id = Integer.parseInt(data[i][j]);
+                cust.id = Integer.parseInt(data[i][idIndex]);
                 j++;
 
-                cust.nameFirst = data[i][j];
+                cust.nameFirst = data[i][nameFirstIndex];
                 j++;
 
-                cust.nameLast = data[i][j];
+                cust.nameLast = data[i][nameLastIndex];
                 j++;
 
-                cust.dob = data[i][j];
+                cust.dob = data[i][dobIndex];
                 j++;
 
-                cust.address = data[i][j];
+                cust.address = data[i][addressIndex];
                 j++;
 
-                cust.phoneNumber = data[i][j];
+                cust.phoneNumber = data[i][phoneNumIndex];
                 custList.add(cust);
                 j++;
 
@@ -56,10 +74,10 @@ public class CsvImporter {
                 Checking check = new Checking();
                 check.customer = cust;
                 cust.setChecking(check);
-                check.accountNumber = Integer.parseInt(data[i][j]);
+                check.accountNumber = Integer.parseInt(data[i][checcAccNumIndex]);
                 j++;
 
-                check.balance = Double.parseDouble(data[i][j]);
+                check.balance = Double.parseDouble(data[i][checcAccBalIndex]);
                 checkingList.add(check);
                 j++;
 
@@ -67,10 +85,10 @@ public class CsvImporter {
                 Saving sav = new Saving();
                 sav.customer = cust;
                 cust.setSaving(sav);
-                sav.accountNumber = Integer.parseInt(data[i][j]);
+                sav.accountNumber = Integer.parseInt(data[i][savAccNumIndex]);
                 j++;
 
-                sav.balance = Double.parseDouble(data[i][j]);
+                sav.balance = Double.parseDouble(data[i][savAccBalIndex]);
                 savingList.add(sav);
                 j++;
 
@@ -78,13 +96,13 @@ public class CsvImporter {
                 Credit cred = new Credit();
                 cred.customer = cust;
                 cust.custCredit = cred;
-                cred.accountNumber = Integer.parseInt(data[i][j]);
+                cred.accountNumber = Integer.parseInt(data[i][credAccNumIndex]);
                 j++;
 
-                cred.maxCredit = Double.parseDouble(data[i][j]);
+                cred.maxCredit = Double.parseDouble(data[i][credAccBalMaxIndex]);
                 j++;
 
-                cred.balance = Double.parseDouble(data[i][j]);
+                cred.balance = Double.parseDouble(data[i][credAccBalIndex]);
                 j++;
                 creditList.add(cred);
 
@@ -195,7 +213,7 @@ public class CsvImporter {
             // "C:\\Users\\devin\\Documents\\VSCode
             // Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\BankUsers.csv"
             FileWriter writer = new FileWriter(
-                    "C:\\Users\\devin\\Documents\\VSCode Workstations\\Computer-Organization-Freudenthal\\AOOP_Project\\BankExportCheck.csv");
+                    "C:\\Users\\devin\\Documents\\Workstation\\Project\\AOOP_Project\\BankExportCheck.csv");
             for (String[] row : array) {
                 for (int i = 1; i < row.length; i++) {
                     writer.append(String.valueOf(row[i]));
@@ -239,5 +257,18 @@ public class CsvImporter {
      * sets the csv path*/
     protected void setCSVFile(String filePath) {
         this.csvFile = filePath;
+    }
+
+    private int returnInd(String [][] array, String stringToSearch){
+        for(int i=0;i<1;i++){
+            for (int j=0; j < array[0].length; j++){
+                String current =array[i][j];
+                if(stringToSearch.equalsIgnoreCase(current)){
+                    return j;
+                }
+                
+            }
+        }
+        return -1;
     }
 }
