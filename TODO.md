@@ -27,11 +27,11 @@
         [ ]Generate bank statement for user
 
 ## Files
-    [ ] UML Class Diagram [UPDATED] (.pdf)
-    [ ] UML Use Case Scenarios [UPDATED] (.pdf)
-    [ ] UML Use Case Diagram [UPDATED] (.pdf)
+    [ ] UML Class Diagram [UPDATED] (.pdf) -adrian
+    [ ] UML Use Case Scenarios [UPDATED] (.pdf) -adrian
+    [ ] UML Use Case Diagram [UPDATED] (.pdf)   -adrian
     [ ] Lab Report (.pdf)
-    [ ] Javdoc [UPDATED]
+    [ ] Javdoc [UPDATED] -devin
     [ ] Bank Users Sheet [UPDATED] 
     [ ] User Transaction logs for (team members as new users)
     [ ] Log.txt
