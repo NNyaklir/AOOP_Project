@@ -58,6 +58,7 @@ public class UI {
                             validInput=true;
                             importer.export();
                             System.out.println("Application exited");
+                            System.exit(0);
 
 
                         default:
