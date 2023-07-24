@@ -213,8 +213,7 @@ public class CsvImporter {
         char seperator = ',';
         String[][] array = arrayListTo2d();
         try {
-            FileWriter writer = new FileWriter(
-                    "./BankExportCheck.csv");
+            FileWriter writer = new FileWriter("./BankExportCheck.csv");
             for (String[] row : array) {
                 for (int i = 1; i < row.length; i++) {
                     writer.append(String.valueOf(row[i]));
