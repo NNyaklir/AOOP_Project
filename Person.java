@@ -1,5 +1,5 @@
 /**A class modeled after a person, has information that would be typically stored of a person by systems */
-public class Person {
+public abstract class Person {
     protected String nameFirst;
     protected String nameLast;
     protected String address;

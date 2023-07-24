@@ -1,83 +1,110 @@
 
-/** a sublcass of Account, represents a credit account */
-public class Credit extends Account{
-    protected double maxCredit;//should be a negative double amount that cannot be surpassed
-    
-    /**@param maxC max amount of credit in credit account
+public class Credit implements Account {
+    protected int accountNumber;
+    protected Customer customer;
+    protected double balance;
+    protected double maxCredit; // should be a negative double amount that cannot be surpassed
+
+    /** @param maxC max amount of credit in credit account
      * @param bal starting balance
      * constructor for testing only */
-    protected Credit(double maxC,double bal){
-        this.maxCredit=maxC;
-        this.balance=bal;
-
-    }
-    /**default no args constructor*/
-    protected Credit(){
-        
+    public Credit(double maxC, double bal) {
+        this.maxCredit = maxC;
+        this.balance = bal;
     }
 
-    /**@return current max credit
+    /** Default no-args constructor */
+    public Credit() {
+
+    }
+
+    // Implementing methods from the Account interface
+
+    public void setAccountNumber(int n) {
+        this.accountNumber = n;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setCustomer(Customer c) {
+        this.customer = c;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setBalance(double bal) {
+        this.balance = bal;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void charge(double c) {
+        double reverseC = -c;
+        double over = balance - reverseC;
+        if (!(over > maxCredit)) {
+            balance -= c;
+        } else {
+            System.out.println("Insufficient funds for charge/withdrawal");
+        }
+    }
+
+    public void deposit(double d) {
+        balance += d;
+    }
+
+    public void transferTo(Account recipient, double amount) {
+        double maxC = -maxCredit;
+        if (amount > maxC) {
+            System.out.println("Insufficient funds for transfer");
+        } else {
+            balance -= amount;
+            recipient.deposit(amount);
+            int accID1 = this.getAccountNumber();
+            int accID2 = recipient.getAccountNumber();
+            System.out.println("Successfully transferred " + amount + " from Account:" + accID1 + " to Account:" + accID2);
+        }
+    }
+
+    public void displayInformation() {
+        System.out.println("---------------------------------------");
+        System.out.println(customer.getNameFirst() + " " + customer.getNameLast() + "'s Information");
+        System.out.println("Account " + accountNumber + " has a balance of " + balance + ".");
+        System.out.println("---------------------------------------");
+    }
+
+    /** @return current max credit
      * gets max credit */
-    protected double getMaxCredit(){
+    public double getMaxCredit() {
         return maxCredit;
     }
 
-    /**@param maxC max credit amount for current 
+    /** @param maxC max credit amount for current
      * sets max credit */
-    protected void setMaxCredit(double maxC){
-        if(maxC<0){
-            this.maxCredit=maxC;
-        }
-        else if(!(maxC<0)){
-            maxC= -maxC;
-            this.maxCredit=maxC;
+    public void setMaxCredit(double maxC) {
+        if (maxC < 0) {
+            this.maxCredit = maxC;
+        } else if (!(maxC < 0)) {
+            maxC = -maxC;
+            this.maxCredit = maxC;
         }
     }
 
-    /**@param addlCredit increased credit value 
+    /** @param addlCredit increased credit value
      * increases the max credit limit on account
-    */
-    protected void extendCredit(double maxC){
-        try{
-            if(balance>=maxC && maxCredit>maxC){
-                maxCredit=maxC;
+     */
+    public void extendCredit(double addlCredit) {
+        try {
+            if (balance >= addlCredit && maxCredit > addlCredit) {
+                maxCredit = addlCredit;
             }
-        }
-        catch( Exception e){
+        } catch (Exception e) {
             System.out.println("Max Credit cannot be extended below current limit");
         }
     }
-
-     /** @param recepient this is the account that the money will go to
-     * @param amount this is the amount transfered
-     * This method will transfer from the account called in the function, to the account named in the constuctor overloaded for credit
-     */
-    protected void transferTo( Account recepient, double amount){
-        double maxC= +(maxCredit);
-        if(amount>maxC){
-            System.out.println("Insufficient funds for transfer");
-        }
-        else{
-            balance -= amount;
-            recepient.balance+=amount;
-            int accID1= this.getAccountNumber();
-            int accID2=recepient.getAccountNumber();
-            System.out.println("Successfully transferred "+amount+" from Account:"+accID1+" to Account:"+accID2);
-        }
-    }
-
-    /** @param c an amount charged to the balance
-     * Modified for credit class
-     */
-    protected void charge(double c){
-        double reverseC= -c;
-        double over= balance-reverseC;
-        if(!(over>maxCredit)){
-            balance-=c;
-        }
-        else{
-            System.out.println("Insufficent fund for charge/withdrawal");
-        }
-    }
-
 }

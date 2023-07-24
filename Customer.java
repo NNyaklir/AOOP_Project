@@ -43,6 +43,7 @@ public class Customer extends Person {
 
     /**Prints in terminal all variables in class with relevant statements*/
     protected void displayInformation(){
+        System.out.println("---------------------------------------");
         System.out.println(nameFirst+" "+nameLast+", user ID:"+id);
         System.out.println("Phone Number: "+phoneNumber);
         System.out.println("Address: "+address);
@@ -50,5 +51,6 @@ public class Customer extends Person {
         System.out.println("Checking Account "+custChecking.getAccountNumber()+":"+custChecking.getBalance());
         System.out.println("Savings Account "+custSaving.getAccountNumber()+":"+custSaving.getBalance());
         System.out.println("Credit Account "+custCredit.getAccountNumber()+":"+custCredit.getBalance());
+        System.out.println("---------------------------------------");
     }
 }
