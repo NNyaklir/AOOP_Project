@@ -37,6 +37,7 @@ public class TransactionRunner {
                                     custList.get(sender).getChecking().transferTo(custList.get(recepient).getSaving(), Double.parseDouble(data[i][7]));
                                     log.logTransfer(custList.get(sender).getChecking(), Double.parseDouble(data[i][7]), custList.get(recepient).getSaving());
                                     j+=8;
+                                    break;
 
                                 case "Credit":
                                     custList.get(sender).getChecking().transferTo(custList.get(recepient).getCredit(), Double.parseDouble(data[i][7]));
@@ -49,6 +50,8 @@ public class TransactionRunner {
                                     j+=8;
                                     break;
                             }
+                            break;
+
                             case "Savings":
                             switch(data[i][6]){
                                 case "Checking":
@@ -61,6 +64,7 @@ public class TransactionRunner {
                                     custList.get(sender).getSaving().transferTo(custList.get(recepient).getSaving(), Double.parseDouble(data[i][7]));
                                     log.logTransfer(custList.get(sender).getSaving(), Double.parseDouble(data[i][7]), custList.get(recepient).getSaving());
                                     j+=8;
+                                    break;
 
                                 case "Credit":
                                     custList.get(sender).getSaving().transferTo(custList.get(recepient).getCredit(), Double.parseDouble(data[i][7]));
@@ -73,6 +77,8 @@ public class TransactionRunner {
                                     j+=8;
                                     break;
                             }
+                            break;
+
                             case "Credit":
                             switch(data[i][6]){
                                 case "Checking":
@@ -85,6 +91,7 @@ public class TransactionRunner {
                                     custList.get(sender).getCredit().transferTo(custList.get(recepient).getSaving(), Double.parseDouble(data[i][7]));
                                     log.logTransfer(custList.get(sender).getCredit(), Double.parseDouble(data[i][7]), custList.get(recepient).getSaving());
                                     j+=8;
+                                    break;
 
                                 case "Credit":
                                     custList.get(sender).getCredit().transferTo(custList.get(recepient).getCredit(), Double.parseDouble(data[i][7]));
@@ -97,9 +104,87 @@ public class TransactionRunner {
                                     j+=8;
                                     break;
                             }
+                            break;
 
+                            default:
+                                System.out.println("Error occured during transcation processing in row "+i+"\nMoving to next transaction");
+                                j+=8;
+                                break;
                         }
+                        break;
+
                     case "Transfer":
+                        int transferer = search.searchByName(data[i][0], data[i][1], custList);
+                        switch(data[i][2]){
+                            case "Checking":
+                            switch(data[i][6]){
+                                case "Savings":
+                                    custList.get(transferer).getChecking().transferTo(custList.get(transferer).getSaving(), Double.parseDouble(data[i][7]));
+                                    log.logTransfer(custList.get(transferer).getChecking(), Double.parseDouble(data[i][7]), custList.get(transferer).getSaving());
+                                    j+=8;
+                                    break;
+
+                                case "Credit":
+                                    custList.get(transferer).getChecking().transferTo(custList.get(transferer).getCredit(), Double.parseDouble(data[i][7]));
+                                    log.logTransfer(custList.get(transferer).getChecking(), Double.parseDouble(data[i][7]), custList.get(transferer).getCredit());
+                                    j+=8;
+                                    break;
+
+                                default:
+                                    System.out.println("Error occured during transcation processing in row "+i+"\nMoving to next transaction");
+                                    j+=8;
+                                    break;
+                            }
+                            break;
+
+                            case "Savings":
+                            switch(data[i][6]){
+                                case "Checking":
+                                    custList.get(transferer).getSaving().transferTo(custList.get(transferer).getChecking(), Double.parseDouble(data[i][7]));
+                                    log.logTransfer(custList.get(transferer).getSaving(), Double.parseDouble(data[i][7]), custList.get(transferer).getChecking());
+                                    j+=8;
+                                    break;
+
+                                case "Credit":
+                                    custList.get(transferer).getSaving().transferTo(custList.get(transferer).getCredit(), Double.parseDouble(data[i][7]));
+                                    log.logTransfer(custList.get(transferer).getSaving(), Double.parseDouble(data[i][7]), custList.get(transferer).getCredit());
+                                    j+=8;
+                                    break;
+
+                                default:
+                                    System.out.println("Error occured during transcation processing in row "+i+"\nMoving to next transaction");
+                                    j+=8;
+                                    break;
+                            }
+                            break;
+
+                            case "Credit":
+                            switch(data[i][6]){
+                                case "Checking":
+                                    custList.get(transferer).getCredit().transferTo(custList.get(transferer).getChecking(), Double.parseDouble(data[i][7]));
+                                    log.logTransfer(custList.get(transferer).getCredit(), Double.parseDouble(data[i][7]), custList.get(transferer).getChecking());
+                                    j+=8;
+                                    break;
+
+                                case "Savings":
+                                    custList.get(transferer).getCredit().transferTo(custList.get(transferer).getSaving(), Double.parseDouble(data[i][7]));
+                                    log.logTransfer(custList.get(transferer).getCredit(), Double.parseDouble(data[i][7]), custList.get(transferer).getSaving());
+                                    j+=8;
+                                    break;
+
+                                default:
+                                    System.out.println("Error occured during transcation processing in row "+i+"\nMoving to next transaction");
+                                    j+=8;
+                                    break;
+                            }
+                            break;
+
+                            default:
+                                System.out.println("Error occured during transcation processing in row "+i+"\nMoving to next transaction");
+                                j+=8;
+                                break;
+                        }
+                        break;
                         
 
                 }
