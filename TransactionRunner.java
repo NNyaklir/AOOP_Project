@@ -10,8 +10,10 @@ public class TransactionRunner {
     String [][] data;
 
 
-
-    public void runTransactions(ArrayList<Customer> custList,ArrayList<Checking> checkingList,ArrayList<Saving> savingList,ArrayList<Credit> creditList){
+    /**@param custList list of customers to validate and traverse through
+     * This method will run all the transactions in the transactions csv file
+     */
+    public void runTransactions(ArrayList<Customer> custList){
         //col 0 is from first name, col 1 is from last name, col 2 is from account type, col 3 is the action
         //col 4 is recepient first name, col 5 is recepient last name, co 6 is recepient account type
         // col 7 is the ammount.
@@ -113,7 +115,7 @@ public class TransactionRunner {
                         }
                         break;
 
-                    case "Transfer":
+                    case "transfers":
                         int transferer = search.searchByName(data[i][0], data[i][1], custList);
                         switch(data[i][2]){
                             case "Checking":
@@ -185,10 +187,68 @@ public class TransactionRunner {
                                 break;
                         }
                         break;
+
+                    case "deposits":
+                    int depositor= search.searchByName(data[i][4], data[i][5], custList);
+                    switch(data[i][6]){
+                        case "Checking":
+                            custList.get(depositor).getChecking().deposit(Double.parseDouble(data[i][7]));
+                            log.logAddition(custList.get(depositor).getChecking(), Double.parseDouble(data[i][7]));
+                            j+=7;
+                            break;
                         
+                        case "Saving":
+                            custList.get(depositor).getSaving().deposit(Double.parseDouble(data[i][7]));
+                            log.logAddition(custList.get(depositor).getSaving(), Double.parseDouble(data[i][7]));
+                            j+=7;
+                            break;
 
+                        case "Credit":
+                            custList.get(depositor).getCredit().deposit(Double.parseDouble(data[i][7]));
+                            log.logAddition(custList.get(depositor).getCredit(), Double.parseDouble(data[i][7]));
+                            j+=7;
+                            break;
+                        
+                        default:
+                        System.out.println("Error occured during transcation processing in row "+i+"\nMoving to next transaction");
+                            j+=8;
+                            break;
+                    }
+                    break;
+
+                    case "withdraws":
+                    int withdrawer = search.searchByName(data[i][4], data[i][5], custList);
+                    switch(data[i][6]){
+                        case "Checking":
+                            custList.get(withdrawer).getChecking().charge(Double.parseDouble(data[i][7]));
+                            log.logDeduction(custList.get(withdrawer).getChecking(), Double.parseDouble(data[i][7]));
+                            j+=7;
+                            break;
+                        
+                        case "Saving":
+                            custList.get(withdrawer).getSaving().charge(Double.parseDouble(data[i][7]));
+                            log.logDeduction(custList.get(withdrawer).getSaving(), Double.parseDouble(data[i][7]));
+                            j+=7;
+                            break;
+
+                        case "Credit":
+                            custList.get(withdrawer).getCredit().charge(Double.parseDouble(data[i][7]));
+                            log.logDeduction(custList.get(withdrawer).getCredit(), Double.parseDouble(data[i][7]));
+                            j+=7;
+                            break;
+                        
+                        default:
+                        System.out.println("Error occured during transcation processing in row "+i+"\nMoving to next transaction");
+                            j+=8;
+                            break;
+                    }
+                    break;
+
+                    default:
+                        System.out.println("Error occured during transcation processing in row "+i+"\nMoving to next transaction");
+                            j+=8;
+                            break;
                 }
-
             }
         }
     }
