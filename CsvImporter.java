@@ -16,12 +16,16 @@ public class CsvImporter {
     private int rows;
     private int columns;
     protected String csvFile = "./BankUsers.csv";
+
+    AccountFactory accountFactory = new AccountFactory();
     //BankUsers.csv
+
 
     /**
      * method to import data from a csv and store it into specified objects and
      * variables
      */
+
     protected void dataImport() {
 
         String[][] data = importCSVto2darray();
@@ -71,47 +75,49 @@ public class CsvImporter {
                 j++;
 
                 // starts checking accounts
-                Checking check = new Checking();
+
+                Account check = AccountFactory.createAccount("Checking");
                 check.setCustomer(cust);
                 
-                check.accountNumber = Integer.parseInt(data[i][checcAccNumIndex]);
+                check.setAccountNumber(Integer.parseInt(data[i][checcAccNumIndex]));;
                 j++;
 
-                check.balance = Double.parseDouble(data[i][checcAccBalIndex]);
-                checkingList.add(check);
-                cust.setChecking(check);
+                check.setBalance(Double.parseDouble(data[i][checcAccBalIndex]));
+                checkingList.add((Checking) check);
+                cust.setChecking((Checking) check);
                 j++;
 
                 // starts saving accounts
-                Saving sav = new Saving();
-                sav.setCustomer(cust);;
-                
-                sav.accountNumber = Integer.parseInt(data[i][savAccNumIndex]);
+                Account sav = AccountFactory.createAccount("Savings");
+                sav.setCustomer(cust);
+
+                sav.setAccountNumber(Integer.parseInt(data[i][savAccNumIndex]));
                 j++;
 
-                sav.balance = Double.parseDouble(data[i][savAccBalIndex]);
-                cust.setSaving(sav);
-                savingList.add(sav);
+                sav.setBalance(Double.parseDouble(data[i][savAccBalIndex]));
+                cust.setSaving((Saving) sav);
+                savingList.add((Saving) sav);
                 j++;
 
                 // starts credit accounts
-                Credit cred = new Credit();
+                Account cred = AccountFactory.createAccount("Credit");
                 cred.setCustomer(cust);
-                
-                cred.accountNumber = Integer.parseInt(data[i][credAccNumIndex]);
+
+                cred.setAccountNumber(Integer.parseInt(data[i][credAccNumIndex]));
                 j++;
 
-                cred.maxCredit = Double.parseDouble(data[i][credAccBalMaxIndex]);
+                ((Credit) cred).setMaxCredit(Double.parseDouble(data[i][credAccBalMaxIndex]));
                 j++;
 
-                cred.balance = Double.parseDouble(data[i][credAccBalIndex]);
+                cred.setBalance(Double.parseDouble(data[i][credAccBalIndex]));
                 j++;
-                cust.setCredit(cred);
-                creditList.add(cred);
+                cust.setCredit((Credit) cred);
+                creditList.add((Credit) cred);
 
             }
         }
     }
+
 
     /**
      * @return a 2d array that stores data from an csv file, only used in importCSVto2d
@@ -265,17 +271,17 @@ public class CsvImporter {
      * @param stringToSearch the string that is being searched for
      * This program and takes a 2d array and searches the first row for column headers.
      */
-    private int returnInd(String [][] array, String stringToSearch){
-        for(int i=0;i<1;i++){
-            for (int j=0; j < array[0].length; j++){
-                String current =array[i][j];
-                if(stringToSearch.equalsIgnoreCase(current)){
+    private int returnInd(String[][] array, String stringToSearch) {
+        for (int i = 0; i < 1; i++) {
+            for (int j = 0; j < array[0].length; j++) {
+                String current = array[i][j];
+                if (stringToSearch.equalsIgnoreCase(current)) {
                     return j;
                 }
-                
             }
         }
-        return -1;
+        // Header not found, throw an exception or return -1 if you want.
+        throw new IllegalArgumentException("Header not found: " + stringToSearch);
     }
 
     /**This method increments row to account for new users during export. */
