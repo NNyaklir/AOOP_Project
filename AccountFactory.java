@@ -8,7 +8,6 @@ public class AccountFactory {
         } else if ("Credit".equalsIgnoreCase(accountType)) {
             return new Credit();
         }
-
         return null;
     }
 }
