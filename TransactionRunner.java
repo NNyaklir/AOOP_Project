@@ -23,6 +23,7 @@ public class TransactionRunner {
 
         for(int i=1; i<data.length;i++){
             for(int j=0;j<data[0].length;){
+                try{
                 switch(data[i][3]){
                     case "pays":
                         int sender = search.searchByName(data[i][0], data[i][1], custList);
@@ -247,6 +248,7 @@ public class TransactionRunner {
                     
                     case "inquires":
                         int inquirer=search.searchByName(data[i][4], data[i][5], custList);
+                        try{
                         switch(data[i][2]){
                             case "Checking":
                             custList.get(inquirer).getChecking().displayInformation();
@@ -270,6 +272,11 @@ public class TransactionRunner {
                                 System.out.println("Error occured during transcation processing in row "+i+"\nMoving to next transaction");
                                 j+=8;
                                 break;
+                        }}
+                        catch(Exception e){
+                            System.out.println("Error occured during transcation processing in row "+i+"\nMoving to next transaction");
+                            j+=8;
+
                         }
                         break;
 
@@ -277,6 +284,14 @@ public class TransactionRunner {
                         System.out.println("Error occured during transcation processing in row "+i+"\nMoving to next transaction");
                         j+=8;
                         break;
+                }
+                }
+                catch(Exception e){
+                    System.out.println("Error occured during transcation processing in row "+i+"\nMoving to next transaction\n"+"Error that accoured is\n");
+                    e.printStackTrace();
+                    j+=8;
+
+
                 }
             }
         }
