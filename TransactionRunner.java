@@ -247,15 +247,36 @@ public class TransactionRunner {
                     
                     case "inquires":
                         int inquirer=search.searchByName(data[i][4], data[i][5], custList);
-                        custList.get(inquirer).displayInformation();
-                        log.logInquiry(custList.get(inquirer), "Every");
-                        j+=8;
+                        switch(data[i][2]){
+                            case "Checking":
+                            custList.get(inquirer).getChecking().displayInformation();
+                            log.logInquiry(custList.get(inquirer), "Checking");
+                            j+=8;
+                            break;
+
+                            case "Saving":
+                            custList.get(inquirer).getSaving().displayInformation();
+                            log.logInquiry(custList.get(inquirer), "Saving");
+                            j+=8;
+                            break;
+
+                            case "Credit":
+                            custList.get(inquirer).getCredit().displayInformation();
+                            log.logInquiry(custList.get(inquirer), "Credit");
+                            j+=8;
+                            break;
+
+                            default:
+                                System.out.println("Error occured during transcation processing in row "+i+"\nMoving to next transaction");
+                                j+=8;
+                                break;
+                        }
                         break;
 
                     default:
                         System.out.println("Error occured during transcation processing in row "+i+"\nMoving to next transaction");
-                            j+=8;
-                            break;
+                        j+=8;
+                        break;
                 }
             }
         }
