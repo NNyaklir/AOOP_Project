@@ -19,6 +19,7 @@ public class TransactionRunner {
         // col 7 is the ammount.
         Searcher search =new Searcher();
         Logger log = new Logger();
+        data=importCSVto2darray();
 
         for(int i=1; i<data.length;i++){
             for(int j=0;j<data[0].length;){
