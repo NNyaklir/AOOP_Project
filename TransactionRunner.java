@@ -246,7 +246,7 @@ public class TransactionRunner {
                     break;
                     
                     case "inquires":
-                        int inquirer=search.searchByName(data[i][4], data[i][5], custList)
+                        int inquirer=search.searchByName(data[i][4], data[i][5], custList);
                         custList.get(inquirer).displayInformation();
                         log.logInquiry(custList.get(inquirer), "Every");
                         j+=8;
