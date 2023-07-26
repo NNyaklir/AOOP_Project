@@ -6,7 +6,7 @@
     [X] UI bugs - Ray
     [X] Create Interface - Ray
         [X] Used in 2 classes
-    [ ] Use a design pattern - Ray
+    [X] Use a design pattern - Ray
         [ ] Discuss design pattern implementation in lab report
     [x] Add new users functionality -devin
         [x] Automatic account number generation

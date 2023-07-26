@@ -1,4 +1,4 @@
-/**A class that is modeled after savings accounts */
+/**An implementation of Account, that models bank Saving accounts */
 public class Saving implements Account {
     protected int accountNumber;
     protected Customer customer;
@@ -18,36 +18,45 @@ public class Saving implements Account {
     }
 
     /** Default no-args constructor */
-    public Saving() {
-
-    }
+    public Saving() { }
 
     // Implementing methods from the Account interface
-
+    /** A method that sets a given account number, implemented from Account interface*/
     public void setAccountNumber(int n) {
         this.accountNumber = n;
     }
 
+    /** A method that returns a given account number, implemented from Account interface */
     public int getAccountNumber() {
         return accountNumber;
     }
 
+    /** A method that set a given Customer, implemented from Account interface */
     public void setCustomer(Customer c) {
         this.customer = c;
     }
 
+    /** A method that returns a given Customer, implemented from Account interface */
     public Customer getCustomer() {
         return customer;
     }
 
+    /** A method that sets initial balance, implemented from Account interface */
     public void setBalance(double bal) {
         this.balance = bal;
     }
 
+    /** A method that returns balance, implemented from Account interface */
     public double getBalance() {
         return balance;
     }
 
+    /** A method that deposits a specified amount into the account, implemented from Account interface*/
+    public void deposit(double d) {
+        balance += d;
+    }
+
+    /** A method that charges the account a specified amount, implemented from Account interface */
     public void charge(double c) {
         if (balance >= c) {
             balance -= c;
@@ -56,10 +65,9 @@ public class Saving implements Account {
         }
     }
 
-    public void deposit(double d) {
-        balance += d;
-    }
-
+    /**@param recipient Account to be transferred too
+     * @param amount Amount to be deposited
+     *Method that transfers funds from account to another, implemented from Account interface */
     public void transferTo(Account recipient, double amount) {
         if (amount <= balance) {
             balance -= amount;
@@ -72,6 +80,7 @@ public class Saving implements Account {
         }
     }
 
+    /** Method to display account information, implemented from Account interface*/
     public void displayInformation() {
         System.out.println("---------------------------------------");
         System.out.println(customer.getNameFirst() + " " + customer.getNameLast() + "'s Information");
