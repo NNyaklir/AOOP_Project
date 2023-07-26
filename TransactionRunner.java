@@ -244,6 +244,13 @@ public class TransactionRunner {
                             break;
                     }
                     break;
+                    
+                    case "inquires":
+                        int inquirer=search.searchByName(data[i][4], data[i][5], custList)
+                        custList.get(inquirer).displayInformation();
+                        log.logInquiry(custList.get(inquirer), "Every");
+                        j+=8;
+                        break;
 
                     default:
                         System.out.println("Error occured during transcation processing in row "+i+"\nMoving to next transaction");
