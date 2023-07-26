@@ -161,7 +161,7 @@ public class UI {
             boolean validInput = false;
             while (!validInput) {
                 System.out.println(
-                        "Welcome Admin. What would you like to do today?\n 1.Inquire account by name\n 2.Inquire account by type/number\n 3.Go back");
+                        "Welcome Admin. What would you like to do today?\n 1.Inquire account by name\n 2.Inquire account by type/number\n 3.Run Transactions\n 4.Go back");
                 String choice = scan.nextLine();
                 switch (choice) {
                     case "1":
@@ -225,6 +225,11 @@ public class UI {
                         validInput = true;
                         break;
                     case "3":
+                        TransactionRunner tRunner = new TransactionRunner();
+                        tRunner.runTransactions(custList);
+                        validInput=true;
+                        break;
+                    case "4":
                         runUI();
                         validInput = true;
                         break;
@@ -236,6 +241,7 @@ public class UI {
             }} 
         catch (Exception e) {
             System.out.println("Error occured, returning to admin login");
+            e.printStackTrace();
             adminLogIn();
         }
         scan.close();
