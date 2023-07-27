@@ -7,7 +7,6 @@ import java.util.Date;
 public class Logger {
     protected String filePath = "./log.txt";
     protected String custFilePath = "./receipt.txt";
-    File custFile = new File(custFilePath);
     File logFile = new File(filePath);
 
     /**
@@ -32,12 +31,25 @@ public class Logger {
      */
     protected void logTransfer(Account sender, double amount, Account recepient) {
         try {
+            FileWriter sendWriter = new FileWriter(sender.getCustomer().getLogFile(), true);
+            FileWriter recWriter= new FileWriter(recepient.getCustomer().getLogFile(), true);
             FileWriter writer = new FileWriter(logFile, true);
-            String loggedS = ("Account:" + sender.getAccountNumber() + " transfered " + amount + " to Account:"
+
+            String sFN=sender.getCustomer().getNameFirst();
+            String sLN=sender.getCustomer().getNameLast();
+            String sN= sFN + " "+sLN;
+
+            String rFN= recepient.getCustomer().getNameFirst();
+            String rLN= recepient.getCustomer().getNameLast();
+            String rN= rFN+" "+rLN;
+
+            String loggedS = (sN+ " paid/transferd to "+rN+ " Account:" + sender.getAccountNumber() + " transfered " + amount + " to Account:"
                     + recepient.getAccountNumber() + "\n");
-            writer.write(loggedS);
-            writer.flush();
-            writer.close();
+
+            
+            writer.write(loggedS); sendWriter.write(loggedS); recWriter.write(loggedS);
+            writer.flush(); sendWriter.flush(); recWriter.flush();
+            writer.close(); sendWriter.close(); recWriter.flush();
         } catch (Exception e) {
             e.printStackTrace();
             ;
