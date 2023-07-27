@@ -1,10 +1,4 @@
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 /** A class that provides a UI for main */
@@ -62,8 +56,9 @@ public class UI {
                     case "EXIT":
                         validInput = true;
                         importer.export();
+                        importer.writeUpdatedCsv();
                         System.out.println("Application exited");
-                        generateReceipt(null);
+                        // generateReceipt(null);
                         System.exit(0);
 
                     default:
@@ -228,7 +223,7 @@ public class UI {
                     case "3":
                         TransactionRunner tRunner = new TransactionRunner();
                         tRunner.runTransactions(custList);
-                        validInput=true;
+                        validInput = true;
                         break;
                     case "4":
                         runUI();
@@ -947,42 +942,45 @@ public class UI {
         scan.close();
     }
 
-    //
-    private void generateReceipt(Account account) {
-        String accountInfo = "Account Information:\n";
-
-        accountInfo += "Account Number: " + account.getAccountNumber() + "\n";
-        accountInfo += "Account Holder: " + account.getCustomer() + "\n";
-
-        double startingBalance = account.getBalance(); // Assuming this method exists in Account class after all
-                                                       // transactions
-        double endingBalance = account.getBalance();
-
-        List<String> transactions = Logger.logInquiry(account.getAccountNumber()); // need to integrate
-                                                                                   // with the Logger
-                                                                                   // class to fetch all
-                                                                                   // transactions for
-                                                                                   // the account.
-        String dateOfStatement = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-        StringBuilder receipt = new StringBuilder();
-
-        receipt.append(accountInfo);
-        receipt.append("Starting Balance: " + startingBalance + "\n");
-        receipt.append("Ending Balance: " + endingBalance + "\n");
-        receipt.append("Transactions:\n");
-
-        for (String transaction : transactions) {
-            receipt.append(transaction + "\n");
-        }
-
-        receipt.append("Date of Statement: " + dateOfStatement);
-
-        try (PrintWriter out = new PrintWriter(new FileWriter("UserTransactions.txt"))) {
-            out.println(receipt.toString());
-        } catch (IOException e) {
-            System.out.println("Error writing to file: " + e.getMessage());
-        }
-
-    }
+    /*
+     * private void generateReceipt(Account account) {
+     * String accountInfo = "Account Information:\n";
+     * 
+     * accountInfo += "Account Number: " + account.getAccountNumber() + "\n";
+     * accountInfo += "Account Holder: " + account.getCustomer() + "\n";
+     * 
+     * double startingBalance = account.getBalance();
+     * double endingBalance = account.getBalance(); //
+     * 
+     * List<String> transactions = Logger.logInquiry(account.getAccountNumber()); //
+     * need to integrate
+     * // with the Logger
+     * // class to fetch all
+     * // transactions for
+     * // the account.
+     * String dateOfStatement = new SimpleDateFormat("yyyy-MM-dd").format(new
+     * Date());
+     * StringBuilder receipt = new StringBuilder();
+     * 
+     * receipt.append(accountInfo);
+     * receipt.append("Starting Balance: " + startingBalance + "\n");
+     * receipt.append("Ending Balance: " + endingBalance + "\n");
+     * receipt.append("Transactions:\n");
+     * 
+     * for (String transaction : transactions) {
+     * receipt.append(transaction + "\n");
+     * }
+     * 
+     * receipt.append("Date of Statement: " + dateOfStatement);
+     * 
+     * try (PrintWriter out = new PrintWriter(new
+     * FileWriter("UserTransactions.txt"))) {
+     * out.println(receipt.toString());
+     * } catch (IOException e) {
+     * System.out.println("Error writing to file: " + e.getMessage());
+     * }
+     * 
+     * }
+     */
 
 }
