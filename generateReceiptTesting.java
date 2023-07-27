@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class generateReceiptTesting {
@@ -8,10 +9,13 @@ public class generateReceiptTesting {
         generateReceiptTesting receipt = new generateReceiptTesting();
 
         // Create a sample account
-        Account account = new Account("123456", "John Doe", 1000);
+        CsvImporter importer= new CsvImporter();
+        importer.dataImport();
+        ArrayList<Customer> custList = importer.getCustList();
+        
 
         // Call the generateReceipt method
-        generateReceiptTesting.generateReceipt(account);
+        generateReceiptTesting.generateReceipt(custList.get(1));
 
         // Check if the UserTransactions.txt file was created and its content
         try {
