@@ -62,10 +62,8 @@ public class UI {
                     case "EXIT":
                         validInput = true;
                         importer.export();
-                        // generateReceipt(); // @TODO: call generate receipt upon exiting. Thought:
-                        // find a way to handle receipt gen if nothing has occured, or when only an
-                        // acount was created.
                         System.out.println("Application exited");
+                        generateReceipt(null);
                         System.exit(0);
 
                     default:
@@ -844,6 +842,7 @@ public class UI {
                         importer.export();
                         System.out.println("Successfully deposited: " + deposit);
                         validInput = true;
+                        generateReceipt(check);
                         break;
 
                     case "2":
@@ -942,22 +941,22 @@ public class UI {
         scan.close();
     }
 
-    // receipt generation. @TODO: Needs to be added
+    //
     private void generateReceipt(Account account) {
         String accountInfo = "Account Information:\n";
 
         accountInfo += "Account Number: " + account.getAccountNumber() + "\n";
-        accountInfo += "Account Holder: " + account.getAccountHolderName() + "\n";
+        accountInfo += "Account Holder: " + account.getCustomer() + "\n";
 
         double startingBalance = account.getBalance(); // Assuming this method exists in Account class after all
                                                        // transactions
         double endingBalance = account.getBalance();
 
-        List<String> transactions = Logger.getTransactionsForAccount(account.getAccountNumber()); // need to integrate
-                                                                                                  // with the Logger
-                                                                                                  // class to fetch all
-                                                                                                  // transactions for
-                                                                                                  // the account.
+        List<String> transactions = Logger.logInquiry(account.getAccountNumber()); // need to integrate
+                                                                                   // with the Logger
+                                                                                   // class to fetch all
+                                                                                   // transactions for
+                                                                                   // the account.
         String dateOfStatement = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         StringBuilder receipt = new StringBuilder();
 
