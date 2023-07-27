@@ -15,7 +15,7 @@ public class generateReceiptTesting {
         
 
         // Call the generateReceipt method
-        generateReceiptTesting.generateReceipt(custList.get(1));
+       // generateReceiptTesting.generateReceipt(custList.get(1).getChecking());
 
         // Check if the UserTransactions.txt file was created and its content
         try {

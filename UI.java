@@ -98,6 +98,7 @@ public class UI {
             // generation of id/account numbers and accounts
             int id = accessor.getIDNum();
             newCust.setId(id);
+            newCust.fileCheck();
             int checkNum = accessor.getCheckNum();
             Checking newChecking = new Checking();
             newChecking.setAccountNumber(checkNum);
@@ -846,7 +847,6 @@ public class UI {
                         importer.export();
                         System.out.println("Successfully deposited: " + deposit);
                         validInput = true;
-                        generateReceipt(check);
                         break;
 
                     case "2":

@@ -95,6 +95,7 @@ public class Logger {
         }
     }
 
+    /* 
     protected void generateReceipt(Customer cust, String type) {
         try {
             FileWriter writer = new FileWriter(custFilePath, true);
@@ -124,6 +125,6 @@ public class Logger {
             writer.close();
         } catch (Exception e) {
         }
-    }
+    } */
 
 }

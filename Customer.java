@@ -1,9 +1,39 @@
+import java.io.File;
 
 /**A class that is modeled after the information a bank would store on its customer */
 public class Customer extends Person {
     protected Checking custChecking;
     protected Credit custCredit;
     protected Saving custSaving;
+    protected String custLogPath;
+    protected File custLogFile; 
+    // example pathfile is "./CustomerLogs/Customer98.txt"
+
+
+    
+
+    /**
+     * A method to check if the customer log file exits, creates it if it does not.
+     */
+    protected void fileCheck(){
+        custLogPath="./CustomerLogs/Customer"+Integer.toString(this.getId())+".txt";
+        custLogFile= new File(custLogPath);
+        if(!custLogFile.exists()){
+            try{
+                custLogFile.createNewFile();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+                System.out.println("Error occured when creating customer file");
+            }
+
+        }
+        else{
+            System.out.println("Current customer has file");
+
+        }
+
+    }
     
     /**@param c checking acc 
      * sets the checking account for a customer*/
