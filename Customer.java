@@ -29,7 +29,7 @@ public class Customer extends Person {
 
         }
         else{
-            System.out.println("Current customer has file");
+            System.out.println("Customer file confirmed");
 
         }
 
@@ -82,5 +82,11 @@ public class Customer extends Person {
         System.out.println("Savings Account "+custSaving.getAccountNumber()+":"+custSaving.getBalance());
         System.out.println("Credit Account "+custCredit.getAccountNumber()+":"+custCredit.getBalance());
         System.out.println("---------------------------------------");
+    }
+
+    /**@return the file for customer logs */
+    protected File getLogFile(){
+        return custLogFile;
+
     }
 }
