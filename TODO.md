@@ -6,7 +6,7 @@
     [X] UI bugs - Ray
     [X] Create Interface - Ray
         [X] Used in 2 classes
-    [ ] Use a design pattern - Ray
+    [X] Use a design pattern - Ray
         [ ] Discuss design pattern implementation in lab report
     [x] Add new users functionality -devin
         [x] Automatic account number generation
@@ -21,10 +21,14 @@
         [ ] All transactions for user
         [ ] Date of statement
     [ ] Extend bank management functionality
-        [ ]Transaction reader -devin
-            [ ] Take input from a .csv file
-            [ ] use input to automatically run transactions.
+        [x]Transaction reader -devin
+            [x] Take input from a .csv file
+            [x] use input to automatically run transactions.
         [ ]Generate bank statement for user
+
+## Misc programming
+    [ ] add error message printouts for overdraft, insufficient funds etc
+    [ ] look for bugs
 
 ## Files
     [ ] UML Class Diagram [UPDATED] (.pdf) -adrian

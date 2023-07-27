@@ -4,23 +4,27 @@
 
 ## Programming
     [X] UI bugs - Ray
-    [ ] Create Interface
-        [ ] Used in 2 classes
-    [ ] Use a design pattern
+    [X] Create Interface - Ray
+        [X] Used in 2 classes
+    [ ] Use a design pattern - Ray
         [ ] Discuss design pattern implementation in lab report
-    [ ] Add new users functionality -devin
-        [ ] Automatic account number generation
-        [ ] ability to update a new customer() instance and and in relevant fields
-        [ ] Assign Checking, Saving, and Credit accounts to new instance
-            [ ] New users need to be given randomly generated credit score
-            [ ] New users' max credit is based on the credit score
+    [x] Add new users functionality -devin
+        [x] Automatic account number generation
+        [x] ability to update a new customer() instance and and in relevant fields
+        [x] Assign Checking, Saving, and Credit accounts to new instance
+            [x] New users need to be given randomly generated credit score
+            [x] New users' max credit is based on the credit score
     [ ] Create user transaction file displaying:
         [ ] Account Informaiton
         [ ] Starting balance (at the beginning of the session)
         [ ] Ending balance (at time requested)
         [ ] All transactions for user
         [ ] Date of statement
-    [ ] Extend bank management functionality //I'll finish writing this later
+    [ ] Extend bank management functionality
+        [ ]Transaction reader -devin
+            [ ] Take input from a .csv file
+            [ ] use input to automatically run transactions.
+        [ ]Generate bank statement for user
 
 ## Files
     [ ] UML Class Diagram [UPDATED] (.pdf)
