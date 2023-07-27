@@ -65,11 +65,17 @@ public class Logger {
      */
     protected void logDeduction(Account deductee, double amount) {
         try {
+            FileWriter dedWriter = new FileWriter(deductee.getCustomer().getLogFile(), true);
             FileWriter writer = new FileWriter(logFile, true);
-            String loggedS = ("Account:" + deductee.getAccountNumber() + " withdrew " + amount + "\n");
-            writer.write(loggedS);
-            writer.flush();
-            writer.close();
+
+            String dFN= deductee.getCustomer().getNameFirst();
+            String dLN= deductee.getCustomer().getNameFirst();
+            String dN= dFN+" "+dLN;
+
+            String loggedS = (dN+"'s "+"Account:" + deductee.getAccountNumber() + " withdrew " + amount + "\n");
+            writer.write(loggedS); dedWriter.write(loggedS);
+            writer.flush(); dedWriter.flush();
+            writer.close(); dedWriter.close();
         } catch (Exception e) {
         }
     }
@@ -82,10 +88,16 @@ public class Logger {
     protected void logAddition(Account acc, double amount) {
         try {
             FileWriter writer = new FileWriter(filePath, true);
-            String loggedS = ("Account:" + acc.getAccountNumber() + " deposited " + amount + "\n");
-            writer.write(loggedS);
-            writer.flush();
-            writer.close();
+            FileWriter addWriter = new FileWriter(acc.getCustomer().getLogFile(), true);
+
+            String aFN= acc.getCustomer().getNameFirst();
+            String aLN= acc.getCustomer().getNameLast();
+            String aN = aFN+" "+aLN;
+
+            String loggedS = (aN+"'s "+"Account:" + acc.getAccountNumber() + " deposited " + amount + "\n");
+            writer.write(loggedS); addWriter.write(loggedS);
+            writer.flush(); addWriter.flush();
+            writer.close();addWriter.close();
         } catch (Exception e) {
         }
     }
@@ -96,12 +108,13 @@ public class Logger {
      */
     protected void logInquiry(Customer cust, String type) {
         try {
+            FileWriter inqWriter= new FileWriter(cust.getLogFile(),true);
             FileWriter writer = new FileWriter(filePath, true);
             String loggedS = (cust.getNameFirst() + " " + cust.getNameLast() + " made an inquiry into " + type
                     + " Acount");
-            writer.write(loggedS);
-            writer.flush();
-            writer.close();
+            writer.write(loggedS); inqWriter.write(loggedS);
+            writer.flush(); inqWriter.flush();
+            writer.close(); inqWriter.close();
         } catch (Exception e) {
 
         }
