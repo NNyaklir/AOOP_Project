@@ -1,0 +1,9 @@
+---------------------------------------
+Beast Disney, user ID:20
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 16-Aug-98
+Checking Account 1019:1849.03
+Savings Account 2019:4398.81
+Credit Account 3019:-160.2
+---------------------------------------

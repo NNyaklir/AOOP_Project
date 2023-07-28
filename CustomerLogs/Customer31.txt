@@ -1,0 +1,9 @@
+---------------------------------------
+Prince Eric, user ID:31
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 10-Feb-05
+Checking Account 1030:1250.24
+Savings Account 2030:4505.0
+Credit Account 3030:-1413.12
+---------------------------------------

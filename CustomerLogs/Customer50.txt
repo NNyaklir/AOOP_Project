@@ -1,0 +1,9 @@
+---------------------------------------
+Eduardo Garcia, user ID:50
+Phone Number: (915) 747-5013
+Address: "500 W. University Ave, El Paso, TX 79968"
+DOB: 2-Jun-92
+Checking Account 1049:1243.42
+Savings Account 2049:1243.48
+Credit Account 3049:-862.06
+---------------------------------------

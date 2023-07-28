@@ -1,0 +1,9 @@
+---------------------------------------
+Anthony Jasso, user ID:42
+Phone Number: (915) 747-5005
+Address: "500 W. University Ave, El Paso, TX 79968"
+DOB: 8-Dec-44
+Checking Account 1041:661.74
+Savings Account 2041:547.41
+Credit Account 3041:-530.31
+---------------------------------------

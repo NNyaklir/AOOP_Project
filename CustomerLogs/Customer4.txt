@@ -1,0 +1,9 @@
+---------------------------------------
+Goofy Disney, user ID:4
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 5-Mar-51
+Checking Account 1003:1456.69
+Savings Account 2003:884.26
+Credit Account 3003:-141.39
+---------------------------------------

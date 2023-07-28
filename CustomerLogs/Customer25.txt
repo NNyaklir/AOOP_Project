@@ -1,0 +1,9 @@
+---------------------------------------
+Gaston Disney, user ID:25
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 11-Aug-09
+Checking Account 1024:168.24
+Savings Account 2024:994.47
+Credit Account 3024:-1264.11
+---------------------------------------

@@ -1,0 +1,9 @@
+---------------------------------------
+Pluto Disney, user ID:5
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 20-Mar-37
+Checking Account 1004:1549.67
+Savings Account 2004:1622.73
+Credit Account 3004:-1289.68
+---------------------------------------

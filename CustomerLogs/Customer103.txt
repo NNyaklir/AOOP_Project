@@ -1,0 +1,9 @@
+---------------------------------------
+Daniel Z, user ID:103
+Phone Number: (915) 747-5066
+Address: "500 W. University Ave, El Paso, TX 79968"
+DOB: 9-Aug-56
+Checking Account 1102:1825.29
+Savings Account 2102:4635.0
+Credit Account 3102:-649.08
+---------------------------------------
