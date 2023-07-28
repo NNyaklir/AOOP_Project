@@ -40,7 +40,7 @@ public class Customer extends Person {
                 writer.flush();
                 writer.write("Credit Account "+custCredit.getAccountNumber()+":"+custCredit.getBalance()+"\n");
                 writer.flush();
-                writer.write("---------------------------------------\nS");
+                writer.write("---------------------------------------\n");
                 writer.flush();
                 writer.close();
                 
