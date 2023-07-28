@@ -14,3 +14,11 @@
 /RunBank.class
 /Searcher.class
 /UI.class
+/AccessNumbers.class
+/AccessNumbersTest.class
+/AccountFactory.class
+/CreditGenerator.class
+/CreditGeneratorTest.class
+/ShowCustomerLog.class
+/TransactionRunner.class
+/TransactionRunnerTest.class
