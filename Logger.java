@@ -43,7 +43,7 @@ public class Logger {
             String rLN= recepient.getCustomer().getNameLast();
             String rN= rFN+" "+rLN;
 
-            String loggedS = (sN+ " paid/transferd to "+rN+ " Account:" + sender.getAccountNumber() + " transfered " + amount + " to Account:"
+            String loggedS = (sN+ " paid/transfered to "+rN+ " Account:" + sender.getAccountNumber() + " transfered " + amount + " to Account:"
                     + recepient.getAccountNumber() + "\n");
 
             
