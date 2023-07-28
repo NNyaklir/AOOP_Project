@@ -32,6 +32,8 @@ public class Customer extends Person {
                 writer.write("Savings Account "+custSaving.getAccountNumber()+":"+custSaving.getBalance());
                 writer.write("Credit Account "+custCredit.getAccountNumber()+":"+custCredit.getBalance());
                 writer.write("---------------------------------------");
+                writer.flush();
+                writer.close();
                 
             }
             catch (Exception e){
