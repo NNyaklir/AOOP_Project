@@ -7,6 +7,8 @@ import java.time.format.DateTimeFormatter;
 /**A helper class for UI to show a customer log */
 public class ShowCustomerLog {
 
+    /**Public method that will print the customer log file and other relevant information in the terminal */
+    
     protected void printLog(Customer cust){
 
         

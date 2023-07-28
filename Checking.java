@@ -21,40 +21,49 @@ public class Checking implements Account {
     public Checking() { }
 
     // Implementing methods from the Account interface
-    /** A method that sets a given account number, implemented from Account interface*/
+
+    /**@param n number for account
+     *  A method that sets a given account number, implemented from Account interface*/
     public void setAccountNumber(int n) { this.accountNumber = n; }
 
-    /** A method that returns a given account number, implemented from Account interface */
+    /**@return returns account number
+     *  A method that returns a given account number, implemented from Account interface */
     public int getAccountNumber() {
         return accountNumber;
     }
 
-    /** A method that set a given Customer, implemented from Account interface */
+    /**@param c links customer to account
+     *  A method that set a given Customer, implemented from Account interface */
     public void setCustomer(Customer c) {
         this.customer = c;
     }
 
-    /** A method that returns a given Customer, implemented from Account interface */
+    /** @return the customer that is linked with this account
+     *  A method that returns a given Customer, implemented from Account interface */
     public Customer getCustomer() {
         return customer;
     }
 
-    /** A method that sets initial balance, implemented from Account interface */
+    /** @param bal the initial balance as a double
+     *  A method that sets initial balance, implemented from Account interface */
     public void setBalance(double bal) {
         this.balance = bal;
     }
 
-    /** A method that returns balance, implemented from Account interface */
+    /** @return the current balance of the account
+     *  A method that returns balance, implemented from Account interface */
     public double getBalance() {
         return balance;
     }
 
-    /** A method that deposits a specified amount into the account, implemented from Account interface*/
+    /**@param d the ammount to be deposited into the account as a double
+     *  A method that deposits a specified amount into the account, implemented from Account interface*/
     public void deposit(double d) {
         balance += d;
     }
 
-    /** A method that charges the account a specified amount, implemented from Account interface */
+    /**@param c the amount charged to the account
+     *  A method that charges the account a specified amount, implemented from Account interface */
     public void charge(double c) {
         if (balance >= c) {
             balance -= c;

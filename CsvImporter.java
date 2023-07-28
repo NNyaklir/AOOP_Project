@@ -24,7 +24,6 @@ public class CsvImporter {
      * method to import data from a csv and store it into specified objects and
      * variables
      */
-
     protected void dataImport() {
 
         String[][] data = importCSVto2darray();

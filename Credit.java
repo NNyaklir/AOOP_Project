@@ -17,28 +17,38 @@ public class Credit implements Account {
     public Credit() { }
 
     // Implementing methods from the Account interface
-    /** A method that sets a given account number*/
+
+
+    /**@param n account number 
+     *  A method that sets a given account number*/
     public void setAccountNumber(int n) { this.accountNumber = n; }
 
-    /** A method that returns a given account number, implemented from Account interface */
+    /**@return current account number
+     *  A method that returns a given account number, implemented from Account interface */
     public int getAccountNumber() { return accountNumber; }
 
-    /** A method that set a given Customer, implemented from Account interface */
+    /**@param c customer to be linked to account
+     *  A method that set a given Customer, implemented from Account interface */
     public void setCustomer(Customer c) { this.customer = c;}
 
-    /** A method that returns a given Customer, implemented from Account interface */
+    /**@return current customer linked to account
+     *  A method that returns a given Customer, implemented from Account interface */
     public Customer getCustomer() { return customer; }
 
-    /** A method that sets initial balance, implemented from Account interface */
+    /**@param bal inital balance
+     *  A method that sets initial balance, implemented from Account interface */
     public void setBalance(double bal) { this.balance = bal; }
 
-    /** A method that returns balance, implemented from Account interface */
+    /**@return current balance
+     *  A method that returns balance, implemented from Account interface */
     public double getBalance() { return balance; }
 
-    /** A method that deposits a specified amount into the account, implemented from Account interface*/
+    /**@param d deposit for account
+     *  A method that deposits a specified amount into the account, implemented from Account interface*/
     public void deposit(double d) { balance += d; }
 
-    /** A method that charges the account a specified amount, implemented from Account interface */
+    /**@param c charge amount for account
+     *  A method that charges the account a specified amount, implemented from Account interface */
     public void charge(double c) {
         double reverseC = -c;
         double over = balance - reverseC;
