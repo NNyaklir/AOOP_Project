@@ -19,7 +19,7 @@
         [ ] Starting balance (at the beginning of the session)
         [ ] Ending balance (at time requested)
         [ ] All transactions for user
-        [ ] Date of statement
+        [x] Date of statement
     [ ] Extend bank management functionality
         [x]Transaction reader -devin
             [x] Take input from a .csv file
