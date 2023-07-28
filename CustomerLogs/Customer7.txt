@@ -1,0 +1,9 @@
+---------------------------------------
+Dale Disney, user ID:7
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 19-Aug-12
+Checking Account 1006:894.1
+Savings Account 2006:4091.61
+Credit Account 3006:-53.21
+---------------------------------------

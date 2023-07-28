@@ -1,0 +1,9 @@
+---------------------------------------
+Chip Disney, user ID:6
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 25-Aug-05
+Checking Account 1005:32.84
+Savings Account 2005:3687.14
+Credit Account 3005:-1451.7
+---------------------------------------

@@ -1,0 +1,9 @@
+---------------------------------------
+Woody Disney, user ID:16
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 2-Apr-95
+Checking Account 1015:258.06
+Savings Account 2015:2429.23
+Credit Account 3015:-1005.79
+---------------------------------------

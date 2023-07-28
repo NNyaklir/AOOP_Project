@@ -1,0 +1,9 @@
+---------------------------------------
+Aladdin Disney, user ID:11
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 11-Oct-28
+Checking Account 1010:140.78
+Savings Account 2010:3431.15
+Credit Account 3010:-1989.22
+---------------------------------------

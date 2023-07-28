@@ -1,0 +1,9 @@
+---------------------------------------
+Hernan Garcia, user ID:57
+Phone Number: (915) 747-5020
+Address: "500 W. University Ave, El Paso, TX 79968"
+DOB: 30-Mar-42
+Checking Account 1056:135.23
+Savings Account 2056:3011.8
+Credit Account 3056:-990.67
+---------------------------------------

@@ -15,11 +15,11 @@
             [x] New users need to be given randomly generated credit score
             [x] New users' max credit is based on the credit score
     [ ] Create user transaction file displaying:
-        [ ] Account Informaiton
-        [ ] Starting balance (at the beginning of the session)
-        [ ] Ending balance (at time requested)
+        [x] Account Informaiton
+        [x] Starting balance (at the beginning of the session)
+        [x] Ending balance (at time requested)
         [ ] All transactions for user
-        [ ] Date of statement
+        [x] Date of statement
     [ ] Extend bank management functionality
         [x]Transaction reader -devin
             [x] Take input from a .csv file

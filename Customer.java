@@ -1,9 +1,62 @@
+import java.io.File;
+import java.io.FileWriter;
 
 /**A class that is modeled after the information a bank would store on its customer */
 public class Customer extends Person {
     protected Checking custChecking;
     protected Credit custCredit;
     protected Saving custSaving;
+    protected String custLogPath;
+    protected File custLogFile; 
+    // example pathfile is "./CustomerLogs/Customer98.txt"
+
+
+    
+
+    /**
+     * A method to check if the customer log file exits, creates it if it does not.
+     * Generates with relevant imformation
+     */
+    protected void fileCheck(){
+        custLogPath="./CustomerLogs/Customer"+Integer.toString(this.getId())+".txt";
+        custLogFile= new File(custLogPath);
+        if(!custLogFile.exists()){
+            try{
+                custLogFile.createNewFile();
+                FileWriter writer = new FileWriter(custLogFile, true);
+                writer.write("---------------------------------------\n");
+                writer.flush();
+                writer.write(nameFirst+" "+nameLast+", user ID:"+id+"\n");
+                writer.flush();
+                writer.write("Phone Number: "+phoneNumber+"\n");
+                writer.flush();
+                writer.write("Address: "+address+"\n");
+                writer.flush();
+                writer.write("DOB: "+dob+"\n");
+                writer.flush();
+                writer.write("Checking Account "+custChecking.getAccountNumber()+":"+custChecking.getBalance()+"\n");
+                writer.flush();
+                writer.write("Savings Account "+custSaving.getAccountNumber()+":"+custSaving.getBalance()+"\n");
+                writer.flush();
+                writer.write("Credit Account "+custCredit.getAccountNumber()+":"+custCredit.getBalance()+"\n");
+                writer.flush();
+                writer.write("---------------------------------------\n");
+                writer.flush();
+                writer.close();
+                
+            }
+            catch (Exception e){
+                e.printStackTrace();
+                System.out.println("Error occured when creating customer file");
+            }
+
+        }
+        else{
+            System.out.println("Customer file confirmed");
+
+        }
+
+    }
     
     /**@param c checking acc 
      * sets the checking account for a customer*/
@@ -52,5 +105,16 @@ public class Customer extends Person {
         System.out.println("Savings Account "+custSaving.getAccountNumber()+":"+custSaving.getBalance());
         System.out.println("Credit Account "+custCredit.getAccountNumber()+":"+custCredit.getBalance());
         System.out.println("---------------------------------------");
+    }
+
+    /**@return the file for customer logs */
+    protected File getLogFile(){
+        return custLogFile;
+
+    }
+
+    /**@return the file path for customer log */
+    protected String getLogPath(){
+        return custLogPath;
     }
 }

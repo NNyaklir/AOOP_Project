@@ -1,0 +1,9 @@
+---------------------------------------
+Mickey Mouse, user ID:1
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 25-Apr-92
+Checking Account 1000:403.12
+Savings Account 2000:4479.46
+Credit Account 3000:-1653.84
+---------------------------------------

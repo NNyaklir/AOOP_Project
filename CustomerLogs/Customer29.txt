@@ -1,0 +1,9 @@
+---------------------------------------
+Evil Queen, user ID:29
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 19-Dec-42
+Checking Account 1028:238.09
+Savings Account 2028:4844.83
+Credit Account 3028:-367.09
+---------------------------------------

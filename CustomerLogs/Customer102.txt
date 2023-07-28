@@ -1,0 +1,9 @@
+---------------------------------------
+Daniel Y, user ID:102
+Phone Number: (915) 747-5065
+Address: "500 W. University Ave, El Paso, TX 79968"
+DOB: 12-Mar-84
+Checking Account 1101:738.93
+Savings Account 2101:3810.87
+Credit Account 3101:-199.91
+---------------------------------------

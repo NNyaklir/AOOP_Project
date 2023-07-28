@@ -1,0 +1,9 @@
+---------------------------------------
+Scar Lion, user ID:23
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 29-Jul-29
+Checking Account 1022:941.51
+Savings Account 2022:4326.32
+Credit Account 3022:-140.99
+---------------------------------------

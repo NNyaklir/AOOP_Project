@@ -1,0 +1,9 @@
+---------------------------------------
+Alex Avila, user ID:38
+Phone Number: (915) 747-5001
+Address: "500 W. University Ave, El Paso, TX 79968"
+DOB: 19-Oct-65
+Checking Account 1037:85.09
+Savings Account 2037:516.33
+Credit Account 3037:-1827.58
+---------------------------------------

@@ -18,8 +18,7 @@ public class CsvImporter {
     protected String csvFile = "./BankUsers.csv";
 
     AccountFactory accountFactory = new AccountFactory();
-    //BankUsers.csv
-
+    // BankUsers.csv
 
     /**
      * method to import data from a csv and store it into specified objects and
@@ -30,22 +29,20 @@ public class CsvImporter {
 
         String[][] data = importCSVto2darray();
 
-        //assume column names will be formatted specified following
-        int idIndex= returnInd(data, "Identification Number");
+        // assume column names will be formatted specified following
+        int idIndex = returnInd(data, "Identification Number");
         int nameFirstIndex = returnInd(data, "First Name");
-        int nameLastIndex= returnInd(data, "Last Name");
+        int nameLastIndex = returnInd(data, "Last Name");
         int dobIndex = returnInd(data, "Date of birth");
-        int addressIndex= returnInd(data, "Address");
-        int phoneNumIndex= returnInd(data, "Phone Number");
+        int addressIndex = returnInd(data, "Address");
+        int phoneNumIndex = returnInd(data, "Phone Number");
         int checcAccNumIndex = returnInd(data, "Checking Account Number");
-        int checcAccBalIndex= returnInd(data, "Checking Starting Balance");
+        int checcAccBalIndex = returnInd(data, "Checking Starting Balance");
         int savAccNumIndex = returnInd(data, "Savings Account Number");
         int savAccBalIndex = returnInd(data, "Savings Starting Balance");
         int credAccNumIndex = returnInd(data, "Credit Account Number");
         int credAccBalMaxIndex = returnInd(data, "Credit Max");
         int credAccBalIndex = returnInd(data, "Credit Starting Balance");
-
-
 
         for (int i = 1; i < data.length; i++) {
             for (int j = 0; j < data[0].length; j++) {
@@ -56,6 +53,7 @@ public class CsvImporter {
                 Customer cust = new Customer();
 
                 cust.id = Integer.parseInt(data[i][idIndex]);
+                
                 j++;
 
                 cust.nameFirst = data[i][nameFirstIndex];
@@ -78,8 +76,9 @@ public class CsvImporter {
 
                 Account check = AccountFactory.createAccount("Checking");
                 check.setCustomer(cust);
-                
-                check.setAccountNumber(Integer.parseInt(data[i][checcAccNumIndex]));;
+
+                check.setAccountNumber(Integer.parseInt(data[i][checcAccNumIndex]));
+                ;
                 j++;
 
                 check.setBalance(Double.parseDouble(data[i][checcAccBalIndex]));
@@ -114,14 +113,16 @@ public class CsvImporter {
                 cust.setCredit((Credit) cred);
                 creditList.add((Credit) cred);
 
+                cust.fileCheck();
             }
         }
     }
 
-
     /**
-     * @return a 2d array that stores data from an csv file, only used in importCSVto2d
-     * Returns a 2d array that stores data from a csv file, only used in importCSVto2d
+     * @return a 2d array that stores data from an csv file, only used in
+     *         importCSVto2d
+     *         Returns a 2d array that stores data from a csv file, only used in
+     *         importCSVto2d
      */
     protected String[][] importCSVto2darray() {
         String[][] data = null;
@@ -161,7 +162,7 @@ public class CsvImporter {
 
     /**
      * @return a 2d array
-     * data stored from this class's array lists, only used in export.
+     *         data stored from this class's array lists, only used in export.
      */
     protected String[][] arrayListTo2d() {
         String[][] data = new String[rows][columns];
@@ -210,7 +211,7 @@ public class CsvImporter {
                 j++;
             }
         }
-        //System.out.println(data[77][8]);
+        // System.out.println(data[77][8]);
         return data;
     }
 
@@ -237,39 +238,75 @@ public class CsvImporter {
         }
     }
 
-    /** @return an array list of customers 
-     * gets array list of customers*/
+    // method that creates an updated list of bank users to a new CSV file
+    // @TODO: literally just use the method above????
+    protected void writeUpdatedCsv() {
+        char seperator = ',';
+        String[][] array = arrayListTo2d();
+        try {
+
+            FileWriter writer = new FileWriter("./updated_bank_users.csv");
+
+            for (String[] row : array) {
+                for (int i = 1; i < row.length; i++) {
+                    writer.append(String.valueOf(row[i]));
+                    if (i < row.length - 1) {
+                        writer.append(seperator);
+                    }
+                }
+                writer.append("\n");
+            }
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * @return an array list of customers
+     *         gets array list of customers
+     */
     protected ArrayList<Customer> getCustList() {
         return custList;
     }
 
-    /** @return an array list of checking accounts
-     * gets array list of checking accounts */
+    /**
+     * @return an array list of checking accounts
+     *         gets array list of checking accounts
+     */
     protected ArrayList<Checking> getCheckList() {
         return checkingList;
     }
 
-    /** @return an array list of saving accounts 
-     * gets array list of saving accounts*/
+    /**
+     * @return an array list of saving accounts
+     *         gets array list of saving accounts
+     */
     protected ArrayList<Saving> getSavingList() {
         return savingList;
     }
 
-    /** @return an array list of saving accounts 
-     * gets array list of credit accounts*/
+    /**
+     * @return an array list of saving accounts
+     *         gets array list of credit accounts
+     */
     protected ArrayList<Credit> getCreditList() {
         return creditList;
     }
 
-    /** @param filePath path of files in directory 
-     * sets the csv path*/
+    /**
+     * @param filePath path of files in directory
+     *                 sets the csv path
+     */
     protected void setCSVFile(String filePath) {
         this.csvFile = filePath;
     }
 
-    /**@param array 2d array to be searched
+    /**
+     * @param array          2d array to be searched
      * @param stringToSearch the string that is being searched for
-     * This program and takes a 2d array and searches the first row for column headers.
+     *                       This program and takes a 2d array and searches the
+     *                       first row for column headers.
      */
     private int returnInd(String[][] array, String stringToSearch) {
         for (int i = 0; i < 1; i++) {
@@ -284,9 +321,11 @@ public class CsvImporter {
         throw new IllegalArgumentException("Header not found: " + stringToSearch);
     }
 
-    /**This method increments row to account for new users during export. */
-    public void incrementUser(){
-        rows+=1;
+    /** This method increments row to account for new users during export. */
+    public void incrementUser() {
+        System.out.println("\n");
+        System.out.println("New Users:\n");
+        rows += 1;
     }
 
 }

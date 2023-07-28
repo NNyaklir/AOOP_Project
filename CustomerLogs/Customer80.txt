@@ -1,0 +1,9 @@
+---------------------------------------
+Daniel B, user ID:80
+Phone Number: (915) 747-5043
+Address: "500 W. University Ave, El Paso, TX 79968"
+DOB: 25-Dec-18
+Checking Account 1079:362.4
+Savings Account 2079:2413.6
+Credit Account 3079:-1911.51
+---------------------------------------

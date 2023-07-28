@@ -27,48 +27,47 @@ public class UI {
 
         try {
             Scanner scan = new Scanner(System.in);
-                System.out.println("Welcome to the El Paso Miners Banking system");
-                System.out.println("please log-in below\n");
+            System.out.println("Welcome to the El Paso Miners Banking system");
+            System.out.println("please log-in below\n");
 
-                boolean validInput = false;
-                while (!validInput) {
-                    System.out.println("1. Customer log-in \n" + "2. Bank Management log-in\n3. New User");
-                    System.out.println("Type EXIT to exit application");
+            boolean validInput = false;
+            while (!validInput) {
+                System.out.println("1. Customer log-in \n" + "2. Bank Management log-in\n3. New User");
+                System.out.println("Type EXIT to exit application");
 
+                String c = scan.nextLine();
+                switch (c) {
+                    case "1":
+                        customerLogIn();
+                        validInput = true;
+                        break;
 
-                    String c = scan.nextLine();
-                    switch (c) {
-                        case "1":
-                            customerLogIn();
-                            validInput = true;
-                            break;
+                    case "2":
 
-                        case "2":
+                        validInput = true;
+                        adminLogIn();
+                        break;
 
-                            validInput = true;
-                            adminLogIn();
-                            break;
+                    case "3":
+                        validInput = true;
+                        newUser();
+                        break;
 
-                        case "3":
-                            validInput=true;
-                            newUser();
-                            break;
+                    case "EXIT":
+                        validInput = true;
+                        importer.export();
+                        importer.writeUpdatedCsv();
+                        System.out.println("Application exited");
+                        // generateReceipt(null);
+                        System.exit(0);
 
-                        case "EXIT":
-                            validInput=true;
-                            importer.export();
-                            System.out.println("Application exited");
-                            System.exit(0);
-
-
-                        default:
-                            System.out.println("Incorrect input please try again");
-                            break;
-                    }     
-
-
+                    default:
+                        System.out.println("Incorrect input please try again");
+                        break;
                 }
-                scan.close();
+
+            }
+            scan.close();
 
         } catch (Exception e) {
             importer.export();
@@ -77,14 +76,13 @@ public class UI {
         }
     }
 
-
-    /**A method that runs the new user UI, exclusively called by runUI */
-    private void newUser(){
+    /** A method that runs the new user UI, exclusively called by runUI */
+    private void newUser() {
         Scanner scan = new Scanner(System.in);
         Customer newCust = new Customer();
-        try{
-            
-            //User input for relevant data fields
+        try {
+
+            // User input for relevant data fields
             System.out.println("Please enter your first name");
             newCust.setNameFirst(scan.nextLine());
             System.out.println("Please enter your last name");
@@ -97,10 +95,11 @@ public class UI {
             newCust.setPhoneNumber(scan.nextLine());
             AccessNumbers accessor = new AccessNumbers();
 
-            //generation of id/account numbers and accounts
-            int id=accessor.getIDNum();
+            // generation of id/account numbers and accounts
+            int id = accessor.getIDNum();
             newCust.setId(id);
-            int checkNum= accessor.getCheckNum();
+            
+            int checkNum = accessor.getCheckNum();
             Checking newChecking = new Checking();
             newChecking.setAccountNumber(checkNum);
             newCust.setChecking(newChecking);
@@ -114,7 +113,7 @@ public class UI {
             newSaving.setCustomer(newCust);
             newCust.setSaving(newSaving);
 
-            Credit newCredit= new Credit();
+            Credit newCredit = new Credit();
             int credNum = accessor.getCredNum();
             newCredit.setAccountNumber(credNum);
             newCredit.setBalance(0);
@@ -124,11 +123,10 @@ public class UI {
             newCredit.setCustomer(newCust);
             newCust.setCredit(newCredit);
 
-
-            System.out.println("Your user ID is: " +id);
-            System.out.println("Your Checking Account Number is: "+checkNum);
-            System.out.println("Your Savings Account Number is: "+savNum);
-            System.out.println("Your Credit Account Number is: "+credNum);
+            System.out.println("Your user ID is: " + id);
+            System.out.println("Your Checking Account Number is: " + checkNum);
+            System.out.println("Your Savings Account Number is: " + savNum);
+            System.out.println("Your Credit Account Number is: " + credNum);
             generator.printInfo();
             custList.add(newCust);
             checkList.add(newChecking);
@@ -136,17 +134,17 @@ public class UI {
             creditList.add(newCredit);
             System.out.println("\n\n\nHere is all your information");
             newCust.displayInformation();
+            newCust.fileCheck();
 
             importer.incrementUser();
             importer.export();
-            //@TODO add export
+            // @TODO add export
 
             runUI();
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Invalid input for parameter, returning to previous screen");
             runUI();
-            
+
         }
         scan.close();
     }
@@ -161,7 +159,7 @@ public class UI {
             boolean validInput = false;
             while (!validInput) {
                 System.out.println(
-                        "Welcome Admin. What would you like to do today?\n 1.Inquire account by name\n 2.Inquire account by type/number\n 3.Run Transactions\n 4.Go back");
+                        "Welcome Admin. What would you like to do today?\n 1.Inquire account by name\n 2.Inquire account by type/number\n 3.Run Transactions\n 4.Generate Customer Log\n 5. Go to previous menu");
                 String choice = scan.nextLine();
                 switch (choice) {
                     case "1":
@@ -177,8 +175,8 @@ public class UI {
                             adminLogIn();
                         } else {
                             System.out.println("User not found, please input name correctly");
-                        break;
-                    }
+                            break;
+                        }
                     case "2":
                         boolean validInput2 = false;
                         while (!validInput2) {
@@ -186,7 +184,7 @@ public class UI {
                                     "What is the account type?\n 1.Checking\n 2.Saving\n 3.Credit\n 4.Go back");
                             String accountType = scan.nextLine();
                             switch (accountType) {
-                                case "1" :
+                                case "1":
                                     System.out.println("Please enter account number");
                                     int accNum = Integer.parseInt(scan.nextLine());
                                     int checkIndex = search.searchByChecking(accNum, checkList);
@@ -212,10 +210,12 @@ public class UI {
                                     adminLogIn();
                                     validInput2 = true;
                                     break;
+
                                 case "4":
                                     adminLogIn();
                                     validInput2 = true;
                                     break;
+
                                 default:
                                     System.out.println("Incorrect input please try again");
                                     adminLogIn();
@@ -227,19 +227,43 @@ public class UI {
                     case "3":
                         TransactionRunner tRunner = new TransactionRunner();
                         tRunner.runTransactions(custList);
-                        validInput=true;
+                        validInput = true;
+                        adminLogIn();
                         break;
+
                     case "4":
+                        ShowCustomerLog shower = new ShowCustomerLog();
+                        try{
+                            System.out.println("Please type the name of the customer you wish to show the log for");
+                            String findCust = scan.nextLine();
+                            String[] fParts = findCust.split(" ");
+                            String firstNameF = fParts[0];
+                            String lastNameF = fParts[1];
+                            int indexF = search.searchByName(firstNameF, lastNameF, custList);
+                            System.out.println("Generated log:");
+                            shower.printLog(custList.get(indexF));
+                            
+
+                        }
+                        catch(Exception e){
+                            System.out.println("Customer not found not, returning to admin login");
+                            adminLogIn();
+                        }
+
+                        break;
+
+                    case "5":
                         runUI();
                         validInput = true;
                         break;
+
                     default:
                         System.out.println("Incorrect input please try again");
                         adminLogIn();
                         break;
+                }
             }
-            }} 
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Error occured, returning to admin login");
             e.printStackTrace();
             adminLogIn();
@@ -267,9 +291,9 @@ public class UI {
                 boolean validInput = false;
                 while (!validInput) {
 
-                System.out.println("Welcome " + firstName + " " + lastName
-                        + "!\n What would you like to do?\n 1.Make an inquiry\n 2.Access money services \n 3.Return to the previous menu");
-                String choice = scan.nextLine();
+                    System.out.println("Welcome " + firstName + " " + lastName
+                            + "!\n What would you like to do?\n 1.Make an inquiry\n 2.Access money services \n 3.Return to the previous menu");
+                    String choice = scan.nextLine();
 
                     switch (choice) {
                         case "1":
@@ -310,12 +334,12 @@ public class UI {
         while (!validInput) {
             try {
                 System.out.println("Thank you for accessing our money services, what would you like to do?");
-                System.out.println(" 1.Deposit\n 2.Withdraw\n 3.Transfer\n 4.Make a Payment \n 5. Return to Log-In\n 6. Return to Main-Menu");
+                System.out.println(
+                        " 1.Deposit\n 2.Withdraw\n 3.Transfer\n 4.Make a Payment \n 5. Return to Log-In\n 6. Return to Main-Menu");
                 Scanner scan = new Scanner(System.in);
                 String choice = scan.nextLine();
                 Logger log = new Logger();
                 log.fileCheck();
-
 
                 switch (choice) {
                     case "1":
@@ -396,8 +420,9 @@ public class UI {
                                     checkList.get(main).transferTo(checkList.get(accIn), transfer);
                                     log.logTransfer(check, transfer, check2);
                                     importer.export();
-                                    System.out.println("Successfully transferred " + transfer + " from Checking to Account"
-                                            + check2.getAccountNumber());
+                                    System.out.println(
+                                            "Successfully transferred " + transfer + " from Checking to Account"
+                                                    + check2.getAccountNumber());
                                     validInput2 = true;
                                     break;
 
@@ -411,8 +436,9 @@ public class UI {
                                     checkList.get(main).transferTo(savList.get(accIn2), transfer2);
                                     log.logTransfer(check, transfer2, sav);
                                     importer.export();
-                                    System.out.println("Successfully transferred " + transfer2 + " from Checking to Account"
-                                            + sav.getAccountNumber());
+                                    System.out.println(
+                                            "Successfully transferred " + transfer2 + " from Checking to Account"
+                                                    + sav.getAccountNumber());
                                     validInput2 = true;
                                     break;
 
@@ -426,19 +452,20 @@ public class UI {
                                     checkList.get(main).transferTo(creditList.get(accIn3), transfer3);
                                     log.logTransfer(check, transfer3, cred);
                                     importer.export();
-                                    System.out.println("Successfully transferred " + transfer3 + " from Checking to Account"
-                                            + cred.getAccountNumber());
+                                    System.out.println(
+                                            "Successfully transferred " + transfer3 + " from Checking to Account"
+                                                    + cred.getAccountNumber());
                                     validInput2 = true;
                                     break;
 
                                 default:
                                     System.out.println("Incorrect input please try again");
                                     break;
-                                }
                             }
+                        }
                         validInput = true;
                         break;
-                        
+
                     case "2":
                         Saving sav = primary.getSaving();
                         System.out.println("What Account type are you making a payment to?");
@@ -458,8 +485,9 @@ public class UI {
                                     savList.get(savingIn).transferTo(checkList.get(accIn), transfer);
                                     log.logTransfer(sav, transfer, check2);
                                     importer.export();
-                                    System.out.println("Successfully transferred " + transfer + " from Savings to Account"
-                                            + check2.getAccountNumber());
+                                    System.out
+                                            .println("Successfully transferred " + transfer + " from Savings to Account"
+                                                    + check2.getAccountNumber());
                                     validInput3 = true;
                                     break;
 
@@ -473,8 +501,9 @@ public class UI {
                                     savList.get(savingIn).transferTo(savList.get(accIn2), transfer2);
                                     log.logTransfer(sav, transfer2, sav2);
                                     importer.export();
-                                    System.out.println("Successfully transferred " + transfer2 + " from Savings to Account"
-                                            + sav2.getAccountNumber());
+                                    System.out.println(
+                                            "Successfully transferred " + transfer2 + " from Savings to Account"
+                                                    + sav2.getAccountNumber());
                                     validInput3 = true;
                                     break;
 
@@ -488,8 +517,9 @@ public class UI {
                                     savList.get(savingIn).transferTo(creditList.get(accIn3), transfer3);
                                     log.logTransfer(sav, transfer3, cred);
                                     importer.export();
-                                    System.out.println("Successfully transferred " + transfer3 + " from Savings to Account"
-                                            + cred.getAccountNumber());
+                                    System.out.println(
+                                            "Successfully transferred " + transfer3 + " from Savings to Account"
+                                                    + cred.getAccountNumber());
                                     validInput3 = true;
                                     break;
                                 default:
@@ -519,8 +549,9 @@ public class UI {
                                     creditList.get(credIn).transferTo(checkList.get(accIn), transfer);
                                     log.logTransfer(cred2, transfer, check2);
                                     importer.export();
-                                    System.out.println("Successfully transferred " + transfer + " from Credit to Account"
-                                            + check2.getAccountNumber());
+                                    System.out
+                                            .println("Successfully transferred " + transfer + " from Credit to Account"
+                                                    + check2.getAccountNumber());
                                     validInput4 = true;
                                     break;
 
@@ -534,8 +565,9 @@ public class UI {
                                     creditList.get(credIn).transferTo(savList.get(accIn2), transfer2);
                                     log.logTransfer(cred2, transfer2, sav2);
                                     importer.export();
-                                    System.out.println("Successfully transferred " + transfer2 + " from Credit to Account"
-                                            + sav2.getAccountNumber());
+                                    System.out
+                                            .println("Successfully transferred " + transfer2 + " from Credit to Account"
+                                                    + sav2.getAccountNumber());
                                     validInput4 = true;
                                     break;
                                 case "3":
@@ -548,13 +580,14 @@ public class UI {
                                     creditList.get(credIn).transferTo(creditList.get(accIn3), transfer3);
                                     log.logTransfer(cred, transfer3, cred);
                                     importer.export();
-                                    System.out.println("Successfully transferred " + transfer3 + " from Credit to Account"
-                                            + cred.getAccountNumber());
+                                    System.out
+                                            .println("Successfully transferred " + transfer3 + " from Credit to Account"
+                                                    + cred.getAccountNumber());
                                     validInput4 = true;
                                     break;
 
                                 default:
-                                 System.out.println("Incorrect input please try again");
+                                    System.out.println("Incorrect input please try again");
                             }
                         }
                         validInput = true;
@@ -566,8 +599,8 @@ public class UI {
                         break;
 
                     default:
-                    System.out.println("Incorrect input please try again");
-                    makePayment(primary);
+                        System.out.println("Incorrect input please try again");
+                        makePayment(primary);
                 }
             }
             scan.close();
@@ -576,8 +609,6 @@ public class UI {
             makePayment(primary);
         }
     }
-
-
 
     /** A method that runs the transfer UI, exclusively called by moneyServices */ // bug free
     private void transfer(Customer primary) {
@@ -609,7 +640,8 @@ public class UI {
                                     checkList.get(checkI).transferTo(savList.get(savI), transfer);
                                     log.logTransfer(check, transfer, sav);
                                     importer.export();
-                                    System.out.println("Successfully transferred " + transfer + " from Checking to Savings");
+                                    System.out.println(
+                                            "Successfully transferred " + transfer + " from Checking to Savings");
                                     validInput2 = true;
                                     break;
 
@@ -623,17 +655,18 @@ public class UI {
                                     checkList.get(checkI2).transferTo(creditList.get(credI), transfer2);
                                     log.logTransfer(check2, transfer2, cred);
                                     importer.export();
-                                    System.out.println("Successfully transferred " + transfer2 + " from Checking to Credit");
+                                    System.out.println(
+                                            "Successfully transferred " + transfer2 + " from Checking to Credit");
                                     validInput2 = true;
                                     break;
 
                                 default:
                                     System.out.println("Incorrect input please try again");
                                     break;
+                            }
+                            validInput = true;
+                            break;
                         }
-                        validInput = true;
-                        break;
-                    }
 
                     case "2":
                         System.out.println("What account would you like to transfer to?\n 1.Checking\n 2.Credit");
@@ -651,7 +684,8 @@ public class UI {
                                     savList.get(savI).transferTo(checkList.get(checkI), transfer);
                                     log.logTransfer(sav, transfer, check);
                                     importer.export();
-                                    System.out.println("Successfully transferred " + transfer + " from Savings to Checking");
+                                    System.out.println(
+                                            "Successfully transferred " + transfer + " from Savings to Checking");
                                     validInput3 = true;
                                     break;
 
@@ -665,7 +699,8 @@ public class UI {
                                     savList.get(savI2).transferTo(creditList.get(credI), transfer2);
                                     log.logTransfer(sav2, transfer2, cred);
                                     importer.export();
-                                    System.out.println("Successfully transferred " + transfer2 + " from Savings to Credit");
+                                    System.out.println(
+                                            "Successfully transferred " + transfer2 + " from Savings to Credit");
                                     validInput3 = true;
                                     break;
 
@@ -693,7 +728,8 @@ public class UI {
                                     creditList.get(credI).transferTo(checkList.get(checkI), transfer);
                                     log.logTransfer(cred, transfer, check);
                                     importer.export();
-                                    System.out.println("Successfully transferred " + transfer + " from Credit to Checking");
+                                    System.out.println(
+                                            "Successfully transferred " + transfer + " from Credit to Checking");
                                     validInput4 = true;
                                     break;
 
@@ -707,14 +743,16 @@ public class UI {
                                     creditList.get(credI2).transferTo(savList.get(savI), transfer2);
                                     log.logTransfer(cred2, transfer2, sav);
                                     importer.export();
-                                    System.out.println("Successfully transferred " + transfer2 + " from Credit to Savings");
+                                    System.out.println(
+                                            "Successfully transferred " + transfer2 + " from Credit to Savings");
                                     validInput4 = true;
                                     break;
 
                                 default:
-                                System.out.println("Incorrect input please try again");
-                                break;
-                        }}
+                                    System.out.println("Incorrect input please try again");
+                                    break;
+                            }
+                        }
                         validInput = true;
                         break;
 
@@ -729,8 +767,7 @@ public class UI {
                 }
             }
             scan.close();
-        } 
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Error returing to transfer menu");
             transfer(primary);
         }
@@ -800,13 +837,11 @@ public class UI {
             }
             scan.close();
         }
-            
-         
+
         catch (Exception e) {
             System.out.println("Error occurred, returning to withdraw menu");
         }
     }
-
 
     /** A method that runs the deposit UI, exclusively called by moneyServices */ // bug free
     private void deposit(Customer primary) {
@@ -922,7 +957,7 @@ public class UI {
                         break;
 
                     default:
-                    System.out.println("Incorrect input please try again");
+                        System.out.println("Incorrect input please try again");
                 }
 
             } catch (Exception e) {
@@ -934,5 +969,45 @@ public class UI {
         scan.close();
     }
 
+    /*
+     * private void generateReceipt(Account account) {
+     * String accountInfo = "Account Information:\n";
+     * 
+     * accountInfo += "Account Number: " + account.getAccountNumber() + "\n";
+     * accountInfo += "Account Holder: " + account.getCustomer() + "\n";
+     * 
+     * double startingBalance = account.getBalance();
+     * double endingBalance = account.getBalance(); //
+     * 
+     * List<String> transactions = Logger.logInquiry(account.getAccountNumber()); //
+     * need to integrate
+     * // with the Logger
+     * // class to fetch all
+     * // transactions for
+     * // the account.
+     * String dateOfStatement = new SimpleDateFormat("yyyy-MM-dd").format(new
+     * Date());
+     * StringBuilder receipt = new StringBuilder();
+     * 
+     * receipt.append(accountInfo);
+     * receipt.append("Starting Balance: " + startingBalance + "\n");
+     * receipt.append("Ending Balance: " + endingBalance + "\n");
+     * receipt.append("Transactions:\n");
+     * 
+     * for (String transaction : transactions) {
+     * receipt.append(transaction + "\n");
+     * }
+     * 
+     * receipt.append("Date of Statement: " + dateOfStatement);
+     * 
+     * try (PrintWriter out = new PrintWriter(new
+     * FileWriter("UserTransactions.txt"))) {
+     * out.println(receipt.toString());
+     * } catch (IOException e) {
+     * System.out.println("Error writing to file: " + e.getMessage());
+     * }
+     * 
+     * }
+     */
 
 }

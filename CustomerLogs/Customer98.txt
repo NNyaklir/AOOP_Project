@@ -1,0 +1,9 @@
+---------------------------------------
+Daniel U, user ID:98
+Phone Number: (915) 747-5061
+Address: "500 W. University Ave, El Paso, TX 79968"
+DOB: 27-May-88
+Checking Account 1097:417.42
+Savings Account 2097:840.66
+Credit Account 3097:-978.33
+---------------------------------------
