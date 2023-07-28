@@ -103,4 +103,9 @@ public class Customer extends Person {
         return custLogFile;
 
     }
+
+    /**@return the file path for customer log */
+    protected String getLogPath(){
+        return custLogPath;
+    }
 }
