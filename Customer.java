@@ -15,6 +15,7 @@ public class Customer extends Person {
 
     /**
      * A method to check if the customer log file exits, creates it if it does not.
+     * Generates with relevant imformation
      */
     protected void fileCheck(){
         custLogPath="./CustomerLogs/Customer"+Integer.toString(this.getId())+".txt";
@@ -23,23 +24,23 @@ public class Customer extends Person {
             try{
                 custLogFile.createNewFile();
                 FileWriter writer = new FileWriter(custLogFile, true);
-                writer.write("---------------------------------------");
+                writer.write("---------------------------------------\n");
                 writer.flush();
-                writer.write(nameFirst+" "+nameLast+", user ID:"+id);
+                writer.write(nameFirst+" "+nameLast+", user ID:"+id+"\n");
                 writer.flush();
-                writer.write("Phone Number: "+phoneNumber);
+                writer.write("Phone Number: "+phoneNumber+"\n");
                 writer.flush();
-                writer.write("Address: "+address);
+                writer.write("Address: "+address+"\n");
                 writer.flush();
-                writer.write("DOB: "+dob);
+                writer.write("DOB: "+dob+"\n");
                 writer.flush();
-                writer.write("Checking Account "+custChecking.getAccountNumber()+":"+custChecking.getBalance());
+                writer.write("Checking Account "+custChecking.getAccountNumber()+":"+custChecking.getBalance()+"\n");
                 writer.flush();
-                writer.write("Savings Account "+custSaving.getAccountNumber()+":"+custSaving.getBalance());
+                writer.write("Savings Account "+custSaving.getAccountNumber()+":"+custSaving.getBalance()+"\n");
                 writer.flush();
-                writer.write("Credit Account "+custCredit.getAccountNumber()+":"+custCredit.getBalance());
+                writer.write("Credit Account "+custCredit.getAccountNumber()+":"+custCredit.getBalance()+"\n");
                 writer.flush();
-                writer.write("---------------------------------------");
+                writer.write("---------------------------------------\nS");
                 writer.flush();
                 writer.close();
                 
