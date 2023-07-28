@@ -158,7 +158,7 @@ public class UI {
             boolean validInput = false;
             while (!validInput) {
                 System.out.println(
-                        "Welcome Admin. What would you like to do today?\n 1.Inquire account by name\n 2.Inquire account by type/number\n 3.Run Transactions\n 4.Generate Bank Statement");
+                        "Welcome Admin. What would you like to do today?\n 1.Inquire account by name\n 2.Inquire account by type/number\n 3.Run Transactions\n 4.Generate Customer Log\n 5. Go to previous menu");
                 String choice = scan.nextLine();
                 switch (choice) {
                     case "1":
@@ -209,10 +209,12 @@ public class UI {
                                     adminLogIn();
                                     validInput2 = true;
                                     break;
+
                                 case "4":
                                     adminLogIn();
                                     validInput2 = true;
                                     break;
+
                                 default:
                                     System.out.println("Incorrect input please try again");
                                     adminLogIn();
@@ -226,13 +228,33 @@ public class UI {
                         tRunner.runTransactions(custList);
                         validInput = true;
                         break;
+
                     case "4":
+                        ShowCustomerLog shower = new ShowCustomerLog();
+                        try{
+                            System.out.println("Please type the name of the customer you wish to show the log for");
+                            String findCust = scan.nextLine();
+                            String[] fParts = findCust.split(" ");
+                            String firstNameF = fParts[0];
+                            String lastNameF = fParts[1];
+                            int indexF = search.searchByName(firstNameF, lastNameF, custList);
+                            System.out.println("Generated log:");
+                            shower.printLog(custList.get(indexF));
+                            
+
+                        }
+                        catch(Exception e){
+                            System.out.println("Customer not found not, returning to admin login");
+                            adminLogIn();
+                        }
 
                         break;
+
                     case "5":
                         runUI();
                         validInput = true;
                         break;
+
                     default:
                         System.out.println("Incorrect input please try again");
                         adminLogIn();
