@@ -98,7 +98,7 @@ public class UI {
             // generation of id/account numbers and accounts
             int id = accessor.getIDNum();
             newCust.setId(id);
-            newCust.fileCheck();
+            
             int checkNum = accessor.getCheckNum();
             Checking newChecking = new Checking();
             newChecking.setAccountNumber(checkNum);
@@ -134,6 +134,7 @@ public class UI {
             creditList.add(newCredit);
             System.out.println("\n\n\nHere is all your information");
             newCust.displayInformation();
+            newCust.fileCheck();
 
             importer.incrementUser();
             importer.export();

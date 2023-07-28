@@ -53,7 +53,7 @@ public class CsvImporter {
                 Customer cust = new Customer();
 
                 cust.id = Integer.parseInt(data[i][idIndex]);
-                cust.fileCheck();
+                
                 j++;
 
                 cust.nameFirst = data[i][nameFirstIndex];
@@ -113,6 +113,7 @@ public class CsvImporter {
                 cust.setCredit((Credit) cred);
                 creditList.add((Credit) cred);
 
+                cust.fileCheck();
             }
         }
     }
