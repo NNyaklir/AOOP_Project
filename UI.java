@@ -228,6 +228,7 @@ public class UI {
                         TransactionRunner tRunner = new TransactionRunner();
                         tRunner.runTransactions(custList);
                         validInput = true;
+                        adminLogIn();
                         break;
 
                     case "4":
