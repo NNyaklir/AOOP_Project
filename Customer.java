@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileWriter;
 
 /**A class that is modeled after the information a bank would store on its customer */
 public class Customer extends Person {
@@ -21,6 +22,17 @@ public class Customer extends Person {
         if(!custLogFile.exists()){
             try{
                 custLogFile.createNewFile();
+                FileWriter writer = new FileWriter(custLogFile, true);
+                writer.write("---------------------------------------");
+                writer.write(nameFirst+" "+nameLast+", user ID:"+id);
+                writer.write("Phone Number: "+phoneNumber);
+                writer.write("Address: "+address);
+                writer.write("DOB: "+dob);
+                writer.write("Checking Account "+custChecking.getAccountNumber()+":"+custChecking.getBalance());
+                writer.write("Savings Account "+custSaving.getAccountNumber()+":"+custSaving.getBalance());
+                writer.write("Credit Account "+custCredit.getAccountNumber()+":"+custCredit.getBalance());
+                writer.write("---------------------------------------");
+                
             }
             catch (Exception e){
                 e.printStackTrace();
