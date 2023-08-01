@@ -1,4 +1,3 @@
-/**A class to test the functionality of logger */
 public class LoggerTest{
 
     public static void main(String[]args){
