@@ -1,0 +1,9 @@
+---------------------------------------
+Quasimodo Disney, user ID:32
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 17-Sep-71
+Checking Account 1031:483.57
+Savings Account 2031:2302.79
+Credit Account 3031:-1454.15
+---------------------------------------

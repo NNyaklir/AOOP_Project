@@ -1,0 +1,9 @@
+---------------------------------------
+Cesar Cabrera, user ID:45
+Phone Number: (915) 747-5008
+Address: "500 W. University Ave, El Paso, TX 79968"
+DOB: 22-Jun-89
+Checking Account 1044:1806.19
+Savings Account 2044:1685.66
+Credit Account 3044:-1906.17
+---------------------------------------

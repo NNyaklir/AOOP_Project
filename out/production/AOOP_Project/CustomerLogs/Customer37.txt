@@ -1,0 +1,9 @@
+---------------------------------------
+Alberto Miranda, user ID:37
+Phone Number: (915) 747-5000
+Address: "500 W. University Ave, El Paso, TX 79968"
+DOB: 5-Oct-38
+Checking Account 1036:474.59
+Savings Account 2036:3710.89
+Credit Account 3036:-150.6
+---------------------------------------

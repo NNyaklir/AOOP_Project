@@ -1,0 +1,9 @@
+---------------------------------------
+Shere Khan, user ID:26
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 21-Nov-91
+Checking Account 1025:688.77
+Savings Account 2025:1735.62
+Credit Account 3025:-115.92
+---------------------------------------

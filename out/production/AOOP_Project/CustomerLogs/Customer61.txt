@@ -1,0 +1,9 @@
+---------------------------------------
+Juan Gutierrez, user ID:61
+Phone Number: (915) 747-5024
+Address: "500 W. University Ave, El Paso, TX 79968"
+DOB: 9-Jan-89
+Checking Account 1060:526.23
+Savings Account 2060:3227.73
+Credit Account 3060:-1581.21
+---------------------------------------
