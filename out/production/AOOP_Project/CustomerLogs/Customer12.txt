@@ -1,0 +1,9 @@
+---------------------------------------
+Simba Disney, user ID:12
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 24-Oct-12
+Checking Account 1011:1336.79
+Savings Account 2011:373.47
+Credit Account 3011:-1220.11
+---------------------------------------

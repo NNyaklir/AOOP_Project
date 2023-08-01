@@ -1,0 +1,9 @@
+---------------------------------------
+Minnie Mouse, user ID:3
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 3-Nov-94
+Checking Account 1002:1894.16
+Savings Account 2002:327.99
+Credit Account 3002:-239.31
+---------------------------------------

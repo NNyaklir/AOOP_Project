@@ -1,0 +1,9 @@
+---------------------------------------
+Mufassa Disney, user ID:13
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 19-Jan-09
+Checking Account 1012:148.68
+Savings Account 2012:3846.05
+Credit Account 3012:-1112.18
+---------------------------------------

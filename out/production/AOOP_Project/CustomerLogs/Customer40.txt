@@ -1,0 +1,9 @@
+---------------------------------------
+Alfredo Rodriguez, user ID:40
+Phone Number: (915) 747-5003
+Address: "500 W. University Ave, El Paso, TX 79968"
+DOB: 14-Feb-02
+Checking Account 1039:1772.98
+Savings Account 2039:3443.94
+Credit Account 3039:-1734.35
+---------------------------------------

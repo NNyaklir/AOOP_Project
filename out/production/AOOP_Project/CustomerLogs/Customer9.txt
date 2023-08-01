@@ -1,0 +1,9 @@
+---------------------------------------
+Ariel Disney, user ID:9
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 15-Apr-70
+Checking Account 1008:1581.97
+Savings Account 2008:729.5
+Credit Account 3008:-1810.55
+---------------------------------------

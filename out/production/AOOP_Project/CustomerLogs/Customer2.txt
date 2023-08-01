@@ -1,0 +1,9 @@
+---------------------------------------
+Donald Duck, user ID:2
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 7-Apr-94
+Checking Account 1001:1928.58
+Savings Account 2001:3582.37
+Credit Account 3001:-1513.57
+---------------------------------------

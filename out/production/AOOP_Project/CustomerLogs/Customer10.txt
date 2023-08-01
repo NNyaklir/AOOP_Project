@@ -1,0 +1,9 @@
+---------------------------------------
+Jasmine Disney, user ID:10
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 17-Nov-91
+Checking Account 1009:633.94
+Savings Account 2009:1087.1
+Credit Account 3009:-1797.38
+---------------------------------------

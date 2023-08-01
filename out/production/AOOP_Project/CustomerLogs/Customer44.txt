@@ -1,0 +1,9 @@
+---------------------------------------
+Brandon Bustamante, user ID:44
+Phone Number: (915) 747-5007
+Address: "500 W. University Ave, El Paso, TX 79968"
+DOB: 17-Oct-53
+Checking Account 1043:355.39
+Savings Account 2043:3764.74
+Credit Account 3043:-1452.54
+---------------------------------------

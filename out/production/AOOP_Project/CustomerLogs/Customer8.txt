@@ -1,0 +1,9 @@
+---------------------------------------
+Cinderella Disney, user ID:8
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 3-Mar-47
+Checking Account 1007:915.54
+Savings Account 2007:2977.94
+Credit Account 3007:-4.16
+---------------------------------------

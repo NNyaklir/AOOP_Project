@@ -1,0 +1,9 @@
+---------------------------------------
+Captaiin Hook, user ID:27
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 12-May-01
+Checking Account 1026:369.27
+Savings Account 2026:3295.28
+Credit Account 3026:-1813.88
+---------------------------------------

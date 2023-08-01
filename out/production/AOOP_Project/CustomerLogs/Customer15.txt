@@ -1,0 +1,9 @@
+---------------------------------------
+Peter Pan, user ID:15
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 29-May-87
+Checking Account 1014:41.62
+Savings Account 2014:2252.52
+Credit Account 3014:-1137.78
+---------------------------------------

@@ -1,0 +1,9 @@
+---------------------------------------
+Pinocchio Disney, user ID:30
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 20-Mar-08
+Checking Account 1029:1280.77
+Savings Account 2029:1412.45
+Credit Account 3029:-14.76
+---------------------------------------

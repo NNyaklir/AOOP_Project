@@ -1,0 +1,9 @@
+---------------------------------------
+Buzz Lightyear, user ID:17
+Phone Number: (714) 781-4636
+Address: "1313 Disneyland Dr, Anaheim, CA 92802"
+DOB: 12-Mar-63
+Checking Account 1016:629.61
+Savings Account 2016:33.53
+Credit Account 3016:-1215.99
+---------------------------------------
