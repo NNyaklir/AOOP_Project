@@ -7,3 +7,7 @@ Checking Account 1038:474.39
 Savings Account 2038:3447.36
 Credit Account 3038:-866.29
 ---------------------------------------
+Alfonso Beltran's Account:1038 deposited 5000.0
+Alfonso Beltran's Account:1038 deposited 5000.0
+Alfonso Beltran paid/transfered to Daniel Mejia Account:1038 transfered 1000.0 to Account:1077
+Goofy Disney paid/transfered to Alfonso Beltran Account:1003 transfered 15.63 to Account:1038

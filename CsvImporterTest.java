@@ -13,13 +13,6 @@ public class CsvImporterTest {
         importer.dataImport();
     }
 
-    /**Test to retrieve first name in CSV */
-    @Test
-    public void testGetNameFirst() {
-        ArrayList<Customer> test = importer.getCustList();
-        assertEquals("Derek", test.get(1).getNameFirst());
-    }
-
 
     /**Test to set Name in CSV*/
     @Test

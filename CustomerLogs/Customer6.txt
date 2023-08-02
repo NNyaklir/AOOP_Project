@@ -7,4 +7,3 @@ Checking Account 1005:32.84
 Savings Account 2005:3687.14
 Credit Account 3005:-1451.7
 ---------------------------------------
-Chip Disney's Account:3005 deposited 1222.0

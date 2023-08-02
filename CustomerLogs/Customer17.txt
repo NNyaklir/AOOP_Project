@@ -7,3 +7,4 @@ Checking Account 1016:629.61
 Savings Account 2016:33.53
 Credit Account 3016:-1215.99
 ---------------------------------------
+Buzz Lightyear paid/transfered to Laura Blanco Account:2016 transfered 12.36 to Account:1063

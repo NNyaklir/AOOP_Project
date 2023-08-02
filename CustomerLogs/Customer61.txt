@@ -7,3 +7,7 @@ Checking Account 1060:526.23
 Savings Account 2060:3227.73
 Credit Account 3060:-1581.21
 ---------------------------------------
+Juan Gutierrez's Account:1060 deposited 5000.0
+Juan Gutierrez's Account:1060 deposited 5000.0
+Juan Gutierrez paid/transfered to Daniel Mejia Account:1060 transfered 1000.0 to Account:1077
+Shere Khan paid/transfered to Juan Gutierrez Account:1025 transfered 41.2 to Account:1060

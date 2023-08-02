@@ -22,11 +22,5 @@ Account:3005 transfered 100.0 to Account:1048
 Account:1005 transfered 1.0 to Account:2005
 Account:1005 deposited 20.0
 
-<<<<<<< HEAD
-Account:2005 deposited 200.0
-Account:2005 deposited 200.0
-Account:2005 deposited 200.0
-=======
-Chip Disney made an inquiry into Everything Acount
->>>>>>> ca8e8be21ffb13e84cda0b064e0000d7c4da79af
-Chip Disney's Account:3005 deposited 1222.0
+
+

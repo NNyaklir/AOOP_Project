@@ -7,3 +7,4 @@ Checking Account 1029:1280.77
 Savings Account 2029:1412.45
 Credit Account 3029:-14.76
 ---------------------------------------
+Pinocchio Disney paid/transfered to Laurence Labayen Account:1029 transfered 34.11 to Account:1064

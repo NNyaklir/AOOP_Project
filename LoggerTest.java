@@ -1,25 +1,31 @@
-public class LoggerTest{
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-    public static void main(String[]args){
+public class LoggerTest {
 
-        //this creates a new Saving account instance of name dave
-        Saving dave = new Saving();
-        //this sets the account number
+    private Saving dave;
+    private Saving dan;
+    private Logger log;
+
+    @BeforeEach
+    public void setUp() {
+        dave = new Saving();
         dave.setAccountNumber(228922);
-        //this makes a new Saving account instance of name dan
-        Saving dan = new Saving();
-        //this sets the account number
+
+        dan = new Saving();
         dan.setAccountNumber(48849392);
-        //this creates a new log instance
-        Logger log= new Logger();
-        //the above can be before all
 
-        //this verifies that log.txt exits
-        log.fileCheck();
+        log = new Logger();
+    }
 
-        //the following code writes into the log account which was manually checked
-        //to ensure that it was being output into the file correctly.
-        log.logTransfer(dave,948,dan);
+    @Test
+    public void testFileCheck() {
+        assertEquals("using existing log file",log.fileCheck());
+    }
+    @Test
+    public void manualCheck() {
+        log.logTransfer(dave, 948, dan);
         log.logAddition(dave, 39.33);
         log.logDeduction(dan, 78.33);
     }

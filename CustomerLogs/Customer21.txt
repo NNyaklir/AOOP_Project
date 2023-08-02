@@ -7,3 +7,4 @@ Checking Account 1020:517.81
 Savings Account 2020:2434.75
 Credit Account 3020:-1024.19
 ---------------------------------------
+Belle Disney paid/transfered to Manuel Ruvalcaba Account:2020 transfered 34.7 to Account:1067

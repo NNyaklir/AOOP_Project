@@ -7,3 +7,4 @@ Checking Account 1025:688.77
 Savings Account 2025:1735.62
 Credit Account 3025:-115.92
 ---------------------------------------
+Shere Khan paid/transfered to Juan Gutierrez Account:1025 transfered 41.2 to Account:1060

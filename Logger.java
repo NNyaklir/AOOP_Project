@@ -1,7 +1,5 @@
 import java.io.File;
 import java.io.FileWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /** A class that is used to log transactions into a given .txt file */
 public class Logger {
@@ -12,12 +10,12 @@ public class Logger {
     /**
      * This method ensures that there is a file to use before logging information
      */
-    protected void fileCheck() {
+    protected String fileCheck() {
         if (!logFile.exists()) {
             logFile = new File(filePath);
-            System.out.println("log.txt does not exist in current directory");
+            return "log.txt does not exist in current directory";
         } else {
-            System.out.println("using existing log file");
+            return "using existing log file";
         }
 
     }
@@ -51,7 +49,7 @@ public class Logger {
             writer.close(); sendWriter.close(); recWriter.flush();
         } catch (Exception e) {
             e.printStackTrace();
-            ;
+
         }
 
     }

@@ -7,3 +7,4 @@ Checking Account 1023:1472.05
 Savings Account 2023:1684.46
 Credit Account 3023:-1863.46
 ---------------------------------------
+Simba King paid/transfered to Jose Rodriguez Ortega Account:1023 transfered 11.31 to Account:1058

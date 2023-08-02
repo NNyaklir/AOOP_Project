@@ -7,3 +7,7 @@ Checking Account 1065:1942.67
 Savings Account 2065:655.67
 Credit Account 3065:-1930.17
 ---------------------------------------
+Lidice Castro Jimenez's Account:1065 deposited 5000.0
+Lidice Castro Jimenez's Account:1065 deposited 5000.0
+Lidice Castro Jimenez paid/transfered to Daniel Mejia Account:1065 transfered 1000.0 to Account:1077
+Ursela Mermaid paid/transfered to Lidice Castro Jimenez Account:2018 transfered 26.84 to Account:1065
