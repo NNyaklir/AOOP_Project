@@ -7,3 +7,4 @@ Checking Account 1017:518.07
 Savings Account 2017:2220.54
 Credit Account 3017:-406.48
 ---------------------------------------
+Jafar Aladdin paid/transfered to Federico Marin Account:1017 transfered 12.36 to Account:1052

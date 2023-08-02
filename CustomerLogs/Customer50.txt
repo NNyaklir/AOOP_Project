@@ -7,3 +7,7 @@ Checking Account 1049:1243.42
 Savings Account 2049:1243.48
 Credit Account 3049:-862.06
 ---------------------------------------
+Eduardo Garcia's Account:1049 deposited 5000.0
+Eduardo Garcia's Account:1049 deposited 5000.0
+Eduardo Garcia paid/transfered to Daniel Mejia Account:1049 transfered 1000.0 to Account:1077
+Minnie Mouse paid/transfered to Eduardo Garcia Account:2002 transfered 15.63 to Account:1049

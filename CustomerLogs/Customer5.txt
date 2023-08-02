@@ -7,3 +7,5 @@ Checking Account 1004:1549.67
 Savings Account 2004:1622.73
 Credit Account 3004:-1289.68
 ---------------------------------------
+Pluto Disney paid/transfered to Alex Avila Account:1004 transfered 39.92 to Account:1037
+Pluto Disney paid/transfered to Estevan Ramos Account:2004 transfered 50.99 to Account:1051

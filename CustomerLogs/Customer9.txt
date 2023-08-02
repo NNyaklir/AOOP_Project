@@ -7,3 +7,5 @@ Checking Account 1008:1581.97
 Savings Account 2008:729.5
 Credit Account 3008:-1810.55
 ---------------------------------------
+Ariel Disney paid/transfered to Anthony Jasso Account:1008 transfered 46.88 to Account:1041
+Ariel Disney paid/transfered to Grecia Navarrete Account:2008 transfered 28.89 to Account:1055

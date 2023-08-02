@@ -7,3 +7,7 @@ Checking Account 1059:903.51
 Savings Account 2059:3790.64
 Credit Account 3059:-678.52
 ---------------------------------------
+Joseph Medina - Sandoval's Account:1059 deposited 5000.0
+Joseph Medina - Sandoval's Account:1059 deposited 5000.0
+Joseph Medina - Sandoval paid/transfered to Daniel Mejia Account:1059 transfered 1000.0 to Account:1077
+Mufassa Disney paid/transfered to Joseph Medina - Sandoval Account:2012 transfered 34.47 to Account:1059

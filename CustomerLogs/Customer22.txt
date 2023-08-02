@@ -7,3 +7,4 @@ Checking Account 1021:1132.61
 Savings Account 2021:4261.53
 Credit Account 3021:-319.71
 ---------------------------------------
+Cruella De Vil paid/transfered to Hernan Garcia Account:1021 transfered 34.7 to Account:1056

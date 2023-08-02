@@ -7,3 +7,4 @@ Checking Account 1035:387.32
 Savings Account 2035:4919.61
 Credit Account 3035:-16.87
 ---------------------------------------
+Stitch Disney paid/transfered to Oscar Decena Account:1035 transfered 29.25 to Account:1070

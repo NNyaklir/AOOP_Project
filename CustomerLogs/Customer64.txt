@@ -7,3 +7,7 @@ Checking Account 1063:1506.74
 Savings Account 2063:4347.22
 Credit Account 3063:-1050.73
 ---------------------------------------
+Laura Blanco's Account:1063 deposited 5000.0
+Laura Blanco's Account:1063 deposited 5000.0
+Laura Blanco paid/transfered to Daniel Mejia Account:1063 transfered 1000.0 to Account:1077
+Buzz Lightyear paid/transfered to Laura Blanco Account:2016 transfered 12.36 to Account:1063

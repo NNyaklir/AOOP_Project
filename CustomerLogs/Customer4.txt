@@ -7,3 +7,4 @@ Checking Account 1003:1456.69
 Savings Account 2003:884.26
 Credit Account 3003:-141.39
 ---------------------------------------
+Goofy Disney paid/transfered to Alfonso Beltran Account:1003 transfered 15.63 to Account:1038

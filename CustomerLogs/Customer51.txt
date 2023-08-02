@@ -7,3 +7,7 @@ Checking Account 1050:1584.85
 Savings Account 2050:1304.98
 Credit Account 3050:-677.71
 ---------------------------------------
+Ervey Montes's Account:1050 deposited 5000.0
+Ervey Montes's Account:1050 deposited 5000.0
+Ervey Montes paid/transfered to Daniel Mejia Account:1050 transfered 1000.0 to Account:1077
+Woody Disney paid/transfered to Ervey Montes Account:1015 transfered 34.04 to Account:1050

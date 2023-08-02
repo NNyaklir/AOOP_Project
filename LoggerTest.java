@@ -1,15 +1,32 @@
-public class LoggerTest{
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-    public static void main(String[]args){
-        Saving dave = new Saving();
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class LoggerTest {
+
+    private Saving dave;
+    private Saving dan;
+    private Logger log;
+
+    @BeforeEach
+    public void setUp() {
+        dave = new Saving();
         dave.setAccountNumber(228922);
-        Saving dan = new Saving();
+
+        dan = new Saving();
         dan.setAccountNumber(48849392);
 
-        Logger log= new Logger();
+        log = new Logger();
+    }
 
-        log.fileCheck();
-        log.logTransfer(dave,948,dan);
+    @Test
+    public void testFileCheck() {
+        assertEquals("using existing log file",log.fileCheck());
+    }
+    @Test
+    public void manualCheck() {
+        log.logTransfer(dave, 948, dan);
         log.logAddition(dave, 39.33);
         log.logDeduction(dan, 78.33);
     }

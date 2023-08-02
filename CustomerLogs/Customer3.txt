@@ -7,3 +7,5 @@ Checking Account 1002:1894.16
 Savings Account 2002:327.99
 Credit Account 3002:-239.31
 ---------------------------------------
+Minnie Mouse paid/transfered to Yulianna Torres Account:1002 transfered 29.5 to Account:1074
+Minnie Mouse paid/transfered to Eduardo Garcia Account:2002 transfered 15.63 to Account:1049

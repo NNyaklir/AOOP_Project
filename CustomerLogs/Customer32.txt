@@ -7,3 +7,4 @@ Checking Account 1031:483.57
 Savings Account 2031:2302.79
 Credit Account 3031:-1454.15
 ---------------------------------------
+Quasimodo Disney paid/transfered to Manuel Melendez Lujan Account:1031 transfered 25.58 to Account:1066

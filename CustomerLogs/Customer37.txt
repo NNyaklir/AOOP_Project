@@ -7,3 +7,7 @@ Checking Account 1036:474.59
 Savings Account 2036:3710.89
 Credit Account 3036:-150.6
 ---------------------------------------
+Alberto Miranda's Account:1036 deposited 5000.0
+Alberto Miranda's Account:1036 deposited 5000.0
+Alberto Miranda paid/transfered to Daniel Mejia Account:1036 transfered 1000.0 to Account:1077
+Donald Duck paid/transfered to Alberto Miranda Account:1001 transfered 48.46 to Account:1036
