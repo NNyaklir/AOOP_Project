@@ -25,5 +25,6 @@ public class CreditGeneratorTest {
     public void testCreditGeneration3() {
         gen3.generate();
         gen3.printInfo();
+
     }
 }

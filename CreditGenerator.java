@@ -8,7 +8,7 @@ public class CreditGenerator {
     private int maxcreditScore =850;
     Random rand = new Random();
 
-    /**This method generates a random credit score between 0 and 850 */
+    /**This method generates a random credit score between 300 and 850 */
     protected void generate(){
         
         int randCreditScore = rand.nextInt((maxcreditScore-minCreditScore)+1)+minCreditScore;
