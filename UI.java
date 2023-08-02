@@ -9,6 +9,25 @@ public class UI {
     private ArrayList<Credit> creditList;
     private CsvImporter importer = new CsvImporter();
 
+    //Singleton implementation
+    private static volatile UI obj =null;
+    //Singleton constructor
+    private UI(){}
+
+    /**A method that serves as a singleton implementation for UIs */
+    public static UI getInstance(){
+        if(obj==null){
+            synchronized (UI.class){
+                if (obj==null){
+                    obj = new UI();
+                }
+            }
+            
+        }
+        return obj;
+    }
+
+
     /**
      * A method that imports data from a CSV file to prepare for the rest of UI
      * method
