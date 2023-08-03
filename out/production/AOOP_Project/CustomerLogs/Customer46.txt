@@ -7,3 +7,11 @@ Checking Account 1045:1330.23
 Savings Account 2045:4039.37
 Credit Account 3045:-444.4
 ---------------------------------------
+Christopher Reyes's Account:1045 deposited 5000.0
+Christopher Reyes's Account:1045 deposited 5000.0
+Christopher Reyes paid/transfered to Daniel Mejia Account:1045 transfered 1000.0 to Account:1077
+Mufassa Disney paid/transfered to Christopher Reyes Account:1012 transfered 33.54 to Account:1045
+Christopher Reyes's Account:1045 deposited 5000.0
+Christopher Reyes's Account:1045 deposited 5000.0
+Christopher Reyes paid/transfered to Daniel Mejia Account:1045 transfered 1000.0 to Account:1077
+Mufassa Disney paid/transfered to Christopher Reyes Account:1012 transfered 33.54 to Account:1045

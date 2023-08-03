@@ -7,3 +7,11 @@ Checking Account 1071:1223.55
 Savings Account 2071:2907.59
 Credit Account 3071:-329.08
 ---------------------------------------
+Robert Evans's Account:1071 deposited 5000.0
+Robert Evans's Account:1071 deposited 5000.0
+Robert Evans paid/transfered to Daniel Mejia Account:1071 transfered 1000.0 to Account:1077
+Gaston Disney paid/transfered to Robert Evans Account:2024 transfered 41.2 to Account:1071
+Robert Evans's Account:1071 deposited 5000.0
+Robert Evans's Account:1071 deposited 5000.0
+Robert Evans paid/transfered to Daniel Mejia Account:1071 transfered 1000.0 to Account:1077
+Gaston Disney paid/transfered to Robert Evans Account:2024 transfered 41.2 to Account:1071

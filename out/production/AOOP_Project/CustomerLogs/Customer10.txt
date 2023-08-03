@@ -7,3 +7,5 @@ Checking Account 1009:633.94
 Savings Account 2009:1087.1
 Credit Account 3009:-1797.38
 ---------------------------------------
+Jasmine Disney paid/transfered to Cesar Cabrera Account:1009 transfered 28.89 to Account:1044
+Jasmine Disney paid/transfered to Cesar Cabrera Account:1009 transfered 28.89 to Account:1044

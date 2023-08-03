@@ -7,3 +7,11 @@ Checking Account 1042:1994.56
 Savings Account 2042:4248.79
 Credit Account 3042:-268.92
 ---------------------------------------
+Arae Zarzosa's Account:1042 deposited 5000.0
+Arae Zarzosa's Account:1042 deposited 5000.0
+Arae Zarzosa paid/transfered to Daniel Mejia Account:1042 transfered 1000.0 to Account:1077
+Cinderella Disney paid/transfered to Arae Zarzosa Account:1007 transfered 28.81 to Account:1042
+Arae Zarzosa's Account:1042 deposited 5000.0
+Arae Zarzosa's Account:1042 deposited 5000.0
+Arae Zarzosa paid/transfered to Daniel Mejia Account:1042 transfered 1000.0 to Account:1077
+Cinderella Disney paid/transfered to Arae Zarzosa Account:1007 transfered 28.81 to Account:1042

@@ -9,3 +9,5 @@ Credit Account 3010:-1989.22
 ---------------------------------------
 Aladdin Disney paid/transfered to Brandon Bustamante Account:1010 transfered 25.16 to Account:1043
 Aladdin Disney paid/transfered to Isaiah Landin Account:2010 transfered 39.29 to Account:1057
+Aladdin Disney paid/transfered to Brandon Bustamante Account:1010 transfered 25.16 to Account:1043
+Aladdin Disney paid/transfered to Isaiah Landin Account:2010 transfered 39.29 to Account:1057

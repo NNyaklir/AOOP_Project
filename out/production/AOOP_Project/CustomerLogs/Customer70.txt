@@ -7,3 +7,11 @@ Checking Account 1069:623.42
 Savings Account 2069:1691.78
 Credit Account 3069:-1966.94
 ---------------------------------------
+Minh Dang's Account:1069 deposited 5000.0
+Minh Dang's Account:1069 deposited 5000.0
+Minh Dang paid/transfered to Daniel Mejia Account:1069 transfered 1000.0 to Account:1077
+Scar Lion paid/transfered to Minh Dang Account:2022 transfered 11.31 to Account:1069
+Minh Dang's Account:1069 deposited 5000.0
+Minh Dang's Account:1069 deposited 5000.0
+Minh Dang paid/transfered to Daniel Mejia Account:1069 transfered 1000.0 to Account:1077
+Scar Lion paid/transfered to Minh Dang Account:2022 transfered 11.31 to Account:1069

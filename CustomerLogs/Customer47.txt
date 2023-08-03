@@ -11,3 +11,7 @@ Dafne Bencomo's Account:1046 deposited 5000.0
 Dafne Bencomo's Account:1046 deposited 5000.0
 Dafne Bencomo paid/transfered to Daniel Mejia Account:1046 transfered 1000.0 to Account:1077
 Simba Disney paid/transfered to Dafne Bencomo Account:1011 transfered 39.29 to Account:1046
+Dafne Bencomo's Account:1046 deposited 5000.0
+Dafne Bencomo's Account:1046 deposited 5000.0
+Dafne Bencomo paid/transfered to Daniel Mejia Account:1046 transfered 1000.0 to Account:1077
+Simba Disney paid/transfered to Dafne Bencomo Account:1011 transfered 39.29 to Account:1046

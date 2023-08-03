@@ -7,3 +7,11 @@ Checking Account 1047:1076.98
 Savings Account 2047:3271.72
 Credit Account 3047:-281.86
 ---------------------------------------
+David Baptiste's Account:1047 deposited 5000.0
+David Baptiste's Account:1047 deposited 5000.0
+David Baptiste paid/transfered to Daniel Mejia Account:1047 transfered 1000.0 to Account:1077
+Mickey Mouse paid/transfered to David Baptiste Account:2000 transfered 48.46 to Account:1047
+David Baptiste's Account:1047 deposited 5000.0
+David Baptiste's Account:1047 deposited 5000.0
+David Baptiste paid/transfered to Daniel Mejia Account:1047 transfered 1000.0 to Account:1077
+Mickey Mouse paid/transfered to David Baptiste Account:2000 transfered 48.46 to Account:1047

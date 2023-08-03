@@ -7,3 +7,5 @@ Checking Account 1007:915.54
 Savings Account 2007:2977.94
 Credit Account 3007:-4.16
 ---------------------------------------
+Cinderella Disney paid/transfered to Arae Zarzosa Account:1007 transfered 28.81 to Account:1042
+Cinderella Disney paid/transfered to Arae Zarzosa Account:1007 transfered 28.81 to Account:1042

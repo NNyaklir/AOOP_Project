@@ -11,3 +11,7 @@ Cesar Cabrera's Account:1044 deposited 5000.0
 Cesar Cabrera's Account:1044 deposited 5000.0
 Cesar Cabrera paid/transfered to Daniel Mejia Account:1044 transfered 1000.0 to Account:1077
 Jasmine Disney paid/transfered to Cesar Cabrera Account:1009 transfered 28.89 to Account:1044
+Cesar Cabrera's Account:1044 deposited 5000.0
+Cesar Cabrera's Account:1044 deposited 5000.0
+Cesar Cabrera paid/transfered to Daniel Mejia Account:1044 transfered 1000.0 to Account:1077
+Jasmine Disney paid/transfered to Cesar Cabrera Account:1009 transfered 28.89 to Account:1044
