@@ -24,3 +24,4 @@
 /TransactionRunnerTest.class
 CreditTest.class
 CsvImporterTest.class
+testSuite.class
