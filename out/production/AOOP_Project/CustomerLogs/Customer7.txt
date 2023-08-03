@@ -7,3 +7,7 @@ Checking Account 1006:894.1
 Savings Account 2006:4091.61
 Credit Account 3006:-53.21
 ---------------------------------------
+Dale Disney paid/transfered to Alfredo Rodriguez Account:1006 transfered 50.39 to Account:1039
+Dale Disney paid/transfered to Gavin Baechle Account:2006 transfered 28.81 to Account:1053
+Dale Disney paid/transfered to Alfredo Rodriguez Account:1006 transfered 50.39 to Account:1039
+Dale Disney paid/transfered to Gavin Baechle Account:2006 transfered 28.81 to Account:1053

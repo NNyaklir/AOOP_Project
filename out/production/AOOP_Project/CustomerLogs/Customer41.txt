@@ -7,3 +7,11 @@ Checking Account 1040:1169.49
 Savings Account 2040:1375.06
 Credit Account 3040:-1725.64
 ---------------------------------------
+Alyssandra Cordero's Account:1040 deposited 5000.0
+Alyssandra Cordero's Account:1040 deposited 5000.0
+Alyssandra Cordero paid/transfered to Daniel Mejia Account:1040 transfered 1000.0 to Account:1077
+Chip Disney paid/transfered to Alyssandra Cordero Account:1005 transfered 50.99 to Account:1040
+Alyssandra Cordero's Account:1040 deposited 5000.0
+Alyssandra Cordero's Account:1040 deposited 5000.0
+Alyssandra Cordero paid/transfered to Daniel Mejia Account:1040 transfered 1000.0 to Account:1077
+Chip Disney paid/transfered to Alyssandra Cordero Account:1005 transfered 50.99 to Account:1040

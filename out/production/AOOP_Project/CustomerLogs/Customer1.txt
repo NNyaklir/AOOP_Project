@@ -7,3 +7,17 @@ Checking Account 1000:403.12
 Savings Account 2000:4479.46
 Credit Account 3000:-1653.84
 ---------------------------------------
+Mickey Mouse paid/transfered to Donald Duck Account:1000 transfered 100.0 to Account:1001
+Mickey Mouse paid/transfered to Mickey Mouse Account:2000 transfered 400.0 to Account:1000
+Mickey Mouse paid/transfered to Mickey Mouse Account:2000 transfered 400.0 to Account:1000
+Mickey Mouse paid/transfered to Mickey Mouse Account:2000 transfered 300.0 to Account:3000
+Mickey Mouse paid/transfered to Mickey Mouse Account:2000 transfered 300.0 to Account:3000
+Mickey Mouse paid/transfered to Roberto Carrasco Account:1000 transfered 17.97 to Account:1072
+Mickey Mouse paid/transfered to David Baptiste Account:2000 transfered 48.46 to Account:1047
+Mickey Mouse paid/transfered to Donald Duck Account:1000 transfered 100.0 to Account:1001
+Mickey Mouse paid/transfered to Mickey Mouse Account:2000 transfered 400.0 to Account:1000
+Mickey Mouse paid/transfered to Mickey Mouse Account:2000 transfered 400.0 to Account:1000
+Mickey Mouse paid/transfered to Mickey Mouse Account:2000 transfered 300.0 to Account:3000
+Mickey Mouse paid/transfered to Mickey Mouse Account:2000 transfered 300.0 to Account:3000
+Mickey Mouse paid/transfered to Roberto Carrasco Account:1000 transfered 17.97 to Account:1072
+Mickey Mouse paid/transfered to David Baptiste Account:2000 transfered 48.46 to Account:1047

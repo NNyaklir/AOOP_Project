@@ -7,3 +7,5 @@ Checking Account 1011:1336.79
 Savings Account 2011:373.47
 Credit Account 3011:-1220.11
 ---------------------------------------
+Simba Disney paid/transfered to Dafne Bencomo Account:1011 transfered 39.29 to Account:1046
+Simba Disney paid/transfered to Dafne Bencomo Account:1011 transfered 39.29 to Account:1046

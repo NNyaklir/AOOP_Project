@@ -3,35 +3,19 @@
     same thing please
 
 ## Programming
-    [X] UI bugs - Ray
-    [X] Create Interface - Ray
-        [X] Used in 2 classes
-    [ ] Use a design pattern - Ray
-        [ ] Discuss design pattern implementation in lab report
-    [x] Add new users functionality -devin
-        [x] Automatic account number generation
-        [x] ability to update a new customer() instance and and in relevant fields
-        [x] Assign Checking, Saving, and Credit accounts to new instance
-            [x] New users need to be given randomly generated credit score
-            [x] New users' max credit is based on the credit score
-    [ ] Create user transaction file displaying:
-        [ ] Account Informaiton
-        [ ] Starting balance (at the beginning of the session)
-        [ ] Ending balance (at time requested)
-        [ ] All transactions for user
-        [ ] Date of statement
-    [ ] Extend bank management functionality
-        [ ]Transaction reader -devin
-            [ ] Take input from a .csv file
-            [ ] use input to automatically run transactions.
-        [ ]Generate bank statement for user
+    [ ] extra refactoring (uneccesary)
+
+## Misc programming
+    [ ] look for bugs
 
 ## Files
-    [ ] UML Class Diagram [UPDATED] (.pdf)
-    [ ] UML Use Case Scenarios [UPDATED] (.pdf)
-    [ ] UML Use Case Diagram [UPDATED] (.pdf)
+    [ ] UML Class Diagram [UPDATED] (.pdf) 
+    [ ] UML Use Case Scenarios [UPDATED] (.pdf) 
+    [ ] UML Use Case Diagram [UPDATED] (.pdf)   
     [ ] Lab Report (.pdf)
-    [ ] Javdoc [UPDATED]
+    [ ] Source code
+    [ ] Javdoc [UPDATED] -devin
     [ ] Bank Users Sheet [UPDATED] 
     [ ] User Transaction logs for (team members as new users)
     [ ] Log.txt
+    [ ] Power Point

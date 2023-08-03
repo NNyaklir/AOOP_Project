@@ -7,3 +7,5 @@ Checking Account 1014:41.62
 Savings Account 2014:2252.52
 Credit Account 3014:-1137.78
 ---------------------------------------
+Peter Pan paid/transfered to Juan Rabelo Account:2014 transfered 34.04 to Account:1061
+Peter Pan paid/transfered to Juan Rabelo Account:2014 transfered 34.04 to Account:1061

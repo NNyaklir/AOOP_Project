@@ -7,3 +7,11 @@ Checking Account 1066:1311.35
 Savings Account 2066:4334.35
 Credit Account 3066:-1003.98
 ---------------------------------------
+Manuel Melendez Lujan's Account:1066 deposited 5000.0
+Manuel Melendez Lujan's Account:1066 deposited 5000.0
+Manuel Melendez Lujan paid/transfered to Daniel Mejia Account:1066 transfered 1000.0 to Account:1077
+Quasimodo Disney paid/transfered to Manuel Melendez Lujan Account:1031 transfered 25.58 to Account:1066
+Manuel Melendez Lujan's Account:1066 deposited 5000.0
+Manuel Melendez Lujan's Account:1066 deposited 5000.0
+Manuel Melendez Lujan paid/transfered to Daniel Mejia Account:1066 transfered 1000.0 to Account:1077
+Quasimodo Disney paid/transfered to Manuel Melendez Lujan Account:1031 transfered 25.58 to Account:1066

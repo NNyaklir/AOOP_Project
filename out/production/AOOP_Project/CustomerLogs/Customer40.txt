@@ -7,3 +7,11 @@ Checking Account 1039:1772.98
 Savings Account 2039:3443.94
 Credit Account 3039:-1734.35
 ---------------------------------------
+Alfredo Rodriguez's Account:1039 deposited 5000.0
+Alfredo Rodriguez's Account:1039 deposited 5000.0
+Alfredo Rodriguez paid/transfered to Daniel Mejia Account:1039 transfered 1000.0 to Account:1077
+Dale Disney paid/transfered to Alfredo Rodriguez Account:1006 transfered 50.39 to Account:1039
+Alfredo Rodriguez's Account:1039 deposited 5000.0
+Alfredo Rodriguez's Account:1039 deposited 5000.0
+Alfredo Rodriguez paid/transfered to Daniel Mejia Account:1039 transfered 1000.0 to Account:1077
+Dale Disney paid/transfered to Alfredo Rodriguez Account:1006 transfered 50.39 to Account:1039

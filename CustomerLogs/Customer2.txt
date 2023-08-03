@@ -9,3 +9,5 @@ Credit Account 3001:-1513.57
 ---------------------------------------
 Mickey Mouse paid/transfered to Donald Duck Account:1000 transfered 100.0 to Account:1001
 Donald Duck paid/transfered to Alberto Miranda Account:1001 transfered 48.46 to Account:1036
+Mickey Mouse paid/transfered to Donald Duck Account:1000 transfered 100.0 to Account:1001
+Donald Duck paid/transfered to Alberto Miranda Account:1001 transfered 48.46 to Account:1036

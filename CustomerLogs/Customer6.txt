@@ -7,3 +7,4 @@ Checking Account 1005:32.84
 Savings Account 2005:3687.14
 Credit Account 3005:-1451.7
 ---------------------------------------
+Chip Disney paid/transfered to Alyssandra Cordero Account:1005 transfered 50.99 to Account:1040

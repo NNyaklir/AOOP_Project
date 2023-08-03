@@ -9,3 +9,5 @@ Credit Account 3012:-1112.18
 ---------------------------------------
 Mufassa Disney paid/transfered to Christopher Reyes Account:1012 transfered 33.54 to Account:1045
 Mufassa Disney paid/transfered to Joseph Medina - Sandoval Account:2012 transfered 34.47 to Account:1059
+Mufassa Disney paid/transfered to Christopher Reyes Account:1012 transfered 33.54 to Account:1045
+Mufassa Disney paid/transfered to Joseph Medina - Sandoval Account:2012 transfered 34.47 to Account:1059

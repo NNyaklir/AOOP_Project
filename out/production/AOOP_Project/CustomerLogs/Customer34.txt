@@ -7,3 +7,5 @@ Checking Account 1033:1774.26
 Savings Account 2033:1216.15
 Credit Account 3033:-397.68
 ---------------------------------------
+Mulan Disney paid/transfered to Mauricio Ornelas-Gutierrez Account:1033 transfered 36.48 to Account:1068
+Mulan Disney paid/transfered to Mauricio Ornelas-Gutierrez Account:1033 transfered 36.48 to Account:1068
