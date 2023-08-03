@@ -22,3 +22,5 @@
 /ShowCustomerLog.class
 /TransactionRunner.class
 /TransactionRunnerTest.class
+CreditTest.class
+CsvImporterTest.class
