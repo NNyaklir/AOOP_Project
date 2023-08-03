@@ -1,4 +1,4 @@
-
+/**Interface for Accounts */
 public interface Account {
     /** A method that sets a given account number*/
     void setAccountNumber(int n);

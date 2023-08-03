@@ -1,6 +1,6 @@
 import java.util.Random;
 
-//*This class is used to generate credit scores and credit limits */
+/**This class is used to generate credit scores and credit limits */
 public class CreditGenerator {
     protected int creditScore;
     protected double creditLimit;
