@@ -3,19 +3,19 @@
     same thing please
 
 ## Programming
-    [ ] extra refactoring (uneccesary)
+    [x] extra refactoring (uneccesary)
 
 ## Misc programming
-    [ ] look for bugs
+    [x] look for bugs
 
 ## Files
-    [ ] UML Class Diagram [UPDATED] (.pdf) 
-    [ ] UML Use Case Scenarios [UPDATED] (.pdf) 
-    [ ] UML Use Case Diagram [UPDATED] (.pdf)   
-    [ ] Lab Report (.pdf)
-    [ ] Source code
-    [ ] Javdoc [UPDATED] -devin
-    [ ] Bank Users Sheet [UPDATED] 
-    [ ] User Transaction logs for (team members as new users)
-    [ ] Log.txt
-    [ ] Power Point
+    [x] UML Class Diagram [UPDATED] (.pdf) 
+    [x] UML Use Case Scenarios [UPDATED] (.pdf) 
+    [x] UML Use Case Diagram [UPDATED] (.pdf)   
+    [x] Lab Report (.pdf)
+    [x] Source code
+    [x] Javdoc [UPDATED] -devin
+    [x] Bank Users Sheet [UPDATED] 
+    [x] User Transaction logs for (team members as new users)
+    [x] Log.txt
+    [x] Power Point
